@@ -1,0 +1,14 @@
+{
+  "name": "ibodao-classes",
+  "version": "1.0.0",
+  "description": "i博导班级",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "peterfei",
+  "license": "ISC",
+  "dependencies": {
+    "regenerator-runtime": "^0.13.5"
+  }
+}
