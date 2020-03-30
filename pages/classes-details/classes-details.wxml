@@ -38,8 +38,8 @@
          </view>
      </view>
  </view>
- <view class="items" wx:for="{{8}}" >
-        <view class="body-item" bindtap="showClsItems" >
+ <scroll-view class="items" scroll-y="true" enable-flex	="true"  >
+        <view class="body-item" bindtap="showClsItems" wx:for="{{8}}" >
           <view class="item-image">
             <image style="" mode="scaleToFill" src="{{src}}"></image>
           </view>
@@ -55,6 +55,6 @@
             </view>
           </view>
         </view>
-    </view>
+    </scroll-view>
   <mp-tabbar class="tabbar" list="{{list}}" bindchange="tabChange"></mp-tabbar>
 </view>
