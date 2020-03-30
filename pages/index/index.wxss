@@ -46,8 +46,8 @@
   flex: 2;
 }
 .item-image image {
-  width: 125px;
-  height: 96px;
+  width: 105px;
+  height: 95px;
   border-radius: 8px;
 }
 .body-item .item-text {
