@@ -1,5 +1,6 @@
 {
-  "pages": ["pages/index/index", "pages/logs/logs"],
+  "pages": ["pages/index/index", "pages/logs/logs"
+  ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
@@ -19,19 +20,19 @@
         "selectedIconPath": "images/icons/classes-selected.png"
       },
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/logs/logs",
         "text": "发现",
         "iconPath": "images/icons/find.png",
         "selectedIconPath": "images/icons/find-selected.png"
       },
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/logs/logs",
         "text": "叨叨",
         "iconPath": "images/icons/daodao.png",
         "selectedIconPath": "images/icons/daodao-selected.png"
       },
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/logs/logs",
         "text": "我的",
         "iconPath": "images/icons/my.png",
         "selectedIconPath": "images/icons/my-selected.png"
