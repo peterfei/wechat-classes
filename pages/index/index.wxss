@@ -100,6 +100,15 @@
   background-color: rgba(0, 0, 0, 0.4);
   animation: ani-show-mask 200ms ease-out;
 }
+
+@keyframes ani-show-mask {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 .more-btns {
   display: flex;
   flex-direction: column;
@@ -114,6 +123,17 @@
   animation: ani-show-modal 200ms ease-out;
   /*align-items: center;*/
 }
+
+@keyframes ani-show-modal { /*增加动画样式*/
+  from {
+    transform: translateY(200%) translateX(-50%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(-10%) translateX(-10%);
+    opacity: 1;
+  }
+}
 .btn-search {
   display: flex;
   align-items: center;
@@ -127,7 +147,7 @@
   border-style: solid;
   border-width: 0 0 1px 0;
   border-color: #d9d9d9;
-  margin-bottom: 1px;
+  margin-bottom: px;
 }
 .btn-create {
   display: flex;
