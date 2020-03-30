@@ -1,5 +1,5 @@
 /**index.wxss**/
-.userinfo {
+/*.userinfo {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,4 +18,73 @@
 
 .usermotto {
   margin-top: 200px;
+}*/
+.clses-page {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  /*background-color: red;*/
+}
+.clses-page .header {
+  flex: 1;
+  display: flex;
+  /*background-color: blue;*/
+  justify-content: space-between;
+  align-items: center;
+  border-width: 0 0 1px 0;
+  border-style: solid;
+  border-color: #e9e9e9;
+}
+.clses-page .body {
+  flex: 9;
+  display: flex;
+  flex-direction: column;
+}
+.body .body-header {
+  /*background-color:blue;*/
+  color: #c5c5c5;
+  border-width: 0 0 0 2px;
+  border-style: solid;
+  border-color: #ff8c00;
+  margin: 5px;
+  /*flex:1;*/
+}
+.body-header .body-header-title {
+  margin-left: 2px;
+}
+.body-items {
+  flex: 8;
+}
+.body-items .body-item {
+  display: flex;
+  margin: 5px;
+  align-items: center;
+}
+.body-item .item-image {
+  flex: 2;
+}
+.item-image image {
+  width: 125px;
+  height: 96px;
+  border-radius: 8px;
+}
+.body-item .item-text {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+}
+.text-title {
+  font-size: 18px;
+  color: rgb(75, 75, 75);
+}
+.text-subtitle {
+  display: flex;
+  justify-content: space-between;
+  color:rgb(110	,110,	110	);
+}
+.text-other {
+  display: flex;
+  justify-content: space-between;
+  color:rgb(110	,110,	110	);
 }

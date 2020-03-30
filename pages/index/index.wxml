@@ -1,13 +1,42 @@
-<!--index.wxml-->
 <view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+  <view class="clses-page">
+    <view class="header">
+      <view class="header-icon">
+        <mp-icon type="outline" icon="bellring-on" size="{{25}}"></mp-icon>
+      </view>
+      <view class="header-title">班级</view>
+      <view class="header-other">
+        <mp-icon type="outline" icon="more" size="{{25}}"></mp-icon>
+      </view>
+    </view>
+    <view class="body">
+      <view class="body-header">
+        <view class="body-header-title">我的班级</view>
+      </view>
+      <view class="body-items">
+        <view class="body-item">
+          <view class="item-image">
+            <image style="" mode="scaleToFill" src="{{src}}"></image>
+          </view>
+          <view class="item-text">
+            <view class="text-title">C语言教学1班</view>
+            <view class="text-subtitle">
+              <view class="subtitle-text">网页制作</view>
+              <view class="subtitle-other">ID:129099</view>
+            </view>
+            <view class="text-other">
+              <view class="other-count">
+                <mp-icon icon="me" size="18" type="field" color="#e9e9e9" />
+                18
+              </view>
+              <view class="other-date">
+                <mp-icon icon="time" size="18" type="field" color="#e9e9e9" />
+                  2020-04-01
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
-</view>
+</view>;

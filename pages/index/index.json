@@ -1,4 +1,6 @@
 {
-  "usingComponents": {},
-  "navigationBarTitleText":"i博导"
+    "usingComponents": {
+        "mp-icon": "../../miniprogram/icon/icon"
+    },
+  "navigationBarTitleText":"i博导班级"
 }

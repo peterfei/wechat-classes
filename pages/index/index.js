@@ -4,6 +4,7 @@ const app = getApp()
 
 Page({
   data: {
+    src:"../../images/index/default.png",
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
