@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "mp-icon": "../../miniprogram/icon/icon"
+  },
+  "navigationBarTitleText": "班级详情"
+}

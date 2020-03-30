@@ -19,7 +19,7 @@
         <view class="body-header-title">我的班级</view>
       </view>
       <view class="body-items">
-        <view class="body-item">
+        <view class="body-item" bindtap="showClsItems">
           <view class="item-image">
             <image style="" mode="scaleToFill" src="{{src}}"></image>
           </view>

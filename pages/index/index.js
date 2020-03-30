@@ -94,4 +94,8 @@ Page({
       showMoreBtn: false,
     });
   },
+
+    showClsItems:function(e){
+        wx.navigateTo({url:"../classes-details/classes-details"})
+    }
 });
