@@ -1,9 +1,10 @@
 {
   "pages": [
     "pages/classes-details/classes-details",
-    "pages/discuss/discuss",
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/discuss/discuss",
+    "pages/logs/logs",
+    "pages/interaction/interaction"
   ],
   "window": {
     "backgroundTextStyle": "light",

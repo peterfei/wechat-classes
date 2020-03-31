@@ -1,5 +1,41 @@
-.page{
+.page {
+  flex: 1;
 }
-.page-body{
-    height:calc(100vh-60px);
+.page-body {
+  height: calc(100vh - 60px);
+}
+.items {
+  border-style: solid;
+  border-width: 2px 0 0 0;
+  border-color: #e0e0e0;
+}
+.item {
+  border-style: solid;
+  border-width: 0px 0px 10px 0px;
+  border-color: #e0e0e0;
+  flex: 1;
+  padding: 10px;
+}
+.title {
+  font-size: 18px;
+  margin-bottom: 10px;
+
+}
+
+.label {
+  color: grey;
+  border-color: #999;
+  border-width: 1px;
+  border-style: solid;
+  width: 20%;
+  margin: 2px 0 2px 0;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+.bydate {
+  color: grey;
+}
+.item image {
+  margin: 10px;
 }

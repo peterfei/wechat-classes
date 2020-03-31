@@ -1,4 +1,5 @@
 <import src="../discuss/discuss.wxml"/>
+<import src="../interaction/interaction.wxml"/>
 <view class="container">
   <view class="page" wx:if="{{showHome}}">
   <view class="header">
@@ -41,7 +42,7 @@
      </view>
  </view>
  <view class="box" style='height: {{scrollHeight + "px"}}'>
-    <scroll-view class="items" scroll-y="true" enable-flex	="true"  >
+     <scroll-view class="items" scroll-y="true" enable-flex	="true"  >
         <view class="body-item" bindtap="showClsItems" wx:for="{{8}}" >
           <view class="item-image">
             <image style="" mode="scaleToFill" src="{{src}}"></image>
@@ -62,5 +63,6 @@
 </view>
 </view>
 <template is="discuss" wx:if="{{showDiscuss}}" />
+<template is="interaction" wx:if="{{showInteraction}}" />
   <mp-tabbar class="tabbar" list="{{list}}" bindchange="tabChange"></mp-tabbar>
 </view>

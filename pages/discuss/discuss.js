@@ -15,18 +15,17 @@ Page({
         selectedIconPath: '../../images/icons/talk-selected.png',
         dot: true,
         dataPage: 'discuss',
+        triggered: false,
       },
     ],
   },
   onLoad: function() {
     this.setData({});
   },
-  tabChange(e) {
-    console.log('tab change', e);
-    if (e.detail.item.dataPage == 'home') {
-      wx.redirectTo({
-        url: '../classes-details/classes-details',
-      });
-    }
+  refreshpulling: function(e) {
+    console.log(`-------------`);
+    setTimeout(() => {
+      this.setData({triggered: false});
+    }, 2000);
   },
 });

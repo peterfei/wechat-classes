@@ -1,0 +1,4 @@
+<!--pages/interaction.wxml-->
+<template name="interaction">
+<text>pages/interaction.wxml</text>
+</template>

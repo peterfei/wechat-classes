@@ -18,10 +18,20 @@ Page({
         dot: true,
         dataPage: 'discuss',
       },
+      {
+        text: '互动',
+        iconPath: '../../images/icons/interaction.png',
+        selectedIconPath: '../../images/icons/interaction-selected.png',
+        dot: true,
+        dataPage: 'interaction',
+      },
     ],
     scrollHeight: 0,
     showHome: true,
     showDiscuss: false,
+    showInteraction: false,
+    triggered: false,
+    disTriggered: true,
   },
 
   tabChange(e) {
@@ -31,11 +41,19 @@ Page({
       this.setData({
         showHome: false,
         showDiscuss: true,
+        showInteraction: false,
+      });
+    } else if (e.detail.item.dataPage == 'interaction') {
+      this.setData({
+        showInteraction: true,
+        showHome: false,
+        showDiscuss: false,
       });
     } else {
       this.setData({
         showHome: true,
         showDiscuss: false,
+        showInteraction: false,
       });
     }
   },
@@ -72,5 +90,15 @@ Page({
       );
       this.setData({scrollHeight: scrollHeight});
     });
+  },
+
+  refreshpulling: function(e) {
+    console.log(`======下拉刷新2=======`);
+    setTimeout(() => {
+      this.setData({
+        triggered: false,
+        disTriggered: false,
+      });
+    }, 3000);
   },
 });
