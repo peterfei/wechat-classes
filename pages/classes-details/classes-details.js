@@ -9,19 +9,35 @@ Page({
         iconPath: '../../images/icons/home.png',
         selectedIconPath: '../../images/icons/home-selected.png',
         dot: true,
+        dataPage: 'home',
       },
       {
         text: '讨论',
         iconPath: '../../images/icons/talk.png',
         selectedIconPath: '../../images/icons/talk-selected.png',
         dot: true,
+        dataPage: 'discuss',
       },
     ],
     scrollHeight: 0,
+    showHome: true,
+    showDiscuss: false,
   },
 
   tabChange(e) {
     console.log('tab change', e);
+
+    if (e.detail.item.dataPage == 'discuss') {
+      this.setData({
+        showHome: false,
+        showDiscuss: true,
+      });
+    } else {
+      this.setData({
+        showHome: true,
+        showDiscuss: false,
+      });
+    }
   },
   onReady: function() {
     this.computeScrollViewHeight();

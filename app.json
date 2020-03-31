@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/classes-details/classes-details",
+    "pages/discuss/discuss",
     "pages/index/index",
     "pages/logs/logs"
   ],

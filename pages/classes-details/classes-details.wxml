@@ -1,4 +1,6 @@
-<view class="page">
+<import src="../discuss/discuss.wxml"/>
+<view class="container">
+  <view class="page" wx:if="{{showHome}}">
   <view class="header">
     <view class="header-img">
       <image style="" mode="scaleToFill" src="{{src}}"></image>
@@ -57,7 +59,8 @@
           </view>
         </view>
     </scroll-view>
- </view>
-
+</view>
+</view>
+<template is="discuss" wx:if="{{showDiscuss}}" />
   <mp-tabbar class="tabbar" list="{{list}}" bindchange="tabChange"></mp-tabbar>
 </view>

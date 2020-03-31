@@ -1,0 +1,7 @@
+<template name="discuss">
+    <view class="page">
+        <view class="page-body">
+            讨论页面
+        </view>
+    </view>
+</template>
