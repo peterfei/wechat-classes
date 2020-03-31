@@ -16,29 +16,30 @@
   </view>
   <view class="category">
     <view class="cate-item">
-        <image style="" mode="scaleToFill" src="{{src}}"></image>
+        <image style="" mode="scaleToFill" src="../../images/index/course.png"></image>
          <view class="cate-item-text">
             课程/85
          </view>
      </view>
      <view class="cate-item">
-        <image style="" mode="scaleToFill" src="{{src}}"></image>
+         <image style="" mode="scaleToFill" src="../../images/index/assignment.png"></image>
          <view class="cate-item-text">
-            课程/85
+            作业/25
          </view>
      </view><view class="cate-item">
-        <image style="" mode="scaleToFill" src="{{src}}"></image>
+     <image style="" mode="scaleToFill" src="../../images/index/test.png"></image>
          <view class="cate-item-text">
-            课程/85
+            测验/15
          </view>
      </view><view class="cate-item">
-        <image style="" mode="scaleToFill" src="{{src}}"></image>
+     <image style="" mode="scaleToFill" src="../../images/index/members.png"></image>
          <view class="cate-item-text">
-            课程/85
+            成员/85
          </view>
      </view>
  </view>
- <scroll-view class="items" scroll-y="true" enable-flex	="true"  >
+ <view class="box" style='height: {{scrollHeight + "px"}}'>
+    <scroll-view class="items" scroll-y="true" enable-flex	="true"  >
         <view class="body-item" bindtap="showClsItems" wx:for="{{8}}" >
           <view class="item-image">
             <image style="" mode="scaleToFill" src="{{src}}"></image>
@@ -56,5 +57,7 @@
           </view>
         </view>
     </scroll-view>
+ </view>
+
   <mp-tabbar class="tabbar" list="{{list}}" bindchange="tabChange"></mp-tabbar>
 </view>

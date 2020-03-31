@@ -17,9 +17,44 @@ Page({
         dot: true,
       },
     ],
+    scrollHeight: 0,
   },
 
   tabChange(e) {
     console.log('tab change', e);
+  },
+  onReady: function() {
+    this.computeScrollViewHeight();
+  },
+
+  /**
+   * 动态计算ScrollView 的Height 值；
+   * 2020-03-31 10:09
+   * by peterfeispace@gmail.com
+   */
+
+  computeScrollViewHeight() {
+    let that = this;
+    let query = wx.createSelectorQuery().in(this);
+    query.select('.header').boundingClientRect();
+    query.select('.category').boundingClientRect();
+    query.exec(res => {
+      let headerHeight = res[0].height;
+      let categoryHeight = res[1].height;
+      let windowHeight = wx.getSystemInfoSync().windowHeight;
+      let scrollHeight = windowHeight - headerHeight - categoryHeight - 10 - 40;
+
+      console.log(
+        '%c┍--------------------------------------------------------------┑',
+        `color:red`,
+      );
+      console.log(`=====>动态计算ScrollHeight值为=====>`, scrollHeight);
+
+      console.log(
+        '%c┕--------------------------------------------------------------┙',
+        `color:red`,
+      );
+      this.setData({scrollHeight: scrollHeight});
+    });
   },
 });
