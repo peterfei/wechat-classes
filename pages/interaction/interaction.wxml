@@ -1,4 +1,28 @@
 <!--pages/interaction.wxml-->
 <template name="interaction">
-<text>pages/interaction.wxml</text>
+    <view class="page">
+        <view class="items">
+            <view class="i-item" wx:for="{{4}}">
+                     <view class="item-left">
+                        <image style="" mode="scaleToFill" src="../../images/index/default.png"></image>
+                     </view>
+                     <view class="item-right">
+                        <view class="title">
+                            投票互动
+                        </view>
+                        <view class="datetime">
+                            2020-04-01 12:01
+                        </view>
+                        <view class="subtitle">
+                            <view class="sb-left">
+                                参与:0人
+                            </view>
+                            <view class="sb-status">
+                                进行中
+                            </view>
+                        </view>
+                     </view>
+                </view>
+        </view>
+    </view>
 </template>
