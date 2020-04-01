@@ -2,21 +2,8 @@
 <import src="../interaction/interaction.wxml"/>
 <view class="container">
   <view class="page" wx:if="{{showHome}}">
-  <view class="header">
-    <view class="header-img">
-      <image style="" mode="scaleToFill" src="{{src}}"></image>
-    </view>
-    <view class="header-text">
-      <view class="text-title">C语言教学1班</view>
-      <view class="text-subtitle">
-        <view class="subtitle-text">网页制作</view>
-        <view class="subtitle-other">ID:129099</view>
-      </view>
-      <view class="text-subtitle">
-        <view class="subtitle-text">C语言学习</view>
-      </view>
-    </view>
-  </view>
+     <item-lists  itemObj="{{item}}" class="header"/>
+
   <view class="category">
     <view class="cate-item">
         <image style="" mode="scaleToFill" src="../../images/index/course.png"></image>
@@ -41,8 +28,8 @@
          </view>
      </view>
  </view>
- <view class="box" style='height: {{scrollHeight + "px"}}'>
-     <item-lists image-src="{{src}}"/>
+<view class="box" style='height: {{scrollHeight + "px"}}'>
+     <item-lists  itemResult="{{itemResult}}" />
 </view>
 </view>
 <achievement wx:if="{{showAchievement}}"/>

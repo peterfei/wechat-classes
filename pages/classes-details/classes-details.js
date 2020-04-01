@@ -2,7 +2,6 @@ import {capitalize} from '../../utils/util';
 const app = getApp();
 Page({
   data: {
-    src: '../../images/index/default.png',
     list: [
       {
         text: '首页',
@@ -40,6 +39,12 @@ Page({
     showAchievement: false,
     triggered: false,
     disTriggered: true,
+    item: {
+      src: '../../images/index/default.png',
+      title: 'C语言教学1班',
+      subtitle: '2020-04-01 17:37',
+      desc: '我上传的文档',
+    },
   },
 
   tabChange(e) {
@@ -62,6 +67,11 @@ Page({
   },
   onReady: function() {
     this.computeScrollViewHeight();
+    let result = []
+    for (var i = 0, len = 10; i < len; i++) {
+        result.push(this.data.item)
+    }
+    this.setData({itemResult:result})
   },
 
   /**

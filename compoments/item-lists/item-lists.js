@@ -4,19 +4,42 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    imageSrc: {
-      type: String,
-      value: 'default value',
+    itemResult: {
+      type: Array,
+    },
+    itemObj: {
+      type: Object,
+      value: null,
     },
   },
 
   /**
    * 组件的初始数据
    */
-  data: {},
+  data: {
+    isObjectNull: true,
+  },
 
   /**
    * 组件的方法列表
    */
   methods: {},
+
+  lifetimes: {
+    attached: function() {
+      console.log(
+        '%c┍--------------------------------------------------------------┑',
+        `color:red`,
+      );
+      console.log(`itemResult's`, (this.properties.itemObj==null));
+
+      console.log(
+        '%c┕--------------------------------------------------------------┙',
+        `color:red`,
+      );
+      this.setData({
+            isObjectNull:(this.properties.itemObj==null)
+        })
+    },
+  },
 });
