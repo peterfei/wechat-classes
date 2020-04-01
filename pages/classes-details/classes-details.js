@@ -45,6 +45,9 @@ Page({
   tabChange(e) {
     for (let l of this.data.list) {
       if (e.detail.item.dataPage == l.dataPage) {
+        wx.setNavigationBarTitle({
+          title: l.text,
+        }); //点击重新定义navigationBar
         let k = `show${capitalize(l.dataPage, true)}`;
         this.setData({
           [k]: true,

@@ -24,7 +24,7 @@ Component({
       },
       {
         text: '考试',
-      }
+      },
     ],
     currentTab: 0,
     navScrollLeft: 0,
@@ -72,6 +72,20 @@ Component({
 
       wx.getSystemInfo({
         success: res => {
+          console.log(
+            '%c┍--------------------------------------------------------------┑',
+            `color:red`,
+          );
+          console.log(
+            `%c======>windowWidth====>`,
+            'color:blue',
+            res.windowWidth,
+          );
+
+          console.log(
+            '%c┕--------------------------------------------------------------┙',
+            `color:red`,
+          );
           this.setData({
             pixelRatio: res.pixelRatio,
             windowHeight: res.windowHeight,
