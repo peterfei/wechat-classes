@@ -1,5 +1,5 @@
+import {capitalize} from '../../utils/util';
 const app = getApp();
-import {capitalize} from "../../utils/util"
 Page({
   data: {
     src: '../../images/index/default.png',
@@ -44,19 +44,18 @@ Page({
 
   tabChange(e) {
     for (let l of this.data.list) {
-        if(e.detail.item.dataPage==l.dataPage){
-            let k = `show${capitalize(l.dataPage,true)}`
-            this.setData({
-                [k]:true
-            })
-        }else{
-            let k = `show${capitalize(l.dataPage,true)}`
-            this.setData({
-                [k]:false
-            })
-        }
+      if (e.detail.item.dataPage == l.dataPage) {
+        let k = `show${capitalize(l.dataPage, true)}`;
+        this.setData({
+          [k]: true,
+        });
+      } else {
+        let k = `show${capitalize(l.dataPage, true)}`;
+        this.setData({
+          [k]: false,
+        });
+      }
     }
-
   },
   onReady: function() {
     this.computeScrollViewHeight();
