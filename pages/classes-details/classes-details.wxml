@@ -1,5 +1,4 @@
 <import src="../discuss/discuss.wxml"/>
-<import src="../interaction/interaction.wxml"/>
 <view class="container">
   <view class="page" wx:if="{{showHome}}">
      <item-lists  itemObj="{{item}}" class="header"/>
@@ -34,6 +33,10 @@
 </view>
 <achievement wx:if="{{showAchievement}}"/>
 <template is="discuss" wx:if="{{showDiscuss}}" />
-<template is="interaction" wx:if="{{showInteraction}}" />
+<block wx:if="{{showInteraction}}">
+    <view style='height:calc(100vh - {{tabbarHeight + "px"}});' >
+        <item-lists  itemResult="{{itemResult}}" />
+    </view>
+</block>
 <mp-tabbar class="tabbar" list="{{list}}" bindchange="tabChange"></mp-tabbar>
 </view>

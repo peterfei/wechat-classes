@@ -1,4 +1,4 @@
-@import '../discuss/discuss.wxss' @import '../interaction/interaction.wxss'
+@import '../discuss/discuss.wxss'
 .tabbar {
   position: fixed;
   bottom: 0;

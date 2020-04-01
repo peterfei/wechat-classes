@@ -85,9 +85,11 @@ Page({
     let query = wx.createSelectorQuery().in(this);
     query.select('.header').boundingClientRect();
     query.select('.category').boundingClientRect();
+    query.select('.tabbar').boundingClientRect();
     query.exec(res => {
       let headerHeight = res[0].height;
       let categoryHeight = res[1].height;
+      let tabbarHeight = res[2].height;
       let windowHeight = wx.getSystemInfoSync().windowHeight;
       let scrollHeight = windowHeight - headerHeight - categoryHeight - 10 - 40;
 
@@ -101,7 +103,7 @@ Page({
         '%c┕--------------------------------------------------------------┙',
         `color:red`,
       );
-      this.setData({scrollHeight: scrollHeight});
+        this.setData({scrollHeight: scrollHeight,tabbarHeight:tabbarHeight});
     });
   },
 

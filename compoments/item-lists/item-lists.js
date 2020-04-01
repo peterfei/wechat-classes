@@ -31,7 +31,7 @@ Component({
         '%c┍--------------------------------------------------------------┑',
         `color:red`,
       );
-      console.log(`itemResult's`, (this.properties.itemObj==null));
+      console.log(`itemResult's`, JSON.stringify(this.properties.itemObj));
 
       console.log(
         '%c┕--------------------------------------------------------------┙',

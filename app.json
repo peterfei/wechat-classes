@@ -3,9 +3,8 @@
     "pages/index/index",
     "pages/classes-details/classes-details",
     "pages/discuss/discuss",
-    "pages/logs/logs",
-    "pages/interaction/interaction"
-  ],
+    "pages/logs/logs"
+      ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
