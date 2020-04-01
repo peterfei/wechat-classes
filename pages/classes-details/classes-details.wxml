@@ -62,7 +62,8 @@
     </scroll-view>
 </view>
 </view>
+<achievement wx:if="{{showAchievement}}"/>
 <template is="discuss" wx:if="{{showDiscuss}}" />
 <template is="interaction" wx:if="{{showInteraction}}" />
-  <mp-tabbar class="tabbar" list="{{list}}" bindchange="tabChange"></mp-tabbar>
+<mp-tabbar class="tabbar" list="{{list}}" bindchange="tabChange"></mp-tabbar>
 </view>

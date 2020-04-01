@@ -25,11 +25,19 @@ Page({
         dot: true,
         dataPage: 'interaction',
       },
+      {
+        text: '成绩',
+        iconPath: '../../images/icons/interaction.png',
+        selectedIconPath: '../../images/icons/interaction-selected.png',
+        dot: true,
+        dataPage: 'achievement',
+      },
     ],
     scrollHeight: 0,
     showHome: true,
     showDiscuss: false,
     showInteraction: false,
+    showAchievement: false,
     triggered: false,
     disTriggered: true,
   },
@@ -42,18 +50,28 @@ Page({
         showHome: false,
         showDiscuss: true,
         showInteraction: false,
+        showAchievement: false,
       });
     } else if (e.detail.item.dataPage == 'interaction') {
       this.setData({
         showInteraction: true,
         showHome: false,
         showDiscuss: false,
+        showAchievement: false,
+      });
+    } else if (e.detail.item.dataPage == 'achievement') {
+      this.setData({
+        showInteraction: false,
+        showHome: false,
+        showDiscuss: false,
+        showAchievement: true,
       });
     } else {
       this.setData({
         showHome: true,
         showDiscuss: false,
         showInteraction: false,
+        showAchievement: false,
       });
     }
   },
