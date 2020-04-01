@@ -1,5 +1,5 @@
 const app = getApp();
-
+import {capitalize} from "../../utils/util"
 Page({
   data: {
     src: '../../images/index/default.png',
@@ -43,37 +43,20 @@ Page({
   },
 
   tabChange(e) {
-    console.log('tab change', e);
-
-    if (e.detail.item.dataPage == 'discuss') {
-      this.setData({
-        showHome: false,
-        showDiscuss: true,
-        showInteraction: false,
-        showAchievement: false,
-      });
-    } else if (e.detail.item.dataPage == 'interaction') {
-      this.setData({
-        showInteraction: true,
-        showHome: false,
-        showDiscuss: false,
-        showAchievement: false,
-      });
-    } else if (e.detail.item.dataPage == 'achievement') {
-      this.setData({
-        showInteraction: false,
-        showHome: false,
-        showDiscuss: false,
-        showAchievement: true,
-      });
-    } else {
-      this.setData({
-        showHome: true,
-        showDiscuss: false,
-        showInteraction: false,
-        showAchievement: false,
-      });
+    for (let l of this.data.list) {
+        if(e.detail.item.dataPage==l.dataPage){
+            let k = `show${capitalize(l.dataPage,true)}`
+            this.setData({
+                [k]:true
+            })
+        }else{
+            let k = `show${capitalize(l.dataPage,true)}`
+            this.setData({
+                [k]:false
+            })
+        }
     }
+
   },
   onReady: function() {
     this.computeScrollViewHeight();
