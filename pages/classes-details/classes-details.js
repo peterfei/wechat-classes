@@ -27,8 +27,8 @@ Page({
       },
       {
         text: '成绩',
-        iconPath: '../../images/icons/interaction.png',
-        selectedIconPath: '../../images/icons/interaction-selected.png',
+        iconPath: '../../images/icons/achievement.png',
+        selectedIconPath: '../../images/icons/achievement-selected.png',
         dot: true,
         dataPage: 'achievement',
       },

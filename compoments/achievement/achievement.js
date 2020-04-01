@@ -3,33 +3,30 @@ Component({
   /**
    * 组件的属性列表
    */
-  properties: {
-
-  },
+  properties: {},
 
   /**
    * 组件的初始数据
    */
-  data: {
-
-  },
+  data: {},
 
   /**
    * 组件的方法列表
    */
-  methods: {
+  methods: {},
 
+  lifetimes: {
+    created: function() {
+      wx.setNavigationBarTitle({
+        title: '成绩',
+      }); //动态设置navigationBar文字
+    },
+    attached: function() {
+      // 在组件实例进入页面节点树时执行
+      console.log(`======`);
+    },
+    detached: function() {
+      // 在组件实例被从页面节点树移除时执行
+    },
   },
-
-    lifetimes: {
-        attached: function() {
-          // 在组件实例进入页面节点树时执行
-        console.log(`======`)
-        },
-        detached: function() {
-          // 在组件实例被从页面节点树移除时执行
-        },
-      },
-    onShow:function(){
-    }
-})
+});
