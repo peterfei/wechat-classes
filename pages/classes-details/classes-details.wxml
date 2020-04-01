@@ -42,24 +42,7 @@
      </view>
  </view>
  <view class="box" style='height: {{scrollHeight + "px"}}'>
-     <scroll-view class="items" scroll-y="true" enable-flex	="true"  >
-        <view class="body-item" bindtap="showClsItems" wx:for="{{8}}" >
-          <view class="item-image">
-            <image style="" mode="scaleToFill" src="{{src}}"></image>
-          </view>
-          <view class="item-text">
-            <view class="text-title">C语言教学1班</view>
-            <view class="text-subtitle">
-              <view class="subtitle-text">2020-03-30 18:55</view>
-            </view>
-            <view class="text-other">
-              <view class="other-count">
-                我上传的文档
-              </view>
-            </view>
-          </view>
-        </view>
-    </scroll-view>
+     <item-lists image-src="{{src}}"/>
 </view>
 </view>
 <achievement wx:if="{{showAchievement}}"/>

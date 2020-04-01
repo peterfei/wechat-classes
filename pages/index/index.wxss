@@ -16,6 +16,7 @@
   border-style: solid;
   border-color: #e9e9e9;
   padding: 0 5px 0px 5px;
+  background-color: white;
 }
 .clses-page .body {
   flex: 11;
@@ -29,6 +30,8 @@
   border-style: solid;
   border-color: #ff8c00;
   margin: 5px;
+  /*background-color: white;*/
+
   /*flex:1;*/
 }
 .body-header .body-header-title {
@@ -41,6 +44,8 @@
   display: flex;
   margin: 5px;
   align-items: center;
+  background-color: white;
+
 }
 .body-item .item-image {
   flex: 2;

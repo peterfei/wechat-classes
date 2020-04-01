@@ -61,11 +61,7 @@ Component({
   },
 
   lifetimes: {
-    created: function() {
-      wx.setNavigationBarTitle({
-        title: '成绩',
-      }); //动态设置navigationBar文字
-    },
+    created: function() {},
     attached: function() {
       // 在组件实例进入页面节点树时执行
       console.log(`======`);

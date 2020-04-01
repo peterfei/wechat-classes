@@ -2,7 +2,8 @@
   "usingComponents": {
     "mp-icon": "../../miniprogram/icon/icon",
     "mp-tabbar": "../../miniprogram/tabbar/tabbar",
-    "achievement":"../../compoments/achievement/achievement"
+    "achievement":"../../compoments/achievement/achievement",
+    "item-lists":"../../compoments/item-lists/item-lists"
   },
   "navigationBarTitleText": "班级详情"
 }

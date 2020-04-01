@@ -21,7 +21,7 @@
   padding: 10px;
   height:100px;
   flex:1;
-  /*background-color:green;*/
+  background-color:white;
 }
 .header .header-img {
   flex: 2;
@@ -48,7 +48,7 @@
   justify-content: space-around;
   align-items: center;
   padding: 12px;
-  /*background-color:blue;*/
+  background-color:white;
 
 }
 
