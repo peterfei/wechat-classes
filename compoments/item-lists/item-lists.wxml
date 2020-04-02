@@ -18,9 +18,14 @@
                 </view>
             </view>
             <view class="content" wx:if="{{item.content}}">
-                {{item.content}}
+                <view class="content-text">
+                    {{item.content}}
+                </view>
+                <view class="content-img">
+                    <image style="" mode="scaleToFill" src="{{item.contentImageSrc}}"></image>
+                </view>
             </view>
-            <view class="text-subtitle item-footer-text">
+            <view class="text-subtitle item-footer-text" wx:if="{{item.looked}}">
                 <view class="item-footer" wx:if="{{item.looked}}">
                     {{item.looked}} 浏览
                 </view>

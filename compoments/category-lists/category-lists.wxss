@@ -7,11 +7,28 @@
   padding: 10px;
   background-color: white;
 }
+.item-border {
+  font-size: 60rpx;
+  color: white;
+  width: 60%;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px;
 
+}
 .category image {
   width: 55px;
   height: 55px;
 }
 .category .cate-item-text {
   color: grey;
+}
+.cate-item {
+  /*width: calc(100vw / 4);*/
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width:100%;
 }

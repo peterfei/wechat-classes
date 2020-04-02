@@ -11,6 +11,7 @@
   border-width: 1px 0 1px 0;
   border-color: #e0e0e0;
   padding: 5px;
+  background-color: rgb(255, 255, 255);
 }
 .item .item-image {
   flex: 1;
@@ -35,15 +36,22 @@
   color: rgb(110, 110, 110);
 }
 
-.item-footer{
- flex:1;
+.item-footer {
+  flex: 1;
 }
 .item-text .text-title {
   font-size: 18px;
   color: rgb(75, 75, 75);
 }
-.item-footer-text{
-    width:50%;
+.item-text .content {
+  margin: 5px;
+}
+.content image {
+  width: 120px;
+  height: 100px;
+}
+.item-footer-text {
+  width: 50%;
 }
 .header-img-s {
   width: 95px;
