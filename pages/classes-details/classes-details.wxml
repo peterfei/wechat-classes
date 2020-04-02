@@ -1,4 +1,3 @@
-<import src="../discuss/discuss.wxml"/>
 <view class="container">
   <view class="page" wx:if="{{showHome}}">
      <item-lists  itemObj="{{item}}" class="header"/>
