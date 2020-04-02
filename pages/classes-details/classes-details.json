@@ -3,7 +3,8 @@
     "mp-icon": "../../miniprogram/icon/icon",
     "mp-tabbar": "../../miniprogram/tabbar/tabbar",
     "achievement":"../../compoments/achievement/achievement",
-    "item-lists":"../../compoments/item-lists/item-lists"
+    "item-lists":"../../compoments/item-lists/item-lists",
+    "category-lists":"../../compoments/category-lists/category-lists"
   },
   "navigationBarTitleText": "班级详情"
 }

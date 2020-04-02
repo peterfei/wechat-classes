@@ -1,2 +1,9 @@
-<!--compoments/category-lists/category-lists.wxml-->
-<text>compoments/category-lists/category-lists.wxml</text>
+<view class="category">
+    <view class="cate-item" wx:for="{{categoryItemLists}}">
+        <image style="" mode="scaleToFill" src="{{item.src}}"></image>
+         <view class="cate-item-text">
+             {{item.title}}/{{item.count}}
+         </view>
+     </view>
+
+ </view>

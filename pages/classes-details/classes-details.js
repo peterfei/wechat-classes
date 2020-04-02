@@ -45,6 +45,28 @@ Page({
       subtitle: '2020-04-01 17:37',
       desc: '我上传的文档',
     },
+    categoryItemLists: [
+      {
+        src: '../../images/index/course.png',
+        title: '课程',
+        count: 85,
+      },
+      {
+        src: '../../images/index/assignment.png',
+        title: '作业',
+        count: 24,
+      },
+      {
+        src: '../../images/index/test.png',
+        title: '测验',
+        count: 75,
+      },
+      {
+        src: '../../images/index/members.png',
+        title: '成员',
+        count: 108,
+      },
+    ],
   },
 
   tabChange(e) {
@@ -67,11 +89,11 @@ Page({
   },
   onReady: function() {
     this.computeScrollViewHeight();
-    let result = []
+    let result = [];
     for (var i = 0, len = 10; i < len; i++) {
-        result.push(this.data.item)
+      result.push(this.data.item);
     }
-    this.setData({itemResult:result})
+    this.setData({itemResult: result});
   },
 
   /**
@@ -84,14 +106,14 @@ Page({
     let that = this;
     let query = wx.createSelectorQuery().in(this);
     query.select('.header').boundingClientRect();
-    query.select('.category').boundingClientRect();
+    query.select('.category-lists').boundingClientRect();
     query.select('.tabbar').boundingClientRect();
     query.exec(res => {
       let headerHeight = res[0].height;
       let categoryHeight = res[1].height;
       let tabbarHeight = res[2].height;
       let windowHeight = wx.getSystemInfoSync().windowHeight;
-      let scrollHeight = windowHeight - headerHeight - categoryHeight - 10 - 40;
+      let scrollHeight = windowHeight - headerHeight - categoryHeight - tabbarHeight;
 
       console.log(
         '%c┍--------------------------------------------------------------┑',
@@ -103,7 +125,7 @@ Page({
         '%c┕--------------------------------------------------------------┙',
         `color:red`,
       );
-        this.setData({scrollHeight: scrollHeight,tabbarHeight:tabbarHeight});
+      this.setData({scrollHeight: scrollHeight, tabbarHeight: tabbarHeight});
     });
   },
 

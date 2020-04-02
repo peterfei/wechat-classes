@@ -3,29 +3,8 @@
   <view class="page" wx:if="{{showHome}}">
      <item-lists  itemObj="{{item}}" class="header"/>
 
-  <view class="category">
-    <view class="cate-item">
-        <image style="" mode="scaleToFill" src="../../images/index/course.png"></image>
-         <view class="cate-item-text">
-            课程/85
-         </view>
-     </view>
-     <view class="cate-item">
-         <image style="" mode="scaleToFill" src="../../images/index/assignment.png"></image>
-         <view class="cate-item-text">
-            作业/25
-         </view>
-     </view><view class="cate-item">
-     <image style="" mode="scaleToFill" src="../../images/index/test.png"></image>
-         <view class="cate-item-text">
-            测验/15
-         </view>
-     </view><view class="cate-item">
-     <image style="" mode="scaleToFill" src="../../images/index/members.png"></image>
-         <view class="cate-item-text">
-            成员/85
-         </view>
-     </view>
+  <view class="category-lists">
+      <category-lists categoryItemLists="{{categoryItemLists}}"/>
  </view>
 <view class="box" style='height: {{scrollHeight + "px"}}'>
      <item-lists  itemResult="{{itemResult}}" />

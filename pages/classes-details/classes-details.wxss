@@ -6,19 +6,3 @@
   left: 0;
   right: 0;
 }
-.category {
-  flex: 1;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 12px;
-  background-color: white;
-}
-
-.category image {
-  width: 55px;
-  height: 55px;
-}
-.category .cate-item-text {
-  color: grey;
-}
