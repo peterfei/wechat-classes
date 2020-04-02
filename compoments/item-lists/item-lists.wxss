@@ -73,3 +73,14 @@
   flex-direction: column;
   margin: 5px;
 }
+.label {
+  color: grey;
+  border-color: #999;
+  border-width: 1px;
+  border-style: solid;
+  width: 20%;
+  margin: 2px 0 2px 0;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
