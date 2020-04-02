@@ -1,7 +1,0 @@
-{
-  "usingComponents": {
-    "mp-icon": "../../miniprogram/icon/icon",
-    "mp-tabbar": "../../miniprogram/tabbar/tabbar"
-  },
-  "navigationBarTitleText": "讨论"
-}

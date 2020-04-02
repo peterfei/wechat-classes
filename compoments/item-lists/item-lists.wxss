@@ -35,11 +35,16 @@
   color: rgb(110, 110, 110);
 }
 
+.item-footer{
+ flex:1;
+}
 .item-text .text-title {
   font-size: 18px;
   color: rgb(75, 75, 75);
 }
-
+.item-footer-text{
+    width:50%;
+}
 .header-img-s {
   width: 95px;
   height: 95px;

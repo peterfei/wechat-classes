@@ -11,7 +11,11 @@
 </view>
 </view>
 <achievement wx:if="{{showAchievement}}"/>
-<template is="discuss" wx:if="{{showDiscuss}}" />
+<block wx:if="{{showDiscuss}}">
+    <view style='height:calc(100vh - {{tabbarHeight + "px"}});' >
+        <item-lists  itemResult="{{itemDiscussResult}}" />
+    </view>
+</block>
 <block wx:if="{{showInteraction}}">
     <view style='height:calc(100vh - {{tabbarHeight + "px"}});' >
         <item-lists  itemResult="{{itemResult}}" />

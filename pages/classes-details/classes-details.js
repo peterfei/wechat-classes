@@ -67,6 +67,14 @@ Page({
         count: 108,
       },
     ],
+    itemDiscuss: {
+      title: 'C语言教学1班',
+      sign: '置顶',
+      created: '2020-04-01 17:37',
+      content: '这是我的内容区域',
+      looked: 99,
+      answered: 0,
+    },
   },
   onLoad: function(options) {
     wx.stopPullDownRefresh();
@@ -99,11 +107,13 @@ Page({
   },
   onReady: function() {
     this.computeScrollViewHeight();
-    let result = [];
+    let result = [],
+      itemResults = [];
     for (var i = 0, len = 10; i < len; i++) {
       result.push(this.data.item);
+      itemResults.push(this.data.itemDiscuss);
     }
-    this.setData({itemResult: result});
+    this.setData({itemResult: result, itemDiscussResult: itemResults});
   },
 
   /**
