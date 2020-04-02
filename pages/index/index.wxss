@@ -42,21 +42,23 @@
 }
 .body-items .body-item {
   display: flex;
-  margin: 5px;
+  /*padding: 5px;*/
   align-items: center;
   background-color: white;
-
 }
 .body-item .item-image {
   flex: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .item-image image {
-  width: 105px;
-  height: 95px;
-  border-radius: 8px;
+  width: 65px;
+  height: 65px;
+  border-radius: 5px;
 }
 .body-item .item-text {
-  flex: 4;
+  flex: 8;
   display: flex;
   flex-direction: column;
   margin: 5px;
@@ -110,7 +112,8 @@
   /*align-items: center;*/
 }
 
-@keyframes ani-show-modal { /*增加动画样式*/
+@keyframes ani-show-modal {
+  /*增加动画样式*/
   from {
     transform: translateY(200%) translateX(-50%);
     opacity: 0;
