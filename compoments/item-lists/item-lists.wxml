@@ -1,6 +1,6 @@
 <!--compoments/item-lists/item-lists.wxml-->
 <block wx:if="{{isObjectNull}}">
- <scroll-view class="items" scroll-y="true" enable-flex	="true"  >
+    <scroll-view class="items" scroll-y="true" enable-flex	="true" refresher-enabled="true" bindrefresherpulling="onPullDownRefresh" refresher-triggered="{{triggered}}"  >
     <view class="item" bindtap="showClsItems" wx:for="{{itemResult}}" >
         <view class="item-image">
         <image class="img" mode="scaleToFill" src="{{item.src}}"></image>

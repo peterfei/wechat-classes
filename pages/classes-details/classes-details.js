@@ -68,7 +68,17 @@ Page({
       },
     ],
   },
-
+  onLoad: function(options) {
+    wx.stopPullDownRefresh();
+  },
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function() {
+    setTimeout(() => {
+      wx.stopPullDownRefresh();
+    }, 3000);
+  },
   tabChange(e) {
     for (let l of this.data.list) {
       if (e.detail.item.dataPage == l.dataPage) {
@@ -113,7 +123,8 @@ Page({
       let categoryHeight = res[1].height;
       let tabbarHeight = res[2].height;
       let windowHeight = wx.getSystemInfoSync().windowHeight;
-      let scrollHeight = windowHeight - headerHeight - categoryHeight - tabbarHeight;
+      let scrollHeight =
+        windowHeight - headerHeight - categoryHeight - tabbarHeight;
 
       console.log(
         '%c┍--------------------------------------------------------------┑',

@@ -18,12 +18,26 @@ Component({
    */
   data: {
     isObjectNull: true,
+      triggered:false
   },
 
   /**
    * 组件的方法列表
    */
-  methods: {},
+  methods: {
+    /**
+     * 页面相关事件处理函数--监听用户下拉动作
+     */
+    onPullDownRefresh: function() {
+
+      console.log('=======onPullDownRefresh in item-lists========')
+      setTimeout(() => {
+          this.setData({
+              triggered:false
+          })
+      }, 3000);
+    },
+  },
 
   lifetimes: {
     attached: function() {
@@ -38,8 +52,8 @@ Component({
         `color:red`,
       );
       this.setData({
-            isObjectNull:(this.properties.itemObj==null)
-        })
+        isObjectNull: this.properties.itemObj == null,
+      });
     },
   },
 });
