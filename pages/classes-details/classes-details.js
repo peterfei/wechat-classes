@@ -216,6 +216,36 @@ Page({
         label2Value: '二维码考勤',
       },
     ],
+    classRecords: [
+      {
+        count: 0,
+        name: '考勤',
+      },
+      {
+        count: 0,
+        name: '出勤',
+      },
+      {
+        count: 0,
+        name: '出勤率',
+      },
+      {
+        count: 0,
+        name: '迟到',
+      },
+      {
+        count: 0,
+        name: '旷课',
+      },
+      {
+        count: 0,
+        name: '请假',
+      },
+      {
+        count: 0,
+        name: '早退',
+      },
+    ],
   },
   onLoad: function(options) {
     wx.stopPullDownRefresh();

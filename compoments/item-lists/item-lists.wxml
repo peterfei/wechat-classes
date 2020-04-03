@@ -55,21 +55,19 @@
 </scroll-view>
 </block>
 <block wx:else>
-<view class="header">
-
-    <view class="header-img">
-      <image class="header-img-s" mode="scaleToFill" src="{{itemObj.src}}"></image>
+    <view class="header">
+        <view class="header-img">
+          <image class="header-img-s" mode="scaleToFill" src="{{itemObj.src}}"></image>
+        </view>
+        <view class="header-text">
+            <view class="text-title">{{itemObj.title}}</view>
+          <view class="text-subtitle">
+              <view class="subtitle-text">{{itemObj.subtitle}}</view>
+            <view class="subtitle-other">ID:129099</view>
+          </view>
+          <view class="text-subtitle">
+              <view class="subtitle-text">{{itemObj.desc}}</view>
+          </view>
+        </view>
     </view>
-    <view class="header-text">
-        <view class="text-title">{{itemObj.title}}</view>
-      <view class="text-subtitle">
-          <view class="subtitle-text">{{itemObj.subtitle}}</view>
-        <view class="subtitle-other">ID:129099</view>
-      </view>
-      <view class="text-subtitle">
-          <view class="subtitle-text">{{itemObj.desc}}</view>
-      </view>
-    </view>
-  </view>
-
 </block>

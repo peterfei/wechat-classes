@@ -34,8 +34,22 @@
     </view>
   </block>
   <block wx:if="{{showRecords}}">
-    <view style='height:calc(100vh - {{tabbarHeight + "px"}});'>
-      <item-lists isDiyLabel="{{true}}" itemResult="{{itemRecords}}" />
+      <view class="page-header">
+          <view class="item" wx:for="{{classRecords}}">
+                  <view class="item-text">
+                      {{item.count}}
+                  </view>
+                  <view class="item-text">
+                      {{item.name}}
+                  </view>
+            </view>
+        </view>
+      <view style='height:calc(100vh - {{tabbarHeight + "px"}});'>
+
+        <item-lists isDiyLabel="{{true}}" itemResult="{{itemRecords}}" />
+        <view class="gotorecord">
+            <text>去签到</text>
+        </view>
     </view>
   </block>
   <mp-tabbar class="tabbar" list="{{list}}" bindchange="tabChange"></mp-tabbar>
