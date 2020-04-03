@@ -44,7 +44,7 @@
                   </view>
             </view>
         </view>
-      <view style='height:calc(100vh - {{tabbarHeight + "px"}});'>
+      <view style='height:calc(100vh - {{tabbarHeight + "px"}} - 40px);'>
 
         <item-lists isDiyLabel="{{true}}" itemResult="{{itemRecords}}" />
         <view class="gotorecord">
