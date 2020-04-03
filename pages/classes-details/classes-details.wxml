@@ -6,18 +6,18 @@
       <category-lists categoryItemLists="{{categoryItemLists}}"/>
  </view>
 <view class="box" style='height: {{scrollHeight + "px"}}'>
-     <item-lists  itemResult="{{itemResult}}" />
+     <item-lists  itemResult="{{itemResult}}" bind:myachieve="onMyInteraction" />
 </view>
 </view>
 <achievement wx:if="{{showAchievement}}" navData="{{navData}}" bind:myclsachieve="onMyClsAchieve" />
 <block wx:if="{{showDiscuss}}">
     <view style='height:calc(100vh - {{tabbarHeight + "px"}});' >
-        <item-lists  itemResult="{{itemDiscussResult}}" />
+        <item-lists  itemResult="{{itemDiscussResult}}"  bind:myachieve="onMyInteraction"/>
     </view>
 </block>
 <block wx:if="{{showInteraction}}">
     <view style='height:calc(100vh - {{tabbarHeight + "px"}});' >
-        <item-lists  itemResult="{{itemResult}}" />
+        <item-lists  itemResult="{{itemResult}}" bind:myachieve="onMyInteraction" />
     </view>
 </block>
 <mp-tabbar class="tabbar" list="{{list}}" bindchange="tabChange"></mp-tabbar>

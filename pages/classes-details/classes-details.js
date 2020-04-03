@@ -123,6 +123,7 @@ Page({
     triggered: false,
     disTriggered: true,
     item: {
+      id: 888,
       src: '../../images/index/default.png',
       title: 'C语言教学1班',
       subtitle: '2020-04-01 17:37',
@@ -161,6 +162,7 @@ Page({
       },
     ],
     itemDiscuss: {
+      id: 999,
       title: 'C语言教学1班',
       sign: '置顶',
       created: '2020-04-01 17:37',
@@ -261,7 +263,20 @@ Page({
       '%c┍--------------------------------------------------------------┑',
       `color:red`,
     );
-    console.log(`==>当前点击ID<==`, e.detail.id);
+    console.log(`==>当前点击ID <==`, e.detail.id);
+
+    console.log(
+      '%c┕--------------------------------------------------------------┙',
+      `color:red`,
+    );
+  },
+
+  onMyInteraction: function(e) {
+    console.log(
+      '%c┍--------------------------------------------------------------┑',
+      `color:red`,
+    );
+    console.log(`==>当前点击ID <==`, e.detail.id);
 
     console.log(
       '%c┕--------------------------------------------------------------┙',
