@@ -2,6 +2,89 @@ import {capitalize} from '../../utils/util';
 const app = getApp();
 Page({
   data: {
+    navData: [
+      {
+        text: '课程',
+        children: [
+          {
+            id: 1,
+            title: '课程介绍',
+            status: '未学习',
+          },
+          {
+            id: 2,
+            title: '课程介绍',
+            status: '未学习',
+          },
+          {
+            id: 3,
+            title: '课程介绍',
+            status: '未学习',
+          },
+          {
+            id: 4,
+            title: '课程介绍',
+            status: '未学习',
+          },
+          {
+            id: 5,
+            title: '课程介绍',
+            status: '未学习',
+          },
+          {
+            id: 6,
+            title: '课程介绍',
+            status: '未学习',
+          },
+          {
+            id: 7,
+            title: '课程介绍',
+            status: '未学习',
+          },
+          {
+            id: 8,
+            title: '课程介绍',
+            status: '未学习',
+          },
+        ],
+      },
+      {
+        text: '作业',
+        children: [
+          {
+            title: '作业介绍',
+            status: '未学习',
+          },
+        ],
+      },
+      {
+        text: '测验',
+        children: [
+          {
+            title: '测验介绍',
+            status: '未学习',
+          },
+        ],
+      },
+      {
+        text: '日常',
+        children: [
+          {
+            title: '日常介绍',
+            status: '未学习',
+          },
+        ],
+      },
+      {
+        text: '考试',
+        children: [
+          {
+            title: '考试介绍',
+            status: '未学习',
+          },
+        ],
+      },
+    ],
     list: [
       {
         text: '首页',
@@ -47,32 +130,32 @@ Page({
     },
     categoryItemLists: [
       {
-        color:"rgb(1, 185, 248)",
-        icon:"kecheng1",
+        color: 'rgb(1, 185, 248)',
+        icon: 'kecheng1',
         title: '课程',
         count: 85,
       },
       {
-        color:"rgb(51,223,138)",
-        icon:"zuoye1",
+        color: 'rgb(51,223,138)',
+        icon: 'zuoye1',
         title: '作业',
         count: 24,
       },
       {
-        color:"rgb(255,109,77)",
-        icon:"zuoye1",
+        color: 'rgb(255,109,77)',
+        icon: 'zuoye1',
         title: '测验',
         count: 75,
       },
       {
-        color:"rgb(255,69,126	)",
-        icon:"chengji",
+        color: 'rgb(255,69,126	)',
+        icon: 'chengji',
         title: '资料',
         count: 75,
       },
       {
-        color:"rgb(255,162,111)",
-        icon:"chengyuan2",
+        color: 'rgb(255,162,111)',
+        icon: 'chengyuan2',
         title: '成员',
         count: 108,
       },
@@ -169,5 +252,20 @@ Page({
         disTriggered: false,
       });
     }, 3000);
+  },
+
+  onMyClsAchieve: function(e) {
+    console.log(`<====on ClassDetail Achievenment's onMyAchieve=====>`, e);
+
+    console.log(
+      '%c┍--------------------------------------------------------------┑',
+      `color:red`,
+    );
+    console.log(`==>当前点击ID<==`, e.detail.id);
+
+    console.log(
+      '%c┕--------------------------------------------------------------┙',
+      `color:red`,
+    );
   },
 });

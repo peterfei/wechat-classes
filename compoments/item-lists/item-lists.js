@@ -11,6 +11,10 @@ Component({
       type: Object,
       value: null,
     },
+    isColumn: {
+      type: Boolean,
+      value:true,
+    },
   },
 
   /**
@@ -18,7 +22,7 @@ Component({
    */
   data: {
     isObjectNull: true,
-      triggered:false
+    triggered: false,
   },
 
   /**
@@ -29,14 +33,18 @@ Component({
      * 页面相关事件处理函数--监听用户下拉动作
      */
     onPullDownRefresh: function() {
-
-      console.log('=======onPullDownRefresh in item-lists========')
+      console.log('=======onPullDownRefresh in item-lists========');
       setTimeout(() => {
-          this.setData({
-              triggered:false
-          })
+        this.setData({
+          triggered: false,
+        });
       }, 3000);
     },
+
+      onItemData:function(e){
+          console.log(`<======item-lists showClsItems==========>`,e)
+          this.triggerEvent('myachieve', {id:e.currentTarget.id},{})
+      }
   },
 
   lifetimes: {
@@ -45,7 +53,7 @@ Component({
         '%c┍--------------------------------------------------------------┑',
         `color:red`,
       );
-      console.log(`itemResult's`, JSON.stringify(this.properties.itemObj));
+      console.log(`itemResult's`, JSON.stringify(this.properties));
 
       console.log(
         '%c┕--------------------------------------------------------------┙',

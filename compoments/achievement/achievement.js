@@ -3,29 +3,17 @@ Component({
   /**
    * 组件的属性列表
    */
-  properties: {},
+    properties: {
+        navData:{
+            type:Array
+        }
+    },
 
   /**
    * 组件的初始数据
    */
   data: {
-    navData: [
-      {
-        text: '课程',
-      },
-      {
-        text: '作业',
-      },
-      {
-        text: '测验',
-      },
-      {
-        text: '日常',
-      },
-      {
-        text: '考试',
-      },
-    ],
+
     currentTab: 0,
     navScrollLeft: 0,
   },
@@ -58,6 +46,10 @@ Component({
         navScrollLeft: (cur - 2) * singleNavWidth,
       });
     },
+      onMyAchieve:function(e){
+          console.log(`<====Achievenment's onMyAchieve=====>`,e)
+          this.triggerEvent('myclsachieve', {id:e.detail.id},{})
+      }
   },
 
   lifetimes: {

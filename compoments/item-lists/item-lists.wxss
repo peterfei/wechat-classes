@@ -24,6 +24,12 @@
   height: 55px;
   border-radius: 8px;
 }
+.item .item-text-row {
+  display: flex;
+  justify-content: space-between;
+  flex:1;
+  margin: 4px;
+}
 .item .item-text {
   flex: 4;
   display: flex;

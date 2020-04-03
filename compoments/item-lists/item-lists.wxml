@@ -1,11 +1,14 @@
-<!--compoments/item-lists/item-lists.wxml-->
 <block wx:if="{{isObjectNull}}">
     <scroll-view class="items" scroll-y="true" enable-flex	="true" refresher-enabled="true" bindrefresherpulling="onPullDownRefresh" refresher-triggered="{{triggered}}"  >
-    <view class="item" bindtap="showClsItems" wx:for="{{itemResult}}" >
+        <view class="item" bindtap="onItemData" wx:for="{{itemResult}}" id="{{item.id}}" >
         <view class="item-image" wx:if="{{item.src}}">
             <image class="img" mode="scaleToFill" src="{{item.src}}"></image>
         </view>
-      <view class="item-text">
+        <view class="item-text-row" wx:if="{{!isColumn}}">
+          <view class="text-title">{{item.title}}</view>
+          <view class="item-status">{{item.status}}</view>
+        </view>
+        <view class="item-text" wx:if="{{isColumn}}">
           <view class="text-title">{{item.title}}</view>
           <view class="label" wx:if="{{item.sign}}">{{item.sign}}</view>
             <view class="text-subtitle" wx:if="{{item.subtitle}}">

@@ -9,7 +9,7 @@
      <item-lists  itemResult="{{itemResult}}" />
 </view>
 </view>
-<achievement wx:if="{{showAchievement}}"/>
+<achievement wx:if="{{showAchievement}}" navData="{{navData}}" bind:myclsachieve="onMyClsAchieve" />
 <block wx:if="{{showDiscuss}}">
     <view style='height:calc(100vh - {{tabbarHeight + "px"}});' >
         <item-lists  itemResult="{{itemDiscussResult}}" />

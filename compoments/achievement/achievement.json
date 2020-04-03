@@ -1,5 +1,7 @@
 {
   "component": true,
-  "usingComponents": {},
+  "usingComponents": {
+      "item-lists":"../item-lists/item-lists"
+  },
   "navigationBarTitleText": "成绩"
 }
