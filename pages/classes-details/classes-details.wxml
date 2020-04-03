@@ -24,6 +24,9 @@
         bind:myachieve="onMyInteraction"
       />
     </view>
+        <view class="gotorecord">
+            <text>发布</text>
+        </view>
   </block>
   <block wx:if="{{showInteraction}}">
     <view style='height:calc(100vh - {{tabbarHeight + "px"}});'>
@@ -53,4 +56,4 @@
     </view>
   </block>
   <mp-tabbar class="tabbar" list="{{list}}" bindchange="tabChange"></mp-tabbar>
-</view>;
+</view>
