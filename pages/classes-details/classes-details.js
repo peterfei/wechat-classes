@@ -114,12 +114,20 @@ Page({
         dot: true,
         dataPage: 'achievement',
       },
+      {
+        text: '考勤',
+        iconPath: '../../images/icons/records.png',
+        selectedIconPath: '../../images/icons/records-selected.png',
+        dot: true,
+        dataPage: 'records',
+      },
     ],
     scrollHeight: 0,
     showHome: true,
-    showDiscuss: false,
-    showInteraction: false,
-    showAchievement: false,
+    showDiscuss: false, // 讨论
+    showInteraction: false, //互动
+    showAchievement: false, //成绩
+    showRecords: false, //考勤
     triggered: false,
     disTriggered: true,
     item: {
@@ -171,6 +179,43 @@ Page({
       looked: 99,
       answered: 0,
     },
+    itemRecords: [
+      {
+        title: '2020-04-03 14:43 考勤',
+        label1: '发起时间',
+        label1Value: '2020-04-03 14:45',
+        label2: '类型',
+        label2Value: '二维码考勤',
+      },
+      {
+        title: '2020-04-03 14:43 考勤',
+        label1: '发起时间',
+        label1Value: '2020-04-03 14:45',
+        label2: '类型',
+        label2Value: '二维码考勤',
+      },
+      {
+        title: '2020-04-03 14:43 考勤',
+        label1: '发起时间',
+        label1Value: '2020-04-03 14:45',
+        label2: '类型',
+        label2Value: '二维码考勤',
+      },
+      {
+        title: '2020-04-03 14:43 考勤',
+        label1: '发起时间',
+        label1Value: '2020-04-03 14:45',
+        label2: '类型',
+        label2Value: '二维码考勤',
+      },
+      {
+        title: '2020-04-03 14:43 考勤',
+        label1: '发起时间',
+        label1Value: '2020-04-03 14:45',
+        label2: '类型',
+        label2Value: '二维码考勤',
+      },
+    ],
   },
   onLoad: function(options) {
     wx.stopPullDownRefresh();

@@ -11,9 +11,13 @@ Component({
       type: Object,
       value: null,
     },
-    isColumn: {
+    isColumn: { // 列表横排或顺排
       type: Boolean,
-      value:true,
+      value: true,
+    },
+    isDiyLabel: { //自定义Label, 如考勤
+      type: Boolean,
+      value: false,
     },
   },
 
@@ -41,10 +45,10 @@ Component({
       }, 3000);
     },
 
-      onItemData:function(e){
-          console.log(`<======item-lists showClsItems==========>`,e)
-          this.triggerEvent('myachieve', {id:e.currentTarget.id},{})
-      }
+    onItemData: function(e) {
+      console.log(`<======item-lists showClsItems==========>`, e);
+      this.triggerEvent('myachieve', {id: e.currentTarget.id}, {});
+    },
   },
 
   lifetimes: {
