@@ -30,7 +30,7 @@ page{
     color: red;
 }
 .tab-box{
-    background: greenyellow;
+    /*background: greenyellow;*/
     padding-top: 80rpx;
     height: 100vh;
     box-sizing: border-box;
