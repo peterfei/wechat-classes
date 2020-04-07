@@ -1,6 +1,6 @@
 import {capitalize} from '../../utils/util';
 import regeneratorRuntime from '../../regenerator-runtime/runtime.js';
-import {token,contentType} from '../../global';
+import {token, contentType} from '../../global';
 const app = getApp();
 Page({
   data: {
@@ -134,8 +134,8 @@ Page({
     disTriggered: true,
     item: {
       id: 888,
-      src: '../../images/index/default.png',
-      title: 'C语言教学1班',
+      avatar: '../../images/index/default.png',
+      name: 'C语言教学1班',
       subtitle: '2020-04-01 17:37',
       desc: '我上传的文档',
     },
@@ -300,20 +300,17 @@ Page({
   },
 
   getClassesIndex: async function() {
-      let _d = ({id:+this.data.id})
-     /*_d = Object.keys(_d).map(key => key + '=' + _d[key]).join("")*/
-      const data = await app.initClassPromise.getClassesDetail(token,_d,contentType);
-
-    console.log(
-      '%c┍--------------------------------------------------------------┑',
-      `color:red`,
+    let _d = {id: +this.data.id};
+    /*_d = Object.keys(_d).map(key => key + '=' + _d[key]).join("")*/
+    const data = await app.initClassPromise.getClassesDetail(
+      token,
+      _d,
+      contentType,
     );
     console.log(`==得到的班级信息==`, JSON.stringify(data));
-
-    console.log(
-      '%c┕--------------------------------------------------------------┙',
-      `color:red`,
-    );
+      this.setData({
+          item: data.result_data
+      })
   },
 
   /**

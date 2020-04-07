@@ -1,4 +1,5 @@
 // compoments/item-lists/item-lists.js
+import {baseUrl} from '../../global'
 Component({
   /**
    * 组件的属性列表
@@ -27,6 +28,7 @@ Component({
   data: {
     isObjectNull: true,
     triggered: false,
+      baseUrl:""
   },
 
   /**
@@ -65,6 +67,7 @@ Component({
       );
       this.setData({
         isObjectNull: this.properties.itemObj == null,
+        baseUrl:baseUrl
       });
     },
   },
