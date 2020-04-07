@@ -1,3 +1,4 @@
+import classes from "api/classes"
 //app.js
 App({
   onLaunch: function() {
@@ -38,4 +39,5 @@ App({
   },
   // TODO:  <27-03-20, peterfei> //
   checkToken: function() {}, //全局检查Token是否可用或者过期
+  initClassPromise:new classes(),
 });

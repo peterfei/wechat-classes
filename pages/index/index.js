@@ -1,3 +1,5 @@
+import regeneratorRuntime from '../../regenerator-runtime/runtime.js';
+import {token} from "../../global"
 //index.js
 //获取应用实例
 const app = getApp();
@@ -10,6 +12,7 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     showMoreBtn: false,
+    clsResults:[],
   },
   //事件处理函数
   bindViewTap: function() {
@@ -44,7 +47,23 @@ Page({
         },
       });
     }
+
+    this.getClassesLists()
   },
+
+    ////////////////////////
+    //  获取班级请求
+    //  by peterfei 2020-04-07 11:11//
+    ////////////////////////
+    getClassesLists: async function(){
+        app.initClassPromise.getClassesLists({token:token}).then(res=>{
+            console.log(`%c ===>%s`,"color:grey",JSON.stringify(res))
+            this.setData({
+                clsResults:res.result_data
+            })
+        })
+    },
+
   getUserInfo: function(e) {
     console.log(e);
     app.globalData.userInfo = e.detail.userInfo;

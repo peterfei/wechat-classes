@@ -16,8 +16,8 @@ class classes {
      * 请求班级列表
      *
      */
-    getClassesLists(obj,header){
-        return this._request.postRequest(this._baseUrl + "UserClasses/myClasses",obj,header ).then(res=>res.result_data)
+    getClassesLists(obj){
+        return this._request.postRequest(this._baseUrl + "UserClasses/myClasses?token="+obj.token,{}).then(res=>res.data)
     }
 
 }
