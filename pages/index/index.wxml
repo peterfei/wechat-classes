@@ -20,7 +20,7 @@
         <view class="body-header-title">我的班级</view>
       </view>
       <view class="body-items">
-          <view class="body-item" bindtap="showClsItems" wx:for="{{clsResults}}">
+          <view class="body-item" bindtap="showClsItems" wx:for="{{clsResults}}" id="{{item.id}}">
           <view class="item-image">
             <image style="" mode="scaleToFill" src="{{src}}"></image>
           </view>

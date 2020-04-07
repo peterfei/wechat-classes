@@ -1,4 +1,6 @@
 import {capitalize} from '../../utils/util';
+import regeneratorRuntime from '../../regenerator-runtime/runtime.js';
+import {token,contentType} from '../../global';
 const app = getApp();
 Page({
   data: {
@@ -246,9 +248,13 @@ Page({
         name: '早退',
       },
     ],
+    id: 0,
   },
   onLoad: function(options) {
     wx.stopPullDownRefresh();
+    this.setData({
+      id: options.id,
+    });
   },
   /**
    * 页面相关事件处理函数--监听用户下拉动作
@@ -285,6 +291,29 @@ Page({
       itemResults.push(this.data.itemDiscuss);
     }
     this.setData({itemResult: result, itemDiscussResult: itemResults});
+
+    console.log(`====> id <====`, this.data.id);
+    /*
+     * 动态获取数据
+     */
+    this.getClassesIndex();
+  },
+
+  getClassesIndex: async function() {
+      let _d = ({id:+this.data.id})
+     /*_d = Object.keys(_d).map(key => key + '=' + _d[key]).join("")*/
+      const data = await app.initClassPromise.getClassesDetail(token,_d,contentType);
+
+    console.log(
+      '%c┍--------------------------------------------------------------┑',
+      `color:red`,
+    );
+    console.log(`==得到的班级信息==`, JSON.stringify(data));
+
+    console.log(
+      '%c┕--------------------------------------------------------------┙',
+      `color:red`,
+    );
   },
 
   /**

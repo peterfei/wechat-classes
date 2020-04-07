@@ -20,5 +20,13 @@ class classes {
         return this._request.postRequest(this._baseUrl + "UserClasses/myClasses?token="+obj.token,{}).then(res=>res.data)
     }
 
+    /**
+     * 取得班级详情
+     *
+     */
+    getClassesDetail(token,obj,header){
+        return this._request.postRequest(this._baseUrl + "Index/ClassesIndex?token="+token,obj,header).then(res=>res.data)
+    }
+
 }
 export default classes

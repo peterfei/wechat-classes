@@ -64,6 +64,7 @@ Page({
         })
     },
 
+
   getUserInfo: function(e) {
     console.log(e);
     app.globalData.userInfo = e.detail.userInfo;
@@ -115,6 +116,7 @@ Page({
   },
 
     showClsItems:function(e){
-        wx.navigateTo({url:"../classes-details/classes-details"})
+        console.log(`%c <==点击后的ID===>`,"color:blue",e)
+        wx.navigateTo({url:"../classes-details/classes-details?id="+e.currentTarget.id})
     }
 });
