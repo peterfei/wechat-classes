@@ -1,3 +1,22 @@
+## 1.0.0 (2020-04-08)
+
+* [Doc]项目中加入Changelog.md ([2d683c1](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/2d683c1))
+* [Feature]修改接口请求为form data 形式 ([1afcbb7](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/1afcbb7))
+* [Feature]初步完成考勤列表页面搭建 ([f6b939b](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/f6b939b))
+* [Feature]增加网络获取班级信息方法 ([1945b4f](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/1945b4f))
+* [Feature]子组件与父组件间的通信 ([193520c](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/193520c))
+* [Feature]完善模板渲染 ([9eb7b61](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/9eb7b61))
+* [Feature]完善考勤页面搭建,写入`position:fixed`按钮,并将容器高度设置为`calc(100vh - 40px)` ([8ba0d46](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/8ba0d46))
+* [Feature]添加图片静态路径 ([017d14d](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/017d14d))
+* [Feature]班级网络请求类 ([892e148](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/892e148))
+* [Feature]编写customer icon image 小组件 ([2230931](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/2230931))
+* [Feature]首页班级动态接口对接 ([3c06a91](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/3c06a91))
+* [Style]优化班级页面样式 ([d966913](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/d966913))
+* [Style]修复计算高度 ([332dfc4](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/332dfc4))
+* [Style]更新成绩模块样式 ([40d520d](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/40d520d))
+
+
+
 ## <small>0.0.1 (2020-04-03)</small>
 
 * [Add].gitignore ([86a69df](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/86a69df))
