@@ -1,5 +1,5 @@
 // compoments/item-lists/item-lists.js
-import {baseUrl} from '../../global'
+import {baseUrl, baseImageUrl} from '../../global';
 Component({
   /**
    * 组件的属性列表
@@ -12,11 +12,13 @@ Component({
       type: Object,
       value: null,
     },
-    isColumn: { // 列表横排或顺排
+    isColumn: {
+      // 列表横排或顺排
       type: Boolean,
       value: true,
     },
-    isDiyLabel: { //自定义Label, 如考勤
+    isDiyLabel: {
+      //自定义Label, 如考勤
       type: Boolean,
       value: false,
     },
@@ -28,7 +30,8 @@ Component({
   data: {
     isObjectNull: true,
     triggered: false,
-      baseUrl:""
+    baseUrl: '',
+    baseImageUrl: '',
   },
 
   /**
@@ -67,7 +70,8 @@ Component({
       );
       this.setData({
         isObjectNull: this.properties.itemObj == null,
-        baseUrl:baseUrl
+        baseUrl: baseUrl,
+        baseImageUrl: baseImageUrl,
       });
     },
   },
