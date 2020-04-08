@@ -1,3 +1,4 @@
+<wxs src="../../utils/filter.wxs" module="filters"/>
 <block wx:if="{{isObjectNull}}">
     <scroll-view class="items" scroll-y="true" enable-flex	="true" refresher-enabled="true" bindrefresherpulling="onPullDownRefresh" refresher-triggered="{{triggered}}"  >
         <view class="item" bindtap="onItemData" wx:for="{{itemResult}}" id="{{item.id}}" >
@@ -27,7 +28,7 @@
                     <view class="text-subtitle" wx:if="{{item.subtitle}}">
                         <view class="subtitle-text" >{{item.subtitle}}</view>
                     </view>
-                    <view class="created" wx:if="{{item.created}}">{{item.created}}</view>
+                    <view class="created" wx:if="{{item.create_time}}">{{filters.formatDate(item.create_time)}}</view>
                     <view class="text-other">
                         <view class="other-count">
                             {{item.desc}}

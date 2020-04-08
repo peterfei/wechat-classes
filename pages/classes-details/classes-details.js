@@ -286,10 +286,10 @@ Page({
     this.computeScrollViewHeight();
     let result = [],
       itemResults = [];
-    for (var i = 0, len = 10; i < len; i++) {
+    /*for (var i = 0, len = 10; i < len; i++) {
       result.push(this.data.item);
       itemResults.push(this.data.itemDiscuss);
-    }
+    }*/
     this.setData({itemResult: result, itemDiscussResult: itemResults});
 
     console.log(`====> id <====`, this.data.id);
@@ -297,6 +297,26 @@ Page({
      * 动态获取数据
      */
     this.getClassesIndex();
+
+    /**
+     * 获取班级列表
+     *
+     */
+    this.getClassesInfo();
+  },
+
+  getClassesInfo: async function() {
+    let _d = {id: +this.data.id};
+    /*_d = Object.keys(_d).map(key => key + '=' + _d[key]).join("")*/
+    const data = await app.initClassPromise.getClassesInfo(
+      token,
+      _d,
+      contentType,
+    );
+    console.log(`==得到的班级信息列表数据==`, JSON.stringify(data));
+    this.setData({
+      itemResult: data.result_data,
+    });
   },
 
   getClassesIndex: async function() {
@@ -308,9 +328,9 @@ Page({
       contentType,
     );
     console.log(`==得到的班级信息==`, JSON.stringify(data));
-      this.setData({
-          item: data.result_data
-      })
+    this.setData({
+      item: data.result_data,
+    });
   },
 
   /**
