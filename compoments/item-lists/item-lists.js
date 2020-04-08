@@ -22,6 +22,10 @@ Component({
       type: Boolean,
       value: false,
     },
+    showDefaultSubIcon: {
+      type: Boolean,
+      value: false,
+    },
   },
 
   /**

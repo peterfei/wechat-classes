@@ -6,8 +6,7 @@ var formatNumber = function(n) {
  * 将时间戳(1570550400)格式转为 yyyy-MM-dd格式
  */
 var formatDate = function(datetime) {
-	console.log('datetime', parseInt(datetime))
-  var date = getDate(parseInt(datetime+"000")); //默认时间加三位
+  var date = getDate(+datetime);
 	console.log("date",date)
   var year = date.getFullYear();
   var month = date.getMonth() + 1;

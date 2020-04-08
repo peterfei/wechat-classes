@@ -8,7 +8,8 @@
     <view class="box" style='height: {{scrollHeight + "px"}}'>
       <item-lists
         itemResult="{{itemResult}}"
-        bind:myachieve="onMyInteraction"
+		bind:myachieve="onMyInteraction"
+		showDefaultSubIcon="{{true}}"
       />
     </view>
   </view>

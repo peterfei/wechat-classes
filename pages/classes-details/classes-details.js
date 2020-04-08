@@ -283,14 +283,18 @@ Page({
     }
   },
   onReady: function() {
+    wx.showLoading({
+      title: '数据加载中',
+    });
+
     this.computeScrollViewHeight();
     let result = [],
       itemResults = [];
-    /*for (var i = 0, len = 10; i < len; i++) {
-      result.push(this.data.item);
-      itemResults.push(this.data.itemDiscuss);
-    }*/
-    this.setData({itemResult: result, itemDiscussResult: itemResults});
+	for (var i = 0, len = 10; i < len; i++) {
+	  /*result.push(this.data.item);*/
+	  itemResults.push(this.data.itemDiscuss);
+	}
+    this.setData({ itemDiscussResult: itemResults});
 
     console.log(`====> id <====`, this.data.id);
     /*
@@ -314,6 +318,9 @@ Page({
       contentType,
     );
     console.log(`==得到的班级信息列表数据==`, JSON.stringify(data));
+    setTimeout(() => {
+      wx.hideLoading();
+    }, 1000);
     this.setData({
       itemResult: data.result_data,
     });

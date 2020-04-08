@@ -1,0 +1,4 @@
+<!--compoments/sub-icons/sub-icons.wxml-->
+<view class="item-border" style="background-image: linear-gradient(to right, white, 5%, {{icon.color}});">
+	<iconfont icon="{{icon.icon}}" extClass="iconfont" ></iconfont>
+</view>

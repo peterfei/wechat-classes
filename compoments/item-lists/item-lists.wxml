@@ -4,7 +4,10 @@
         <view class="item" bindtap="onItemData" wx:for="{{itemResult}}" id="{{item.id}}" >
             <view class="item-image" wx:if="{{item.avatar}}">
                 <image class="img" mode="scaleToFill" src="{{baseImageUrl+itemObj.avatar}}"></image>
-            </view>
+			</view>
+            <view class="item-icon" wx:if="{{showDefaultSubIcon}}">
+				<sub-icons iconType="{{item.class_type}}" />
+			</view>
             <view class="item-text-row" wx:if="{{!isColumn}}"> <!--当为false值时,列表显示为row-->
               <view class="text-title">{{item.name}}</view>
               <view class="item-status">{{item.status}}</view>
@@ -28,7 +31,7 @@
                     <view class="text-subtitle" wx:if="{{item.subtitle}}">
                         <view class="subtitle-text" >{{item.subtitle}}</view>
                     </view>
-                    <view class="created" wx:if="{{item.create_time}}">{{filters.formatDate(item.create_time)}}</view>
+					<view class="created" wx:if="{{item.create_time}}">{{filters.formatDate(item.create_time+"000")}}</view> <!-- 默认时间加三位 -->
                     <view class="text-other">
                         <view class="other-count">
                             {{item.desc}}

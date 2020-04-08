@@ -19,6 +19,11 @@
   flex-direction: column;
   align-items: center;
 }
+.item .item-icon {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
 .img {
   width: 55px;
   height: 55px;
