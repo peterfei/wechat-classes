@@ -284,10 +284,6 @@ Page({
     }
   },
   onReady: function() {
-    wx.showLoading({
-      title: '数据加载中',
-    });
-
     this.computeScrollViewHeight();
     let result = [],
       itemResults = [];
@@ -314,9 +310,7 @@ Page({
       contentType,
     );
     console.log(`==得到的班级信息列表数据==`, JSON.stringify(data));
-    setTimeout(() => {
-      wx.hideLoading();
-    }, 1000);
+
     this.setData({
       itemResult: data.result_data,
     });

@@ -49,6 +49,10 @@ class request {
    * 网络请求
    */
   requestAll(url, data, header, method) {
+	wx.showToast({
+	  icon: 'loading',
+	  duration: 10000
+	})
     return new Promise((resolve, reject) => {
       wx.request({
         url: url,
@@ -58,6 +62,7 @@ class request {
         success: res => {
           if (res.statusCode === 200) {
             //200: 服务端业务处理正常结束
+			wx.hideToast()
             resolve(res);
           } else {
             //其它错误，提示用户错误信息
@@ -65,6 +70,7 @@ class request {
               //如果有统一的异常处理，就先调用统一异常处理函数对异常进行处理
               this._errorHandler(res);
             }
+			wx.hideToast()
             reject(res);
           }
         },
@@ -72,6 +78,7 @@ class request {
           if (this._errorHandler != null) {
             this._errorHandler(res);
           }
+		  wx.hideToast()
           reject(res);
         },
       });
