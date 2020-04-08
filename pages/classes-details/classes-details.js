@@ -295,7 +295,10 @@ Page({
 
     console.log(`====> id <====`, this.data.id);
     /*
-     * 动态获取数据
+     * 动态调用函数
+	 * e.g.
+	 * this.getClassesInfo()
+	 * this.getClassesIndex()
      */
     this.data.interfaceData.forEach(func => {
       this[`getClasses${func}`]();

@@ -50,6 +50,8 @@ class request {
    */
   requestAll(url, data, header, method) {
 	wx.showToast({
+	  title:"加载中",
+	  mask:true,
 	  icon: 'loading',
 	  duration: 10000
 	})
@@ -70,7 +72,7 @@ class request {
               //如果有统一的异常处理，就先调用统一异常处理函数对异常进行处理
               this._errorHandler(res);
             }
-			wx.hideToast()
+			/*wx.hideToast()*/
             reject(res);
           }
         },
@@ -78,7 +80,7 @@ class request {
           if (this._errorHandler != null) {
             this._errorHandler(res);
           }
-		  wx.hideToast()
+		  /*wx.hideToast()*/
           reject(res);
         },
       });

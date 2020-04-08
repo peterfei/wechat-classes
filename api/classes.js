@@ -16,6 +16,12 @@ class classes {
   }
 
   errorHandler(res) {
+    wx.showToast({
+      title: '网络加载出错',
+      icon: 'fail',
+      mask: true,
+      duration: 2000,
+    });
     console.log(`%c======>%s`, 'color:red', res);
   }
 
