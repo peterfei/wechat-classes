@@ -4,6 +4,7 @@ import {token, contentType} from '../../global';
 const app = getApp();
 Page({
   data: {
+    interfaceData: ['Index', 'Info'],
     navData: [
       {
         text: '课程',
@@ -133,11 +134,11 @@ Page({
     triggered: false,
     disTriggered: true,
     item: {
-      id: 888,
+      id: 0,
       avatar: '../../images/index/default.png',
-      name: 'C语言教学1班',
-      subtitle: '2020-04-01 17:37',
-      desc: '我上传的文档',
+      name: '',
+      subtitle: '',
+      desc: '',
     },
     categoryItemLists: [
       {
@@ -290,28 +291,23 @@ Page({
     this.computeScrollViewHeight();
     let result = [],
       itemResults = [];
-	for (var i = 0, len = 10; i < len; i++) {
-	  /*result.push(this.data.item);*/
-	  itemResults.push(this.data.itemDiscuss);
-	}
-    this.setData({ itemDiscussResult: itemResults});
+    for (var i = 0, len = 10; i < len; i++) {
+      /*result.push(this.data.item);*/
+      itemResults.push(this.data.itemDiscuss);
+    }
+    this.setData({itemDiscussResult: itemResults});
 
     console.log(`====> id <====`, this.data.id);
     /*
      * 动态获取数据
      */
-    this.getClassesIndex();
-
-    /**
-     * 获取班级列表
-     *
-     */
-    this.getClassesInfo();
+    this.data.interfaceData.forEach(func => {
+      this[`getClasses${func}`]();
+    });
   },
 
   getClassesInfo: async function() {
     let _d = {id: +this.data.id};
-    /*_d = Object.keys(_d).map(key => key + '=' + _d[key]).join("")*/
     const data = await app.initClassPromise.getClassesInfo(
       token,
       _d,
@@ -328,7 +324,6 @@ Page({
 
   getClassesIndex: async function() {
     let _d = {id: +this.data.id};
-    /*_d = Object.keys(_d).map(key => key + '=' + _d[key]).join("")*/
     const data = await app.initClassPromise.getClassesDetail(
       token,
       _d,
