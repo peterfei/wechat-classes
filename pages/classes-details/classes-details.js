@@ -261,9 +261,10 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function() {
+    this.loadData();
     setTimeout(() => {
       wx.stopPullDownRefresh();
-    }, 3000);
+    }, 100);
   },
   tabChange(e) {
     for (let l of this.data.list) {
@@ -294,6 +295,9 @@ Page({
     this.setData({itemDiscussResult: itemResults});
 
     console.log(`====> id <====`, this.data.id);
+    this.loadData();
+  },
+  loadData() {
     /*
      * 动态调用函数
      * e.g.
@@ -304,7 +308,6 @@ Page({
       this[`getClasses${func}`]();
     });
   },
-
   getClassesInfo: async function() {
     let _d = {id: +this.data.id};
     const data = await app.initClassPromise.getClassesInfo(
@@ -388,8 +391,13 @@ Page({
     console.groupEnd();
     if (e.detail.item.class_type) {
       let showPage = `show-${e.detail.item.class_type}`;
-		let classTypeToSubS = e.detail.item.class_type.substring(0,e.detail.item.class_type.length-1) //去除末尾s
-      wx.navigateTo({url: `../${showPage}/${showPage}?id=${this.data.id}&${classTypeToSubS}_id=${e.detail.item.id}`});
+      let classTypeToSubS = e.detail.item.class_type.substring(
+        0,
+        e.detail.item.class_type.length - 1,
+      ); //去除末尾s
+      wx.navigateTo({
+        url: `../${showPage}/${showPage}?id=${this.data.id}&${classTypeToSubS}_id=${e.detail.item.id}`,
+      });
     }
   },
 });
