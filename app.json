@@ -2,15 +2,15 @@
   "pages": [
     "pages/index/index",
     "pages/classes-details/classes-details",
-    "pages/logs/logs"
-      ],
+    "pages/logs/logs",
+    "pages/show-articles/show-articles"
+  ],
   "window": {
-    "backgroundTextStyle": "light",
+    "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black",
-    "enablePullDownRefresh": true,
-    "backgroundTextStyle": "dark"
+    "enablePullDownRefresh": true
   },
   "tabBar": {
     "color": "#9E9E9E",

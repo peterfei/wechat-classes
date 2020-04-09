@@ -390,6 +390,8 @@ Page({
       JSON.stringify(e.detail.item),
     );
     console.groupEnd();
-
+	 if (e.detail.item.class_type=="articles") {
+		 wx.navigateTo({url:"../show-articles/show-articles"})
+	 }
   },
 });
