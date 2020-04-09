@@ -386,13 +386,7 @@ Page({
     console.group(`当前打印的值:`);
     console.log(`%c%s`, 'color:blue', JSON.stringify(e.detail.item));
     console.groupEnd();
-    if (e.detail.item.class_type == 'articles') {
-      wx.navigateTo({url: '../show-articles/show-articles'});
-    } else if (e.detail.item.class_type == 'videos') {
-      wx.navigateTo({url: '../show-videos/show-videos'});
-    } else if (e.detail.item.class_type == 'surveys') {
-      wx.navigateTo({url: '../show-surveys/show-surveys'});
-    } else {
-    }
+    let showPage = `show-${e.detail.item.class_type}`;
+    wx.navigateTo({url: `../${showPage}/${showPage}`});
   },
 });
