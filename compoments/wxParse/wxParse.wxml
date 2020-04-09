@@ -38,15 +38,15 @@
     <!-- img类型 -->
     <block wx:elif="{{item.tag == 'img'}}">
       <!-- bindtap="wxParseImgTap" -->
-      <image 
-        class="{{item.classStr}} wxParse-{{item.tag}}" 
-        data-from="{{item.from}}" 
-        data-src="{{item.attr.src}}" 
-        data-idx="{{item.imgIndex}}" 
-        src="{{item.attr.src}}" 
-        mode="aspectFit" 
-        bindload="wxParseImgLoad"  
-        mode="widthFix" 
+      <image
+        class="{{item.classStr}} wxParse-{{item.tag}}"
+        data-from="{{item.from}}"
+        data-src="{{item.attr.src}}"
+        data-idx="{{item.imgIndex}}"
+        src="{{item.attr.src}}"
+        mode="aspectFit"
+        bindload="wxParseImgLoad"
+        mode="widthFix"
         style="width:{{width}}px;"
       />
     </block>
@@ -64,7 +64,10 @@
     <block wx:elif="{{item.tag == 'br'}}">
       <text>\n</text>
     </block>
-
+	<!-- op类型 -->
+    <block wx:elif="{{item.tag == 'o:p'}}">
+      <text>\n</text>
+    </block>
     <!-- 其它块级标签 -->
     <block wx:elif="{{item.tagType == 'block'}}">
       <view class="{{item.classStr}} wxParse-{{item.tag}}" style="{{item.styleStr}}">
@@ -86,7 +89,7 @@
   <block wx:elif="{{item.node == 'text'}}">
     <view class="WxEmojiView wxParse-inline" style="{{item.styleStr}}">
       <block wx:for="{{item.textArray}}" wx:key="arrIndex" wx:key="arrindex" wx:for-item="textItem">
-        <block class="{{textItem.text == '\\n' ? 'wxParse-hide':''}}" wx:if="{{textItem.node == 'text'}}">{{textItem.text}}</block>
+		  <block class="{{textItem.text == '\\n' ? 'wxParse-hide':''}}" wx:if="{{textItem.node == 'text'&& textItem.text!='<o:p>'}}">{{textItem.text}}</block>
         <block wx:elif="{{textItem.node == 'element'}}">
           <image class="wxEmoji" src="{{textItem.baseSrc}}{{textItem.text}}" />
         </block>

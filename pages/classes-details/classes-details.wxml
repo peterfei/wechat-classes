@@ -10,7 +10,7 @@
         itemResult="{{itemResult}}"
 		bind:myachieve="onMyInteraction"
 		showDefaultSubIcon="{{true}}"
-		/> <!--TODO: 这里,点击列表后根据不同的资源类型回传,展开不同业务类型页面,如考试,测验等-->
+		/> <!-- 这里,点击列表后根据不同的资源类型回传,展开不同业务类型页面,如考试,测验等-->
     </view>
   </view>
   <achievement
