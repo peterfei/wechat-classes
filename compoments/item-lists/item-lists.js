@@ -56,7 +56,7 @@ Component({
 
     onItemData: function(e) {
       console.log(`<======item-lists showClsItems==========>`, e);
-      this.triggerEvent('myachieve', {id: e.currentTarget.id}, {});
+		this.triggerEvent('myachieve', {id: e.currentTarget.id,item:e.currentTarget.dataset.item}, {});
     },
   },
 

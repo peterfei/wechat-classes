@@ -296,9 +296,9 @@ Page({
     console.log(`====> id <====`, this.data.id);
     /*
      * 动态调用函数
-	 * e.g.
-	 * this.getClassesInfo()
-	 * this.getClassesIndex()
+     * e.g.
+     * this.getClassesInfo()
+     * this.getClassesIndex()
      */
     this.data.interfaceData.forEach(func => {
       this[`getClasses${func}`]();
@@ -378,29 +378,18 @@ Page({
 
   onMyClsAchieve: function(e) {
     console.log(`<====on ClassDetail Achievenment's onMyAchieve=====>`, e);
-
-    console.log(
-      '%c┍--------------------------------------------------------------┑',
-      `color:red`,
-    );
     console.log(`==>当前点击ID <==`, e.detail.id);
-
-    console.log(
-      '%c┕--------------------------------------------------------------┙',
-      `color:red`,
-    );
   },
 
   onMyInteraction: function(e) {
-    console.log(
-      '%c┍--------------------------------------------------------------┑',
-      `color:red`,
-    );
     console.log(`==>当前点击ID <==`, e.detail.id);
-
+    console.group(`当前打印的值:`);
     console.log(
-      '%c┕--------------------------------------------------------------┙',
-      `color:red`,
+      `%c%s`,
+      'color:blue',
+      JSON.stringify(e.detail.item),
     );
+    console.groupEnd();
+
   },
 });
