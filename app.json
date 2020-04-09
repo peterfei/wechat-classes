@@ -5,7 +5,8 @@
     "pages/logs/logs",
     "pages/show-articles/show-articles",
     "pages/show-surveys/show-surveys",
-    "pages/show-videos/show-videos"
+    "pages/show-videos/show-videos",
+    "pages/show-tasks/show-tasks"
   ],
   "window": {
     "backgroundTextStyle": "dark",
