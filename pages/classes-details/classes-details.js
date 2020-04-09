@@ -388,7 +388,8 @@ Page({
     console.groupEnd();
     if (e.detail.item.class_type) {
       let showPage = `show-${e.detail.item.class_type}`;
-      wx.navigateTo({url: `../${showPage}/${showPage}`});
+		let classTypeToSubS = e.detail.item.class_type.substring(0,e.detail.item.class_type.length-1) //去除末尾s
+      wx.navigateTo({url: `../${showPage}/${showPage}?id=${this.data.id}&${classTypeToSubS}_id=${e.detail.item.id}`});
     }
   },
 });

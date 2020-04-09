@@ -1,2 +1,4 @@
 <!--pages/show-articles/show-articles.wxml-->
-<text>pages/show-articles/show-articles.wxml</text>
+<view class="page">
+	<wxParse nodes="{{html_data}}" />
+</view>

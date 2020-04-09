@@ -73,13 +73,14 @@ class classes {
    * @param [] token
    * @param [] header
    */
-  showClassesArticleInfo(token, header) {
+  showClassesArticleInfo(token,obj, header) {
     return this._request
       .postRequest(
         this._baseUrl + '/ClassesArticle/info?token=' + token,
+		  obj,
         header,
       )
-      .then(res => res.result_data);
+      .then(res => res.data);
   }
 }
 export default classes;
