@@ -1,4 +1,7 @@
-// pages/show-articles/show-articles.js
+
+import {token, contentType} from '../../global';
+import regeneratorRuntime from '../../regenerator-runtime/runtime';
+const app = getApp();
 Page({
 
   /**
@@ -11,7 +14,9 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: async function (options) {
+	const article_info = await app.initClassPromise.showClassesArticleInfo(token,contentType)
+	    console.log(`%c%s`,"color:red", JSON.stringify(article_info) )
 
   },
 

@@ -58,6 +58,18 @@ Page({
     getClassesLists: async function(){
         app.initClassPromise.getClassesLists({token:token}).then(res=>{
             console.log(`%c ===>%s`,"color:grey",JSON.stringify(res))
+			if(res.error_code===20000){
+				wx.showToast({
+					title: '会话已过期,请重新登陆',
+					icon: 'none',
+					duration: 5000
+				})
+				/**
+				 * TODO 这里需要重新登陆
+				 * NeedTo redirect to Login Page
+				 *
+				 */
+			}
             this.setData({
                 clsResults:res.result_data
             })

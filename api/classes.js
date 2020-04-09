@@ -67,5 +67,19 @@ class classes {
       )
       .then(res => res.data);
   }
+
+  /**
+   * @fn showClassesArticleInfo
+   * @param [] token
+   * @param [] header
+   */
+  showClassesArticleInfo(token, header) {
+    return this._request
+      .postRequest(
+        this._baseUrl + '/ClassesArticle/info?token=' + token,
+        header,
+      )
+      .then(res => res.result_data);
+  }
 }
 export default classes;
