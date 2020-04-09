@@ -20,6 +20,9 @@ Page({
       contentType,
     );
     console.log(`%c%s`, 'color:red', JSON.stringify(article_info));
+	wx.setNavigationBarTitle({
+		title: article_info.result_data.name
+	})
     this.setData({
       html_data: article_info.result_data.content,
     });
