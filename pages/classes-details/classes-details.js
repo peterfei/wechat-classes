@@ -386,7 +386,9 @@ Page({
     console.group(`当前打印的值:`);
     console.log(`%c%s`, 'color:blue', JSON.stringify(e.detail.item));
     console.groupEnd();
-    let showPage = `show-${e.detail.item.class_type}`;
-    wx.navigateTo({url: `../${showPage}/${showPage}`});
+    if (e.detail.item.class_type) {
+      let showPage = `show-${e.detail.item.class_type}`;
+      wx.navigateTo({url: `../${showPage}/${showPage}`});
+    }
   },
 });
