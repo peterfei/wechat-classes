@@ -1,4 +1,4 @@
-import HtmlToJson from '../utils/html2json';
+import HtmlToJson from '../../utils/html2json';
 
 // 获取屏幕的宽高
 let realWindowWidth = 0;
@@ -58,14 +58,14 @@ Component({
 
     /**
      * 图片视觉宽高计算函数区
-     * @param {*} e 
+     * @param {*} e
      */
     wxParseImgLoad(e) {
       // 获取当前的image node节点
       const { from: tagFrom } = e.target.dataset || {}
       if (typeof tagFrom !== 'undefined' && tagFrom.length > 0) {
         const { width, height } = e.detail
-        
+
         //因为无法获取view宽度 需要自定义padding进行计算，稍后处理
         const recal = this._wxAutoImageCal(width, height)
         this.setData({ width: recal.imageWidth })
@@ -74,8 +74,8 @@ Component({
 
     /**
      * 计算视觉优先的图片宽高
-     * @param {*} originalWidth 
-     * @param {*} originalHeight 
+     * @param {*} originalWidth
+     * @param {*} originalHeight
      */
     _wxAutoImageCal(originalWidth, originalHeight) {
       let windowWidth = 0, windowHeight = 0;
@@ -99,7 +99,7 @@ Component({
 
     /**
      * 增加a标签跳转
-     * @param {*} e 
+     * @param {*} e
      */
     wxParseTagATap(e) {
       const { src } = e.currentTarget.dataset
