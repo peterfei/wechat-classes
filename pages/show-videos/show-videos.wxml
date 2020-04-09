@@ -1,2 +1,9 @@
 <!--pages/show-videos/show-videos.wxml-->
-<text>pages/show-videos/show-videos.wxml</text>
+<view class="page container">
+    <view class="page-videos">
+        这是视频区
+    </view>
+    <view class="page-content">
+        <tab-bar-lists navData="{{navData}}" class="tabbar" containerHeight="{{tabsHeight}}"/>
+    </view>
+</view>

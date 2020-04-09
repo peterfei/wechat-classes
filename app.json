@@ -2,10 +2,10 @@
   "pages": [
     "pages/index/index",
     "pages/classes-details/classes-details",
+    "pages/show-videos/show-videos",
     "pages/logs/logs",
     "pages/show-articles/show-articles",
     "pages/show-surveys/show-surveys",
-    "pages/show-videos/show-videos",
     "pages/show-tasks/show-tasks"
   ],
   "window": {

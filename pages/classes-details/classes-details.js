@@ -365,7 +365,7 @@ Page({
         '%c┕--------------------------------------------------------------┙',
         `color:red`,
       );
-      this.setData({scrollHeight: scrollHeight, tabbarHeight: tabbarHeight});
+        this.setData({scrollHeight: scrollHeight, tabbarHeight: tabbarHeight,windowHeight:windowHeight});
     });
   },
 

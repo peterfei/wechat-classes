@@ -17,7 +17,7 @@ page{
     font-size: 16px;
     white-space: nowrap;
     position: fixed;
-    top: 0;
+    /*top: 0;*/
     left: 0;
     z-index: 99;
 }
@@ -32,7 +32,7 @@ page{
 .tab-box{
     /*background: greenyellow;*/
     padding-top: 80rpx;
-    height: 100vh;
+    /*height: 100vh;*/
     box-sizing: border-box;
 }
 .tab-content{

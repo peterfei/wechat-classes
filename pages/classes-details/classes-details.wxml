@@ -15,6 +15,7 @@
   <achievement
     wx:if="{{showAchievement}}"
     navData="{{navData}}"
+    containerHeight="{{windowHeight}}"
     bind:myclsachieve="onMyClsAchieve"
   />
   <block wx:if="{{showDiscuss}}">

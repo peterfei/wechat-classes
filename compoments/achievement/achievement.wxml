@@ -1,5 +1,5 @@
 <!--compoments/achievement.wxml-->
-<view class="container">
+<view class="container" style="height:{{containerHeight}}px;">
     <!-- tab导航栏 -->
     <!-- scroll-left属性可以控制滚动条位置 -->
     <!-- scroll-with-animation滚动添加动画过渡 -->
@@ -9,7 +9,7 @@
         </block>
     </scroll-view>
     <!-- 页面内容 -->
-    <swiper class="tab-box" current="{{currentTab}}" duration="300" bindchange="switchTab">
+    <swiper class="tab-box" current="{{currentTab}}" duration="300" bindchange="switchTab" style="height:{{tabBoxHeight}}px;" >
 
             <swiper-item wx:for="{{navData}}" wx:for-item="tabItem" wx:for-index="idx" wx:key="idx" class="tab-content">
                 <item-lists  itemResult="{{tabItem.children}}" isColumn="{{false}}"  bind:myachieve="onMyAchieve" />
