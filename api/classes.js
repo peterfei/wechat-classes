@@ -73,13 +73,25 @@ class classes {
    * @param [] token
    * @param [] header
    */
-  showClassesArticleInfo(token,obj, header) {
+  showClassesArticleInfo(token, obj, header) {
     return this._request
       .postRequest(
         this._baseUrl + '/ClassesArticle/info?token=' + token,
-		  obj,
+        obj,
         header,
       )
+      .then(res => res.data);
+  }
+
+  /**
+   * @fn showVideoInfo 视频基本信息
+   * @param [] token
+   * @param [] obj
+   * @param [] header
+   */
+  showVideoInfo(token, obj, header) {
+    return this._request
+      .postRequest(this._baseUrl + 'Video/info?token=' + token, obj, header)
       .then(res => res.data);
   }
 }

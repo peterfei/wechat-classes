@@ -1,9 +1,21 @@
 <!--pages/show-videos/show-videos.wxml-->
 <view class="page container">
     <view class="page-videos">
-        这是视频区
+        <view class="video-body" >
+            <video src="{{url}}" class="video" id="video"   controls style="height:{{videoBodyHeight}}px;"></video>
+        </view>
+
+        <view class="video-footer" style="top:{{videosHeight}}px;" wx:if="{{isShowVideoFooter}}">
+            <view class="footer-text  video-text-primary">
+                    {{videoInfo.name}}
+           </view>
+           <view class="footer-text" >
+               {{videoInfo.course_auther.name}}
+            </view>
+        </view>
     </view>
-    <view class="page-content">
-        <tab-bar-lists navData="{{navData}}" class="tabbar" containerHeight="{{tabsHeight}}"/>
+    <view class="page-content"  style="height:{{tabsHeight}}px;">
+
+        <tab-bar-lists navData="{{navData}}" containerHeight="{{tabbarContentHeight}}"  />
     </view>
 </view>
