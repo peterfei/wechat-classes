@@ -5,7 +5,7 @@
             <video src="{{url}}" class="video" id="video"   controls style="height:{{videoBodyHeight}}px;"></video>
         </view>
 
-        <view class="video-footer" style="top:{{videosHeight}}px;" wx:if="{{isShowVideoFooter}}">
+        <view class="video-footer" style="top:{{videosHeight}}px;" animation='{{menuAnim}}'>
             <view class="footer-text  video-text-primary">
                     {{videoInfo.name}}
            </view>

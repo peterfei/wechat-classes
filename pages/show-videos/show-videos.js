@@ -1,5 +1,7 @@
 import {contentType, token} from '../../global';
 import regeneratorRuntime from '../../regenerator-runtime/runtime.js';
+import '../../utils/lodash';
+let _ = require('lodash');
 const app = getApp();
 // pages/show-videos/show-videos.js
 Page({
@@ -69,17 +71,73 @@ Page({
       {video_id: video_id, classes_id: classes_id},
       contentType,
     );
+
+    const videoList = await app.initClassPromise.showVideoLists(
+      token,
+      {
+        video_id: video_id,
+        classes_id: classes_id,
+        page: 1,
+        page_size: 20,
+      },
+      contentType,
+    );
+    const videoInfoResult = videoInfo.result_data;
+    /*videoInfoResult['children'] = videoList.result_data;*/
     console.log(
       `%c===videoInfo Obj===%s`,
       'color:#888',
-      JSON.stringify(videoInfo),
+      JSON.stringify(videoInfoResult),
     );
+    /*const videoListResult = videoInfoResult.result_data*/
+    const videoListResult = videoList.result_data.sort(
+      //排序
+      this.arraySort('oper_type'),
+    );
+      /**
+       * 对接口数据的处理,要符合抽取后模块的适应度
+       * 2020-04-10 20:01
+       * By peterfeispace@gmail.com
+       *
+       */
+    const sortVideoList = _.groupBy(videoListResult, 'oper_type'); //对数组的分组
+    const newSortVideoList = this.renameKeys(sortVideoList, {
+      '0': 'A',
+      '1': 'B',
+    });
+    const newResult =   Object.keys(newSortVideoList).map(key =>{ //重新组装数据
+          let newObj = {}
+          newObj['text'] = key
+          newObj['children'] = newSortVideoList[key]
+          return newObj
+      })
+    console.log(
+      `%c ==> video List Result ==>`,
+      'color:blue',
+      JSON.stringify(newResult), //最终组装好的数据
+    );
+
+
     this.setData({
       url: videoInfo.result_data.url,
-        videoInfo:videoInfo.result_data
+      videoInfo: videoInfoResult,
+        navData:newResult,
     });
   },
-
+  renameKeys(obj, newKeys) {
+    const mapped = Object.keys(obj).map(key => {
+      const newKey = newKeys[key] || key;
+      return {[newKey]: obj[key]};
+    });
+    return Object.assign({}, ...mapped);
+  },
+  arraySort(field) {
+    return (a, b) => {
+      let val1 = a[field];
+      let val2 = b[field];
+      return val1 - val2;
+    };
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -154,26 +212,26 @@ Page({
         JSON.stringify(event),
       );
       let anim = wx.createAnimation({
-          timingFunction: 'ease-in-out',
-          duration: 200,
-          delay: 0
-        })
-      anim.translateX(-this.data.tabsHeight).step();
+        timingFunction: 'ease-in-out',
+        duration: 200,
+        delay: 0,
+      });
+      let windowHeight = wx.getSystemInfoSync().windowHeight;
+      anim.translateX(-windowHeight).step();
       this.setData({
         isShowVideoFooter: false,
 
         videoBodyHeight: this.data.videoBodyHeight + event.scrollTop,
         tabbarContentHeight: this.data.tabsHeight,
-        menuAnim: anim.export()
+        menuAnim: anim.export(),
       });
     } else if (event.scrollTop == 0) {
-
       let anim = wx.createAnimation({
-          timingFunction: 'ease-in-out',
-          duration: 200,
-          delay: 0
-        })
-        anim.translateX(0).step();
+        timingFunction: 'ease-in-out',
+        duration: 200,
+        delay: 0,
+      });
+      anim.translateX(0).step();
       this.setData({
         menuAnim: anim.export(),
         isShowVideoFooter: true,
