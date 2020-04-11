@@ -10,52 +10,6 @@ Page({
    */
   data: {
     isShowVideoFooter: true,
-    navData: [
-      {
-        text: '章节',
-        children: [
-          {
-            name: '111',
-          },
-          {
-            name: '111',
-          },
-          {
-            name: '111',
-          },
-          {
-            name: '111',
-          },
-          {
-            name: '111',
-          },
-          {
-            name: '111',
-          },
-          {
-            name: '111',
-          },
-          {
-            name: '111',
-          },
-          {
-            name: '111',
-          },
-          {
-            name: '111',
-          },
-          {
-            name: '111',
-          },
-        ],
-      },
-      {
-        text: '笔记',
-      },
-      {
-        text: '评价',
-      },
-    ],
     tabsHeight: 0,
   },
 
@@ -102,8 +56,8 @@ Page({
        */
     const sortVideoList = _.groupBy(videoListResult, 'oper_type'); //对数组的分组
     const newSortVideoList = this.renameKeys(sortVideoList, {
-      '0': 'A',
-      '1': 'B',
+      '0': '章节',
+      '1': '笔记',
     });
     const newResult =   Object.keys(newSortVideoList).map(key =>{ //重新组装数据
           let newObj = {}
@@ -217,7 +171,7 @@ Page({
         delay: 0,
       });
       let windowHeight = wx.getSystemInfoSync().windowHeight;
-      anim.translateX(-windowHeight).step();
+      anim.translateX(windowHeight).step();
       this.setData({
         isShowVideoFooter: false,
 
