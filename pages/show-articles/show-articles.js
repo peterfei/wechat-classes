@@ -13,16 +13,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: async function(options) {
-    console.log(`%c%s`, 'color:#9e9', JSON.stringify(options));
+    let {id, article_id} = options;
     const article_info = await app.initClassPromise.showClassesArticleInfo(
       token,
-      {id: options.id, article_id: options.article_id},
+      {id: id, article_id: article_id},
       contentType,
     );
-    console.log(`%c%s`, 'color:red', JSON.stringify(article_info));
-	wx.setNavigationBarTitle({
-		title: article_info.result_data.name
-	})
+    wx.setNavigationBarTitle({
+      title: article_info.result_data.name,
+    });
     this.setData({
       html_data: article_info.result_data.content,
     });

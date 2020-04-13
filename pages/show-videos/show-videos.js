@@ -24,8 +24,8 @@ Page({
    */
   onLoad: async function(options) {
     this.computeTabsHeight();
-    let video_id = options.video_id;
     let classes_id = options.id;
+      let {video_id} = options
     this.setData({
       video_id: video_id,
       classes_id: classes_id,
