@@ -1,6 +1,7 @@
 import {contentType, token} from '../../global';
 import regeneratorRuntime from '../../regenerator-runtime/runtime.js';
 import '../../utils/lodash';
+import {arraySort, renameKeys} from '../../utils/util';
 let _ = require('lodash');
 const app = getApp();
 // pages/show-videos/show-videos.js
@@ -46,52 +47,39 @@ Page({
     /*const videoListResult = videoInfoResult.result_data*/
     const videoListResult = videoList.result_data.sort(
       //排序
-      this.arraySort('oper_type'),
+      arraySort('oper_type'),
     );
-      /**
-       * 对接口数据的处理,要符合抽取后模块的适应度
-       * 2020-04-10 20:01
-       * By peterfeispace@gmail.com
-       *
-       */
+    /**
+     * 对接口数据的处理,要符合抽取后模块的适应度
+     * 2020-04-10 20:01
+     * By peterfeispace@gmail.com
+     *
+     */
     const sortVideoList = _.groupBy(videoListResult, 'oper_type'); //对数组的分组
-    const newSortVideoList = this.renameKeys(sortVideoList, {
+    const newSortVideoList = renameKeys(sortVideoList, {
       '0': '章节',
       '1': '笔记',
     });
-    const newResult =   Object.keys(newSortVideoList).map(key =>{ //重新组装数据
-          let newObj = {}
-          newObj['text'] = key
-          newObj['children'] = newSortVideoList[key]
-          return newObj
-      })
+    const newResult = Object.keys(newSortVideoList).map(key => {
+      //重新组装数据
+      let newObj = {};
+      newObj['text'] = key;
+      newObj['children'] = newSortVideoList[key];
+      return newObj;
+    });
     console.log(
       `%c ==> video List Result ==>`,
       'color:blue',
       JSON.stringify(newResult), //最终组装好的数据
     );
 
-
     this.setData({
       url: videoInfo.result_data.url,
       videoInfo: videoInfoResult,
-        navData:newResult,
+      navData: newResult,
     });
   },
-  renameKeys(obj, newKeys) {
-    const mapped = Object.keys(obj).map(key => {
-      const newKey = newKeys[key] || key;
-      return {[newKey]: obj[key]};
-    });
-    return Object.assign({}, ...mapped);
-  },
-  arraySort(field) {
-    return (a, b) => {
-      let val1 = a[field];
-      let val2 = b[field];
-      return val1 - val2;
-    };
-  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

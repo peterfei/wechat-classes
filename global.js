@@ -1,6 +1,6 @@
 const baseUrl = "https://v2.api.ibodao.com/"
 const wwwUrl = "http://www.ibodao.com/"
-const token = "9c2d28d6078035c6247997f14dc6a7cdab4059e9983c846c146dfabffdeccd4a" //模拟token
+const token = "afc9f100466829ebcd4a5def7762bbafdddfa505557ae39498e15afdeab97f83" //模拟token
 const contentType = {"Content-Type":"application/x-www-form-urlencoded"}
 const baseImageUrl = "http://static.ibodao.com/"
 export {baseUrl,token,contentType,baseImageUrl,wwwUrl}
