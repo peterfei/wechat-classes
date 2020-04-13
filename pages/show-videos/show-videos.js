@@ -76,7 +76,7 @@ Page({
     let _pass_data = {
       video_id: this.data.video_id,
       page: 1,
-      page_size: 20,
+      page_size: 20, //TODO 这里有分页数据, 需要完成上拉加载
     };
     if (_opt_key == 'Video') {
       _pass_data['classes_id'] = this.data.classes_id;

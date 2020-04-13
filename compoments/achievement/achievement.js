@@ -19,6 +19,7 @@ Component({
     currentTab: 0,
     navScrollLeft: 0,
     tabBoxHeight: 0,
+    showNoResult:false,
   },
 
   /**
@@ -97,7 +98,9 @@ Component({
     },
     attached: function() {
       // 在组件实例进入页面节点树时执行
-
+        setTimeout(function() {
+            this.setData({showNoResult:true})
+      }.bind(this), 1000);
       wx.getSystemInfo({
         success: res => {
           console.log(

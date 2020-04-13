@@ -1,4 +1,3 @@
-<!--compoments/achievement.wxml-->
 <view class="container" style="height:{{containerHeight}}px;">
     <!-- tab导航栏 -->
     <!-- scroll-left属性可以控制滚动条位置 -->
@@ -12,7 +11,13 @@
     <swiper class="tab-box" current="{{currentTab}}" duration="300" bindchange="switchTab" style="height:{{tabBoxHeight}}px;" id="{{currentTab}}" data-key="{{navItem}}">
 
             <swiper-item wx:for="{{navData}}" wx:for-item="tabItem" wx:for-index="idx" wx:key="idx" class="tab-content">
-                <item-lists  itemResult="{{tabItem.children}}" isColumn="{{false}}"  bind:myachieve="onMyAchieve" />
+                <item-lists  itemResult="{{tabItem.children}}" isColumn="{{false}}"  bind:myachieve="onMyAchieve" wx:if="{{tabItem.children.length>0}}" />
+                <block wx:if="{{showNoResult}}">
+                        <view class="no-result" wx:if="{{tabItem.children.length==0}}">
+                    <text>暂无数据</text>
+                </view>
+                </block>
+
                 </swiper-item>
 
     </swiper>
