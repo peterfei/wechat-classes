@@ -1,10 +1,12 @@
 import {capitalize} from '../../utils/util';
 import regeneratorRuntime from '../../regenerator-runtime/runtime.js';
 import {token, contentType} from '../../global';
+import '../../utils/lodash';
+let _ = require('lodash');
 const app = getApp();
 Page({
   data: {
-    interfaceData: ['Index', 'Info'],
+    interfaceData: ['Detail', 'Info'],
     navData: [
       {
         text: '课程',
@@ -298,6 +300,27 @@ Page({
     this.loadData();
   },
   loadData() {
+    const handler = {
+      apply: async function(target, ctx, args) {
+        let _that = args[1];
+        let _d = {id: +_that.data.id};
+        let data = await app.initClassPromise[`getClasses${args[0]}`](
+          token,
+          _d,
+          contentType,
+        );
+        if (data.result_data.length > 0) {
+          console.log(`==得到的班级信息列表数据==`, JSON.stringify(data));
+          _that.setData({
+            itemResult: data.result_data,
+          });
+        } else {
+          _that.setData({
+            item: data.result_data,
+          });
+        }
+      },
+    };
     /*
      * 动态调用函数
      * e.g.
@@ -305,33 +328,9 @@ Page({
      * this.getClassesIndex()
      */
     this.data.interfaceData.forEach(func => {
-      this[`getClasses${func}`]();
-    });
-  },
-  getClassesInfo: async function() {
-    let _d = {id: +this.data.id};
-    const data = await app.initClassPromise.getClassesInfo(
-      token,
-      _d,
-      contentType,
-    );
-    console.log(`==得到的班级信息列表数据==`, JSON.stringify(data));
-
-    this.setData({
-      itemResult: data.result_data,
-    });
-  },
-
-  getClassesIndex: async function() {
-    let _d = {id: +this.data.id};
-    const data = await app.initClassPromise.getClassesDetail(
-      token,
-      _d,
-      contentType,
-    );
-    console.log(`==得到的班级信息==`, JSON.stringify(data));
-    this.setData({
-      item: data.result_data,
+      //this[`getClasses${func}`]();
+      const _p = new Proxy(() => {}, handler);
+      _p(func, this);
     });
   },
 
@@ -365,7 +364,11 @@ Page({
         '%c┕--------------------------------------------------------------┙',
         `color:red`,
       );
-        this.setData({scrollHeight: scrollHeight, tabbarHeight: tabbarHeight,windowHeight:windowHeight});
+      this.setData({
+        scrollHeight: scrollHeight,
+        tabbarHeight: tabbarHeight,
+        windowHeight: windowHeight,
+      });
     });
   },
 
