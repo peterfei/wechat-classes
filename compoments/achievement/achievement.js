@@ -28,7 +28,7 @@ Component({
     switchNav(event) {
       var cur = event.currentTarget.dataset.current;
       let navItem = event.currentTarget.dataset.itemkey;
-     console.log("navItem is obj's val =>",JSON.stringify(navItem))
+      console.log("navItem is obj's val =>", JSON.stringify(navItem));
       //每个tab选项宽度占1/5
       var singleNavWidth = this.data.windowWidth / 5;
       //tab选项居中
@@ -73,7 +73,11 @@ Component({
     },
     switchTab(event) {
       console.log(`switchTab now -> `, JSON.stringify(event));
-        this.triggerEvent('onSwitchTab', {key:event.detail.current}, {});
+      this.triggerEvent(
+        'onSwitchTab',
+        {key: event.currentTarget.dataset.key},
+        {},
+      );
       var cur = event.detail.current;
       var singleNavWidth = this.data.windowWidth / 5;
       this.setData({

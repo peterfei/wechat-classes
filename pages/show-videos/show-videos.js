@@ -13,9 +13,9 @@ Page({
     isShowVideoFooter: true,
     tabsHeight: 0,
     navData: [
-      {text: '章节', key: '0', children: []},
-      {text: '笔记', key: '1', children: []},
-      {text: '评价', key: '2', children: []},
+      {text: '章节', key: 'Video', children: []},
+      {text: '笔记', key: 'Note', children: []},
+      {text: '评价', key: 'Comment', children: []},
     ],
   },
 
@@ -70,33 +70,46 @@ Page({
 
   onSwitchTab: async function(e) {
     console.log(`on Listen Switch tab `, JSON.stringify(e));
-    let _opt_key = +e.detail.key;
-    console.log(`opt_key is ${_opt_key}`);
-    let videoNoteList = {};
-    if (_opt_key == 1) {
-      //笔记
-      videoNoteList = await app.initClassPromise.showNoteLists(
-        token,
-        {
-          video_id: this.data.video_id,
-          page: 1,
-          page_size: 20,
-        },
-        contentType,
-      );
-      console.log(`showNoteLists is  ${JSON.stringify(videoNoteList)}`);
-      let _navData = this.data.navData;
-      let newResult = [];
-      videoNoteList.result_data.forEach((_result, i) => {
+    let _opt_key = e.detail.key;
+    console.log(`opt_key is ==> ${_opt_key}`);
+    let _lists = {};
+    let _pass_data = {
+      video_id: this.data.video_id,
+      page: 1,
+      page_size: 20,
+    };
+    if (_opt_key == 'Video') {
+      _pass_data['classes_id'] = this.data.classes_id;
+    }
+    /**
+     * Refactor 视频|评论|笔记列表
+     * e.g. showNoteLists |showVideoLists|showCommentsLists
+     * 2020-04-13 By peterfei
+     */
+
+    _lists = await app.initClassPromise[`show${_opt_key}Lists`](
+      token,
+      _pass_data,
+      contentType,
+    );
+    console.log(`showNoteLists is  ${JSON.stringify(_lists)}`);
+    let _navData = this.data.navData;
+    let newResult = [];
+    if (_lists.error_code != 20001) {
+      _lists.result_data.forEach((_result, i) => {
         let newData = renameKeys(_result, {info: 'name'});
         newResult.push(newData);
       });
+      let _inx = _navData.findIndex(x => x.key == _opt_key);
+      console.log('index 下标目前为:', _inx);
       console.log('更新键值后的新对象:', JSON.stringify(newResult));
-      _navData[_opt_key]['children'] = newResult;
+      _navData[_inx]['children'] = newResult;
       this.setData({
         navData: _navData,
       });
     }
+
+    /*}*/
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

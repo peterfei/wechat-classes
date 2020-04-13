@@ -118,5 +118,17 @@ class classes {
       .postRequest(this._baseUrl + 'Video/notes?token=' + token, obj, header)
       .then(res => res.data);
   }
+
+  /**
+   * @fn showCommentsList 视频>评论列表
+   * @param [] token
+   * @param [] obj
+   * @param [] header
+   */
+  showCommentLists(token, obj, header) {
+    return this._request
+      .postRequest(this._baseUrl + 'Video/comment?token=' + token, obj, header)
+      .then(res => res.data);
+  }
 }
 export default classes;
