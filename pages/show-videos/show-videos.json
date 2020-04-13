@@ -1,5 +1,6 @@
 {
-    "usingComponents": {
-        "tab-bar-lists":"../../compoments/achievement/achievement"
-    }
+  "usingComponents": {
+    "tab-bar-lists": "../../compoments/achievement/achievement"
+  },
+  "navigationBarTitleText": "查看视频"
 }

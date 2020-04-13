@@ -35,6 +35,23 @@ Page({
       {video_id: video_id, classes_id: classes_id},
       contentType,
     );
+    const handler = {
+      get: (target, key) => {
+        if (key in target && key == 'name') {
+          /*substr(0,text.length-lastLen-lastTwoLen-2)*/
+          if (target[key].length >= 10) {
+            return target[key].substr(0, 10) + '...';
+          } else {
+            return target[key];
+          }
+        }
+      },
+    };
+      const proxy = new Proxy(videoInfo.result_data, handler); //使用拦截器Proxy对属性title进行处理:2020-04-13 15:55,By peterfei,Proxy 具体使用见:(Link)[https://es6.ruanyifeng.com/#docs/proxy]
+
+    wx.setNavigationBarTitle({
+      title: proxy.name,
+    });
 
     const videoList = await app.initClassPromise.showVideoLists(
       token,
