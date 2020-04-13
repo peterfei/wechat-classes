@@ -7,9 +7,9 @@ Component({
     navData: {
       type: Array,
     },
-      containerHeight:{
-          type:Number,
-      }
+    containerHeight: {
+      type: Number,
+    },
   },
 
   /**
@@ -18,7 +18,7 @@ Component({
   data: {
     currentTab: 0,
     navScrollLeft: 0,
-    tabBoxHeight:0,
+    tabBoxHeight: 0,
   },
 
   /**
@@ -27,6 +27,8 @@ Component({
   methods: {
     switchNav(event) {
       var cur = event.currentTarget.dataset.current;
+      let navItem = event.currentTarget.dataset.itemkey;
+     console.log("navItem is obj's val =>",JSON.stringify(navItem))
       //每个tab选项宽度占1/5
       var singleNavWidth = this.data.windowWidth / 5;
       //tab选项居中
@@ -38,6 +40,7 @@ Component({
       } else {
         this.setData({
           currentTab: cur,
+          navItem: navItem,
         });
       }
     },
@@ -48,28 +51,29 @@ Component({
       query.select('.nav').boundingClientRect();
       query.exec(res => {
         let containerHeight = res[0].height;
-        if (containerHeight==0) {
-            containerHeight = this.properties.containerHeight
+        if (containerHeight == 0) {
+          containerHeight = this.properties.containerHeight;
         }
         let navHeight = res[1].height;
         let windowHeight = wx.getSystemInfoSync().windowHeight;
-        let tabBoxHeight =
-          containerHeight - navHeight;
+        let tabBoxHeight = containerHeight - navHeight;
 
         console.log(
           '%c┍--------------------------------------------------------------┑',
           `color:red`,
         );
-        console.log(`=====>动态计算ScrollHeight值为=====>`,tabBoxHeight);
+        console.log(`=====>动态计算ScrollHeight值为=====>`, tabBoxHeight);
 
         console.log(
           '%c┕--------------------------------------------------------------┙',
           `color:red`,
         );
-          this.setData({tabBoxHeight:tabBoxHeight});
+        this.setData({tabBoxHeight: tabBoxHeight});
       });
     },
     switchTab(event) {
+      console.log(`switchTab now -> `, JSON.stringify(event));
+        this.triggerEvent('onSwitchTab', {key:event.detail.current}, {});
       var cur = event.detail.current;
       var singleNavWidth = this.data.windowWidth / 5;
       this.setData({
@@ -84,10 +88,9 @@ Component({
   },
 
   lifetimes: {
-      ready: function() {
-
-          this.computeViewHeight()
-      },
+    ready: function() {
+      this.computeViewHeight();
+    },
     attached: function() {
       // 在组件实例进入页面节点树时执行
 

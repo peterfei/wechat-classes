@@ -16,6 +16,6 @@
     </view>
     <view class="page-content"  style="height:{{tabsHeight}}px;">
 
-        <tab-bar-lists navData="{{navData}}" containerHeight="{{tabbarContentHeight}}"  />
+        <tab-bar-lists navData="{{navData}}" containerHeight="{{tabbarContentHeight}}"  bind:onSwitchTab = "onSwitchTab" />
     </view>
 </view>

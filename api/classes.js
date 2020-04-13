@@ -106,5 +106,17 @@ class classes {
       .postRequest(this._baseUrl + 'Video/relevant?token=' + token, obj, header)
       .then(res => res.data);
   }
+
+  /**
+   * @fn showNoteLists 视频>笔记列表
+   * @param [] token
+   * @param [] obj
+   * @param [] header
+   */
+  showNoteLists(token, obj, header) {
+    return this._request
+      .postRequest(this._baseUrl + 'Video/notes?token=' + token, obj, header)
+      .then(res => res.data);
+  }
 }
 export default classes;

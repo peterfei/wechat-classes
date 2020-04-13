@@ -12,6 +12,11 @@ Page({
   data: {
     isShowVideoFooter: true,
     tabsHeight: 0,
+    navData: [
+      {text: '章节', key: '0', children: []},
+      {text: '笔记', key: '1', children: []},
+      {text: '评价', key: '2', children: []},
+    ],
   },
 
   /**
@@ -21,6 +26,10 @@ Page({
     this.computeTabsHeight();
     let video_id = options.video_id;
     let classes_id = options.id;
+    this.setData({
+      video_id: video_id,
+      classes_id: classes_id,
+    }); //video_id 和 classes_id 存放入data里,方便调用.2020-04-13 10:36 by peterfei
     const videoInfo = await app.initClassPromise.showVideoInfo(
       token,
       {video_id: video_id, classes_id: classes_id},
@@ -49,37 +58,46 @@ Page({
       //排序
       arraySort('oper_type'),
     );
-    /**
-     * 对接口数据的处理,要符合抽取后模块的适应度
-     * 2020-04-10 20:01
-     * By peterfeispace@gmail.com
-     *
-     */
-    const sortVideoList = _.groupBy(videoListResult, 'oper_type'); //对数组的分组
-    const newSortVideoList = renameKeys(sortVideoList, {
-      '0': '章节',
-      '1': '笔记',
-    });
-    const newResult = Object.keys(newSortVideoList).map(key => {
-      //重新组装数据
-      let newObj = {};
-      newObj['text'] = key;
-      newObj['children'] = newSortVideoList[key];
-      return newObj;
-    });
-    console.log(
-      `%c ==> video List Result ==>`,
-      'color:blue',
-      JSON.stringify(newResult), //最终组装好的数据
-    );
 
+    let _navData = this.data.navData;
+    _navData[0]['children'] = videoListResult;
     this.setData({
       url: videoInfo.result_data.url,
       videoInfo: videoInfoResult,
-      navData: newResult,
+      navData: _navData,
     });
   },
 
+  onSwitchTab: async function(e) {
+    console.log(`on Listen Switch tab `, JSON.stringify(e));
+    let _opt_key = +e.detail.key;
+    console.log(`opt_key is ${_opt_key}`);
+    let videoNoteList = {};
+    if (_opt_key == 1) {
+      //笔记
+      videoNoteList = await app.initClassPromise.showNoteLists(
+        token,
+        {
+          video_id: this.data.video_id,
+          page: 1,
+          page_size: 20,
+        },
+        contentType,
+      );
+      console.log(`showNoteLists is  ${JSON.stringify(videoNoteList)}`);
+      let _navData = this.data.navData;
+      let newResult = [];
+      videoNoteList.result_data.forEach((_result, i) => {
+        let newData = renameKeys(_result, {info: 'name'});
+        newResult.push(newData);
+      });
+      console.log('更新键值后的新对象:', JSON.stringify(newResult));
+      _navData[_opt_key]['children'] = newResult;
+      this.setData({
+        navData: _navData,
+      });
+    }
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
