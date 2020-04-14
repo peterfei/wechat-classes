@@ -45,10 +45,7 @@ const renameKeys = (obj, newKeys) => {
 const logMethodAsync = (groupLabel, method) => {
   setTimeout(function() {
     console.group('%c%s', 'color:blue',groupLabel);
-    console.log(
-      `%cLogging ${method} request asynchronously.`,
-      'color:green',
-    );
+    console.log(method)
     console.groupEnd();
   }, 0);
 };

@@ -1,6 +1,6 @@
 <wxs src="../../utils/filter.wxs" module="filters"/>
 <block wx:if="{{isObjectNull}}">
-	<scroll-view class="items" scroll-y="true" enable-flex	="true" refresher-enabled="{{false}}" bindrefresherpulling="onPullDownRefresh" refresher-triggered="{{triggered}}"  >
+	<scroll-view class="items" scroll-y="true" enable-flex	="true" refresher-enabled="{{false}}" bindrefresherpulling="onPullDownRefresh" refresher-triggered="{{triggered}}"  bindscrolltolower="loadMore"  >
 		<view class="item" bindtap="onItemData" wx:for="{{itemResult}}" id="{{item.id}}" data-item="{{item}}" >
             <view class="item-image" wx:if="{{item.avatar}}">
                 <image class="img" mode="scaleToFill" src="{{baseImageUrl+itemObj.avatar}}"></image>

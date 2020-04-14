@@ -1,5 +1,6 @@
 // compoments/item-lists/item-lists.js
 import {baseUrl, baseImageUrl} from '../../global';
+import {logMethodAsync} from '../../utils/util';
 Component({
   /**
    * 组件的属性列表
@@ -59,6 +60,14 @@ Component({
       this.triggerEvent(
         'myachieve',
         {id: e.currentTarget.id, item: e.currentTarget.dataset.item},
+        {},
+      );
+    },
+    loadMore: function(e) {
+      logMethodAsync('在组件里触发上拉', e);
+      this.triggerEvent(
+        'loadMoreData',
+        {},
         {},
       );
     },

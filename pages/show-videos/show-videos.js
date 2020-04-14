@@ -1,7 +1,7 @@
 import {contentType, token} from '../../global';
 import regeneratorRuntime from '../../regenerator-runtime/runtime.js';
 import '../../utils/lodash';
-import {arraySort, renameKeys} from '../../utils/util';
+import {arraySort, renameKeys, logMethodAsync} from '../../utils/util';
 let _ = require('lodash');
 const app = getApp();
 // pages/show-videos/show-videos.js
@@ -10,6 +10,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    currentPage: 1,
     isShowVideoFooter: true,
     tabsHeight: 0,
     navData: [
@@ -17,6 +18,8 @@ Page({
       {text: '笔记', key: 'Note', children: []},
       {text: '评价', key: 'Comment', children: []},
     ],
+    _opt_key: 'Video',
+    result_data: [],
   },
 
   /**
@@ -35,36 +38,11 @@ Page({
       {video_id: video_id, classes_id: classes_id},
       contentType,
     );
-
     this.changeBarTitle(videoInfo.result_data);
-
-    const videoList = await app.initClassPromise.showVideoLists(
-      token,
-      {
-        video_id: video_id,
-        classes_id: classes_id,
-        page: 1,
-        page_size: 20,
-      },
-      contentType,
-    );
-    const videoInfoResult = videoInfo.result_data;
-    /*videoInfoResult['children'] = videoList.result_data;*/
-    console.group('得到的视频对象为:');
-    console.log(videoInfoResult);
-    console.groupEnd();
-    /*const videoListResult = videoInfoResult.result_data*/
-    const videoListResult = videoList.result_data.sort(
-      //排序
-      arraySort('oper_type'),
-    );
-
-    let _navData = this.data.navData;
-    _navData[0]['children'] = videoListResult;
+    this.loadData();
     this.setData({
       url: videoInfo.result_data.url,
-      videoInfo: videoInfoResult,
-      navData: _navData,
+      videoInfo: videoInfo.result_data,
     });
   },
   changeBarTitle: obj => {
@@ -90,13 +68,19 @@ Page({
     console.log(`on Listen Switch tab `, JSON.stringify(e));
     let _opt_key = e.detail.key;
     console.log(`opt_key is ==> ${_opt_key}`);
+      this.setData({_opt_key: _opt_key,currentPage:1,result_data:[]});
+    this.loadData();
+
+    /*}*/
+  },
+  loadData: async function() {
     let _lists = {};
     let _pass_data = {
       video_id: this.data.video_id,
-      page: 1,
-      page_size: 20, //TODO 这里有分页数据, 需要完成上拉加载
+      page: this.data.currentPage,
+      page_size: 20,
     };
-    if (_opt_key == 'Video') {
+    if (this.data._opt_key == 'Video') {
       _pass_data['classes_id'] = this.data.classes_id;
     }
     /**
@@ -105,7 +89,7 @@ Page({
      * 2020-04-13 By peterfei
      */
 
-    _lists = await app.initClassPromise[`show${_opt_key}Lists`](
+    _lists = await app.initClassPromise[`show${this.data._opt_key}Lists`](
       token,
       _pass_data,
       contentType,
@@ -116,22 +100,30 @@ Page({
     let _navData = this.data.navData;
     let newResult = [];
     if (_lists.error_code != 20001) {
-      _lists.result_data.forEach((_result, i) => {
-        let newData = renameKeys(_result, {info: 'name'});
-        newResult.push(newData);
-      });
-      let _inx = _navData.findIndex(x => x.key == _opt_key);
-      console.log('index 下标目前为:', _inx);
-      console.group('更新键值后的新对象:');
-      console.log(newResult);
-      console.groupEnd();
-      _navData[_inx]['children'] = newResult;
-      this.setData({
-        navData: _navData,
-      });
-    }
+      try {
+        _lists.result_data.forEach((_result, i) => {
+          let newData = renameKeys(_result, {info: 'name'});
+          newResult.push(newData);
+        });
+        let _inx = _navData.findIndex(x => x.key == this.data._opt_key);
+        console.log('index 下标目前为:', _inx);
+        console.group('更新键值后的新对象:');
+        console.log(newResult);
+        console.groupEnd();
 
-    /*}*/
+        _navData[_inx]['children'] = [...this.data.result_data, ...newResult];
+        this.setData({
+          navData: _navData,
+          result_data: [...this.data.result_data, ...newResult],
+        });
+      } catch (e) {
+        wx.showToast({
+          title: '加载完成',
+          icon: 'none',
+          duration: 2000,
+        });
+      }
+    }
   },
   changeVideo: function(e) {
     if (e.detail.item.url) {
@@ -144,6 +136,17 @@ Page({
         videoInfo: e.detail.item,
       });
     }
+  },
+
+  /**
+   * 上拉加载更多
+   *
+   */
+  loadMoreData: async function(e) {
+    logMethodAsync('加载更多', e);
+
+    this.setData({currentPage: this.data.currentPage + 1});
+    this.loadData();
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

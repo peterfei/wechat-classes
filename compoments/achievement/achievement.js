@@ -94,6 +94,10 @@ Component({
         {},
       );
     },
+    loadMoreData: function(e) {
+      console.log('loadMoreData in ');
+      this.triggerEvent('loadMoreDataBy', {}, {});
+    },
   },
 
   lifetimes: {
