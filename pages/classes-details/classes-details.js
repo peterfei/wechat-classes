@@ -1,9 +1,10 @@
-import {capitalize} from '../../utils/util';
+import {capitalize, logMethodAsync} from '../../utils/util';
 import regeneratorRuntime from '../../regenerator-runtime/runtime.js';
 import {token, contentType} from '../../global';
 import '../../utils/lodash';
 let _ = require('lodash');
 const app = getApp();
+
 Page({
   data: {
     interfaceData: ['Detail', 'Info'],
@@ -310,7 +311,9 @@ Page({
           contentType,
         );
         if (data.result_data.length > 0) {
-          console.log(`==得到的班级信息列表数据==`, JSON.stringify(data));
+          console.group('得到的班级信息列表数据');
+          console.log(data);
+          console.groupEnd();
           _that.setData({
             itemResult: data.result_data,
           });

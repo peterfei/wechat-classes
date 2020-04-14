@@ -25,7 +25,7 @@ Page({
   onLoad: async function(options) {
     this.computeTabsHeight();
     let classes_id = options.id;
-      let {video_id} = options
+    let {video_id} = options;
     this.setData({
       video_id: video_id,
       classes_id: classes_id,
@@ -47,7 +47,7 @@ Page({
         }
       },
     };
-      const proxy = new Proxy(videoInfo.result_data, handler); //使用拦截器Proxy对属性title进行处理:2020-04-13 15:55,By peterfei,Proxy 具体使用见:(Link)[https://es6.ruanyifeng.com/#docs/proxy]
+    const proxy = new Proxy(videoInfo.result_data, handler); //使用拦截器Proxy对属性title进行处理:2020-04-13 15:55,By peterfei,Proxy 具体使用见:(Link)[https://es6.ruanyifeng.com/#docs/proxy]
 
     wx.setNavigationBarTitle({
       title: proxy.name,
@@ -65,11 +65,9 @@ Page({
     );
     const videoInfoResult = videoInfo.result_data;
     /*videoInfoResult['children'] = videoList.result_data;*/
-    console.log(
-      `%c===videoInfo Obj===%s`,
-      'color:#888',
-      JSON.stringify(videoInfoResult),
-    );
+    console.group('得到的视频对象为:');
+    console.log(videoInfoResult);
+    console.groupEnd();
     /*const videoListResult = videoInfoResult.result_data*/
     const videoListResult = videoList.result_data.sort(
       //排序

@@ -1,5 +1,5 @@
 import regeneratorRuntime from '../../regenerator-runtime/runtime.js';
-import {token} from "../../global"
+import {token} from '../../global';
 //index.js
 //获取应用实例
 const app = getApp();
@@ -12,7 +12,7 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     showMoreBtn: false,
-    clsResults:[],
+    clsResults: [],
   },
   //事件处理函数
   bindViewTap: function() {
@@ -48,36 +48,37 @@ Page({
       });
     }
 
-    this.getClassesLists()
+    this.getClassesLists();
   },
 
-    ////////////////////////
-    //  获取班级请求
-    //  by peterfei 2020-04-07 11:11//
-    ////////////////////////
-    getClassesLists: async function(){
-        app.initClassPromise.getClassesLists({token:token}).then(res=>{
-            console.log(`%c ===>%s`,"color:grey",JSON.stringify(res))
-			if(res.error_code===20000||res.return_code=="FAIL"){
-				wx.showToast({
-					title: '会话已过期,请重新登陆',
-					icon: 'none',
-					duration: 5000
-				})
-				/**
-				 * TODO 这里需要重新登陆
-				 * NeedTo redirect to Login Page
-				 *
-				 */
-				return
-			}
+  ////////////////////////
+  //  获取班级请求
+  //  by peterfei 2020-04-07 11:11//
+  ////////////////////////
+  getClassesLists: async function() {
+    app.initClassPromise.getClassesLists({token: token}).then(res => {
+      console.group('班级列表信息');
+      console.log(res);
+      console.groupEnd();
+      if (res.error_code === 20000 || res.return_code == 'FAIL') {
+        wx.showToast({
+          title: '会话已过期,请重新登陆',
+          icon: 'none',
+          duration: 5000,
+        });
+        /**
+         * TODO 这里需要重新登陆
+         * NeedTo redirect to Login Page
+         *
+         */
+        return;
+      }
 
-            this.setData({
-                clsResults:res.result_data
-            })
-        })
-    },
-
+      this.setData({
+        clsResults: res.result_data,
+      });
+    });
+  },
 
   getUserInfo: function(e) {
     console.log(e);
@@ -123,14 +124,17 @@ Page({
   },
 
   touchmoveHandler: function(e) {
-    console.log("点击空白"+e);
-    this.setData({ //点击空白时触发
+    console.log('点击空白' + e);
+    this.setData({
+      //点击空白时触发
       showMoreBtn: false,
     });
   },
 
-    showClsItems:function(e){
-        console.log(`%c <==点击后的ID===>`,"color:blue",e)
-        wx.navigateTo({url:"../classes-details/classes-details?id="+e.currentTarget.id})
-    }
+  showClsItems: function(e) {
+    console.log(`%c <==点击后的ID===>`, 'color:blue', e);
+    wx.navigateTo({
+      url: '../classes-details/classes-details?id=' + e.currentTarget.id,
+    });
+  },
 });

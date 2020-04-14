@@ -56,22 +56,20 @@ Component({
 
     onItemData: function(e) {
       console.log(`<======item-lists showClsItems==========>`, e);
-		this.triggerEvent('myachieve', {id: e.currentTarget.id,item:e.currentTarget.dataset.item}, {});
+      this.triggerEvent(
+        'myachieve',
+        {id: e.currentTarget.id, item: e.currentTarget.dataset.item},
+        {},
+      );
     },
   },
 
   lifetimes: {
     attached: function() {
-      console.log(
-        '%c┍--------------------------------------------------------------┑',
-        `color:red`,
-      );
-      console.log(`itemResult's`, JSON.stringify(this.properties));
+      console.group("ItemResult's");
+      console.log(this.properties);
+      console.groupEnd();
 
-      console.log(
-        '%c┕--------------------------------------------------------------┙',
-        `color:red`,
-      );
       this.setData({
         isObjectNull: this.properties.itemObj == null,
         baseUrl: baseUrl,
