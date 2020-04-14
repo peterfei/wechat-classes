@@ -12,18 +12,16 @@ class classes {
   constructor() {
     // 初始化班级
     this._baseUrl = baseUrl;
-    this._request = new request();
-    this._request = new Proxy(this._request, {
+    //this._request = new request();
+    this._request = new Proxy(new request(), {
       get: function(target, key) {
-        console.log(`target is ${JSON.stringify(target)}`);
         let value = target[key];
         console.group('%c实例化后调用的方法', 'color:blue');
         console.log(`value is ${value}`);
         console.groupEnd();
         console.log(`key is ${key}`);
         return function(...args) {
-          console.log(`args is ${JSON.stringify(args)}`);
-          logMethodAsync(new Date(), JSON.stringify(args));
+          logMethodAsync('当前异步产生的实例参数为:', JSON.stringify(args));
           return Reflect.apply(value, target, args);
         };
       },

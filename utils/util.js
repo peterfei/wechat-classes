@@ -42,11 +42,11 @@ const renameKeys = (obj, newKeys) => {
   return Object.assign({}, ...mapped);
 };
 
-const logMethodAsync = (timestamp, method) => {
+const logMethodAsync = (groupLabel, method) => {
   setTimeout(function() {
-    console.group('%c当前调用接口数据格式:', 'color:blue');
+    console.group('%c%s', 'color:blue',groupLabel);
     console.log(
-      `%c ${timestamp} - Logging ${method} request asynchronously.`,
+      `%cLogging ${method} request asynchronously.`,
       'color:green',
     );
     console.groupEnd();
