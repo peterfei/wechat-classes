@@ -45,14 +45,13 @@ page {
   height: 100%;
   padding: 20px;
   font-size: 18px;
-  animation: show-no-result  1000ms ease-in;
+  animation: show-no-result 1000ms ease-in;
 }
-@keyframes show-no-result{
+@keyframes show-no-result {
   /*增加动画样式*/
   from {
     opacity: 1;
     color: white;
-
   }
   to {
     opacity: 1;

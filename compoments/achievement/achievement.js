@@ -10,6 +10,10 @@ Component({
     containerHeight: {
       type: Number,
     },
+    loaded: {
+      type: Boolean,
+      value: false,
+    },
   },
 
   /**

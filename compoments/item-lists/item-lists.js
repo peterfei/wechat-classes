@@ -27,6 +27,10 @@ Component({
       type: Boolean,
       value: false,
     },
+    loaded: {
+      type: Boolean,
+      value: false,
+    },
   },
 
   /**
@@ -65,11 +69,7 @@ Component({
     },
     loadMore: function(e) {
       logMethodAsync('在组件里触发上拉', e);
-      this.triggerEvent(
-        'loadMoreData',
-        {},
-        {},
-      );
+      this.triggerEvent('loadMoreData', {}, {});
     },
   },
 

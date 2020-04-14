@@ -16,6 +16,7 @@
     </view>
     <view class="page-content"  style="height:{{tabsHeight}}px;">
 
-        <tab-bar-lists navData="{{navData}}" containerHeight="{{tabbarContentHeight}}" bind:loadMoreDataBy="loadMoreData"  bind:onSwitchTab = "onSwitchTab" bind:myclsachieve="changeVideo"  />
+        <tab-bar-lists navData="{{navData}}" containerHeight="{{tabbarContentHeight}}" bind:loadMoreDataBy="loadMoreData"  bind:onSwitchTab = "onSwitchTab" bind:myclsachieve="changeVideo" loaded="{{loaded}}"  />
+
     </view>
 </view>

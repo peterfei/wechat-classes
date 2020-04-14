@@ -13,6 +13,7 @@ Page({
     currentPage: 1,
     isShowVideoFooter: true,
     tabsHeight: 0,
+    loaded: false,
     navData: [
       {text: '章节', key: 'Video', children: []},
       {text: '笔记', key: 'Note', children: []},
@@ -68,7 +69,12 @@ Page({
     console.log(`on Listen Switch tab `, JSON.stringify(e));
     let _opt_key = e.detail.key;
     console.log(`opt_key is ==> ${_opt_key}`);
-      this.setData({_opt_key: _opt_key,currentPage:1,result_data:[]});
+    this.setData({
+      _opt_key: _opt_key,
+      currentPage: 1,
+      result_data: [],
+      loaded: false,
+    });
     this.loadData();
 
     /*}*/
@@ -117,10 +123,8 @@ Page({
           result_data: [...this.data.result_data, ...newResult],
         });
       } catch (e) {
-        wx.showToast({
-          title: '加载完成',
-          icon: 'none',
-          duration: 2000,
+        this.setData({
+          loaded: true,
         });
       }
     }
