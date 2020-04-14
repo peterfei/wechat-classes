@@ -1,4 +1,34 @@
-## 1.0.0 (2020-04-09)
+## 1.0.0 (2020-04-14)
+
+
+
+
+## <small>0.0.3 (2020-04-14)</small>
+
+* [Doc]加入一些注释解释 ([a8a8024](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/a8a8024))
+* [Doc]对console注释优化,采用console group进行分组 ([b6e09bf](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/b6e09bf))
+* [Doc]对console注释优化,采用console group进行分组 ([294cdc8](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/294cdc8))
+* [Feature]完成点击列表后视频切换 ([7718f7c](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/7718f7c))
+* [Feature]开发tabs下数据的组装和分组及处理 ([acaaf46](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/acaaf46))
+* [Feature]引入lodash ([766ae99](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/766ae99))
+* [Feature]视频列表:完成上拉加载功能 ([8e402fc](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/8e402fc))
+* [Fixed]对切换视频时加入条件判断 ([4398d59](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/4398d59))
+* [Refactor]修改键名 ([9abb33b](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/9abb33b))
+* [Refactor]对列表item-lists加入slot ([2e5c964](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/2e5c964))
+* [Refactor]提取renameKeys和arraySort为util公用方法 ([7dd48d3](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/7dd48d3))
+* [Refactor]重构,//使用拦截器Proxy对属性title进行处理,Proxy具体使用见:(Link)[https://es6.ruanyifeng.com/#docs/proxy] ([6bb1cff](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/6bb1cff))
+* [Refactor]重构,使用代理机制对Request请求做日志统一处理. ([a073cfd](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/a073cfd))
+* [Refactor]重构,利用代理Proxy实现多动态函数定义 ([951d1ca](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/951d1ca))
+* [Refactor]重构,加载所有样式及提醒的重写 ([b0acc73](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/b0acc73))
+* [Refactor]重构,对console group 日志进行重构 ([d9a2091](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/d9a2091))
+* [Refactor]重构,对下栏视频tabs数据的动态获取,使代码更加clean ([f15ed5f](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/f15ed5f))
+* [Refactor]重构,获取options结构优化 ([abc68b8](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/abc68b8))
+* [Refactor]重构,针对lists 暂无数据的情况 ([34f8463](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/34f8463))
+* [Refactor]重构视频列表对下栏tabs内容展示,想法是切换时动态获取 ([e9a6b84](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/e9a6b84))
+
+
+
+## <small>0.0.2 (2020-04-10)</small>
 
 * [Doc]加入一些注释 ([841e1e0](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/841e1e0))
 * [Doc]更新Changelog ([e52d286](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/e52d286))
@@ -14,6 +44,7 @@
 * [Feature]子组件与父组件间的通信 ([193520c](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/193520c))
 * [Feature]完善模板渲染 ([9eb7b61](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/9eb7b61))
 * [Feature]完善考勤页面搭建,写入`position:fixed`按钮,并将容器高度设置为`calc(100vh - 40px)` ([8ba0d46](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/8ba0d46))
+* [Feature]开发视频展示页面,显示动画及特效 ([c2ea165](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/c2ea165))
 * [Feature]新增展示Articles页面 ([29fb609](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/29fb609))
 * [Feature]新增展示Videos,Surveys页面 ([cf60d8c](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/cf60d8c))
 * [Feature]添加图片静态路径 ([017d14d](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/017d14d))
@@ -30,6 +61,7 @@
 * [Refactor]对列表组件下的子组件移动在其下,逻辑更清晰 ([cde6a3d](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/cde6a3d))
 * [Refactor]对列表组件进行重构,对传值的处理 ([236eee4](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/236eee4))
 * [Refactor]暂时禁用scrollView的下拉刷新功能 ([909d33b](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/909d33b))
+* [Refactor]重构Achievement组件,高度自定义为动态计算,适用于不同场景下 ([6f5998c](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/6f5998c))
 * [Refactor]针对小程序富文本编辑器中的下载优化 ([76b3e4a](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/76b3e4a))
 * [Style]优化班级页面样式 ([d966913](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/d966913))
 * [Style]修复计算高度 ([332dfc4](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/332dfc4))
