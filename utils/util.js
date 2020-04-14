@@ -41,9 +41,21 @@ const renameKeys = (obj, newKeys) => {
   });
   return Object.assign({}, ...mapped);
 };
+
+const logMethodAsync = (timestamp, method) => {
+  setTimeout(function() {
+    console.group('%c当前调用接口数据格式:', 'color:blue');
+    console.log(
+      `%c ${timestamp} - Logging ${method} request asynchronously.`,
+      'color:green',
+    );
+    console.groupEnd();
+  }, 0);
+};
 module.exports = {
   formatTime: formatTime,
   capitalize: capitalize,
   arraySort: arraySort,
   renameKeys: renameKeys,
+  logMethodAsync: logMethodAsync,
 };

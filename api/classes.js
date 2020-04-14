@@ -7,11 +7,21 @@
  */
 import request from './request';
 import {baseUrl} from '../global';
+import {logMethodAsync} from '../utils/util';
 class classes {
   constructor() {
     // 初始化班级
     this._baseUrl = baseUrl;
     this._request = new request();
+    this._request = new Proxy(this._request, {
+      get: function(target, key) {
+        let value = target[key];
+        return function(...args) {
+          logMethodAsync(new Date(), JSON.stringify(args));
+          return Reflect.apply(value, target, args);
+        };
+      },
+    });
     this._request.setErrorHandler(this.errorHandler);
   }
 
