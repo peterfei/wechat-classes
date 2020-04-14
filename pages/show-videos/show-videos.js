@@ -35,23 +35,8 @@ Page({
       {video_id: video_id, classes_id: classes_id},
       contentType,
     );
-    const handler = {
-      get: (target, key) => {
-        if (key in target && key == 'name') {
-          /*substr(0,text.length-lastLen-lastTwoLen-2)*/
-          if (target[key].length >= 10) {
-            return target[key].substr(0, 10) + '...';
-          } else {
-            return target[key];
-          }
-        }
-      },
-    };
-    const proxy = new Proxy(videoInfo.result_data, handler); //使用拦截器Proxy对属性title进行处理:2020-04-13 15:55,By peterfei,Proxy 具体使用见:(Link)[https://es6.ruanyifeng.com/#docs/proxy]
 
-    wx.setNavigationBarTitle({
-      title: proxy.name,
-    });
+    this.changeBarTitle(videoInfo.result_data);
 
     const videoList = await app.initClassPromise.showVideoLists(
       token,
@@ -82,7 +67,25 @@ Page({
       navData: _navData,
     });
   },
+  changeBarTitle: obj => {
+    const handler = {
+      get: (target, key) => {
+        if (key in target && key == 'name') {
+          /*substr(0,text.length-lastLen-lastTwoLen-2)*/
+          if (target[key].length >= 10) {
+            return target[key].substr(0, 10) + '...';
+          } else {
+            return target[key];
+          }
+        }
+      },
+    };
+    const proxy = new Proxy(obj, handler); //使用拦截器Proxy对属性title进行处理:2020-04-13 15:55,By peterfei,Proxy 具体使用见:(Link)[https://es6.ruanyifeng.com/#docs/proxy]
 
+    wx.setNavigationBarTitle({
+      title: proxy.name,
+    });
+  },
   onSwitchTab: async function(e) {
     console.log(`on Listen Switch tab `, JSON.stringify(e));
     let _opt_key = e.detail.key;
@@ -107,7 +110,9 @@ Page({
       _pass_data,
       contentType,
     );
-    console.log(`showNoteLists is  ${JSON.stringify(_lists)}`);
+    console.group('showNoteLists is');
+    console.log(_lists);
+    console.groupEnd();
     let _navData = this.data.navData;
     let newResult = [];
     if (_lists.error_code != 20001) {
@@ -117,7 +122,9 @@ Page({
       });
       let _inx = _navData.findIndex(x => x.key == _opt_key);
       console.log('index 下标目前为:', _inx);
-      console.log('更新键值后的新对象:', JSON.stringify(newResult));
+      console.group('更新键值后的新对象:');
+      console.log(newResult);
+      console.groupEnd();
       _navData[_inx]['children'] = newResult;
       this.setData({
         navData: _navData,
@@ -131,6 +138,7 @@ Page({
       console.group('点击切换视频');
       console.log(e);
       console.groupEnd();
+      this.changeBarTitle(e.detail.item);
       this.setData({
         url: e.detail.item.url,
         videoInfo: e.detail.item,
