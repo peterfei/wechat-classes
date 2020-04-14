@@ -127,13 +127,15 @@ Page({
     /*}*/
   },
   changeVideo: function(e) {
-    console.group('点击切换视频');
-    console.log(e);
-    console.groupEnd();
-    this.setData({
-      url: e.detail.item.url,
-      videoInfo: e.detail.item,
-    });
+    if (e.detail.item.url) {
+      console.group('点击切换视频');
+      console.log(e);
+      console.groupEnd();
+      this.setData({
+        url: e.detail.item.url,
+        videoInfo: e.detail.item,
+      });
+    }
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
