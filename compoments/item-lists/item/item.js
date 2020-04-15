@@ -9,6 +9,7 @@ Component({
    */
   properties: {
     itemObj: {type: Object},
+    isHeader:{type:Boolean}
   },
 
   /**

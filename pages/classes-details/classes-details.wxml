@@ -1,6 +1,8 @@
 <view class="container">
-  <view class="page" wx:if="{{showHome}}">
-    <item-lists itemObj="{{item}}" class="header" />
+    <view class="page" wx:if="{{showHome}}">
+     <view class="header">
+        <item-lists itemObj="{{item}}" />
+     </view>
     <view class="category-lists">
       <category-lists categoryItemLists="{{categoryItemLists}}" />
     </view>

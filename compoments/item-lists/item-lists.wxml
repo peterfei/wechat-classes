@@ -1,67 +1,13 @@
 <wxs src="../../utils/filter.wxs" module="filters"/>
 <block wx:if="{{isObjectNull}}">
-	<scroll-view class="items" scroll-y="true" enable-flex	="true" refresher-enabled="{{false}}" bindrefresherpulling="onPullDownRefresh" refresher-triggered="{{triggered}}"  bindscrolltolower="loadMore"  >
-		<view class="item" bindtap="onItemData" wx:for="{{itemResult}}" id="{{item.id}}" data-item="{{item}}" >
-            <view class="item-image" wx:if="{{item.avatar}}">
-                <slot name="icon"></slot>
-                <image class="img" mode="scaleToFill" src="{{baseImageUrl+itemObj.avatar}}"></image>
-			</view>
-            <view class="item-icon" wx:if="{{showDefaultSubIcon}}">
+    <scroll-view class="items" scroll-y="true" enable-flex	="true" refresher-enabled="{{false}}" bindrefresherpulling="onPullDownRefresh" refresher-triggered="{{triggered}}"  bindscrolltolower="loadMore"  >
+        <item itemObj="{{item}}" class="item" bindtap="onItemData" wx:for="{{itemResult}}" id="{{item.id}}" data-item="{{item}}" isHeader="{{false}}">
+            <view class="item-icon" slot="item-icon" wx:if="{{showDefaultSubIcon}}">
 				<sub-icons iconType="{{item.class_type}}" />
-			</view>
-            <view class="item-text-row" wx:if="{{!isColumn}}"> <!--当为false值时,列表显示为row-->
-              <view class="text-title">{{item.name}}</view>
-              <view class="item-status">{{item.status}}</view>
             </view>
-            <view class="item-text" wx:if="{{isColumn}}"> <!--当为true值时,列表显示为column,并控制-->
-                <view class="text-title">{{item.name}}</view>
-                <block wx:if="{{isDiyLabel}}">
-                    <view class="text-subtitle">
-                        <view class="subtitle-text">
-                            {{item.label1}}:{{item.label1Value}}
-                        </view>
-                    </view>
-                    <view class="text-subtitle">
-                            <view class="subtitle-text">
-                                {{item.label2}}:{{item.label2Value}}
-                            </view>
-                    </view>
-                </block>
-                <block wx:if="{{!isDiyLabel}}" >
-                    <view class="label" wx:if="{{item.sign}}">{{item.sign}}</view>
-                    <view class="text-subtitle" wx:if="{{item.subtitle}}">
-                        <view class="subtitle-text" >{{item.subtitle}}</view>
-                    </view>
-					<view class="created" wx:if="{{item.create_time}}">{{filters.formatDate(item.create_time+"000")}}</view> <!-- 默认时间加三位 -->
-                    <view class="text-other">
-                        <view class="other-count">
-                            {{item.desc}}
-                        </view>
-                    </view>
-                    <view class="content" wx:if="{{item.content}}">
-                        <view class="content-text">
-                            {{item.content}}
-                        </view>
-                        <view class="content-img">
-                            <image style="" mode="scaleToFill" src="{{item.contentImageSrc}}"></image>
-                        </view>
-                    </view>
-                    <view class="text-subtitle item-footer-text" wx:if="{{item.looked}}">
-                        <view class="item-footer" wx:if="{{item.looked}}">
-                            {{item.looked}} 浏览
-                        </view>
-                        <view class="item-footer" >
-                            {{item.answered}} 回复
-                        </view>
-                    </view>
-                </block>
-            </view>
-        </view>
-                <view class="content-footer" wx:if="{{loaded}}">
-                   已加载所有
-                </view>
-</scroll-view>
+        </item>
+    </scroll-view>
 </block>
 <block wx:else>
-    <item itemObj="{{itemObj}}"/>
+    <item itemObj="{{itemObj}}" isHeader="{{true}}"/>
 </block>
