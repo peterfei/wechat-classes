@@ -1,0 +1,10 @@
+.comment-item {
+  flex: 1;
+}
+.item-view {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  color: #9e9e9e;
+}

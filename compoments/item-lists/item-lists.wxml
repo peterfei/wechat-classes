@@ -1,10 +1,23 @@
 <wxs src="../../utils/filter.wxs" module="filters"/>
 <block wx:if="{{isObjectNull}}">
     <scroll-view class="items" scroll-y="true" enable-flex	="true" refresher-enabled="{{false}}" bindrefresherpulling="onPullDownRefresh" refresher-triggered="{{triggered}}"  bindscrolltolower="loadMore"  >
-        <item itemObj="{{item}}" class="item" bindtap="onItemData" wx:for="{{itemResult}}" id="{{item.id}}" data-item="{{item}}" isHeader="{{false}}">
+
+        <item itemObj="{{item}}" class="{{(item.is_column!='column')?'item':'item-column'}}" bindtap="onItemData" wx:for="{{itemResult}}" id="{{item.id}}" data-item="{{item}}" isHeader="{{false}}">
             <view class="item-icon" slot="item-icon" wx:if="{{showDefaultSubIcon}}">
 				<sub-icons iconType="{{item.class_type}}" />
             </view>
+                <block wx:if="{{item.opt}}">
+                    <block wx:if="{{item.opt=='Note'}}">
+                        <view slot="item-body"  >
+                                <video-note-item item="{{item}}"/>
+                        </view>
+                    </block>
+                    <block wx:if="{{item.opt=='Comment'}}">
+                        <view slot="item-body"  >
+                            <video-comment-item item="{{item}}"/>
+                        </view>
+                    </block>
+                </block>
 
         </item>
         <view class="content-footer" wx:if="{{loaded}}"  >

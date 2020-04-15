@@ -1,0 +1,13 @@
+<wxs src="../../../utils/filter.wxs" module="filters"/>
+<view class="comment-item">
+    <view class="item-view">
+         <view class="comment-item-subtitle">
+            {{item.username}}
+        </view>
+         <view class="item-created">
+            {{filters.formatDate(item.create_time+"000")}}
+         </view>
+     </view>
+
+
+</view>

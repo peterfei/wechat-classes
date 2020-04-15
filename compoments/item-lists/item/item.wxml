@@ -1,16 +1,16 @@
 
 <wxs src="../../../utils/filter.wxs" module="filters"/>
 <block wx:if="{{!isHeader}}">
-<view class="item">
+<view class="{{(itemObj.is_column!='column')?'item':'item-column'}}">
     <view class="item-img" wx:if="{{itemObj.avatar}}" >
       <image class="img" mode="scaleToFill" src="{{baseImageUrl+itemObj.avatar}}"></image>
       <slot name="icon"></slot>
     </view>
     <slot name="item-icon" class="item-icon"></slot>
+    <slot name="item-body"></slot>
     <view class="item-text">
         <view class="text-title">{{itemObj.name}}</view>
     </view>
-    <slot name="item-body"></slot>
 </view>
 </block>
 <block wx:else>

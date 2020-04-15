@@ -109,6 +109,10 @@ Page({
       try {
         _lists.result_data.forEach((_result, i) => {
           let newData = renameKeys(_result, {info: 'name'});
+          if (this.data._opt_key=="Comment"||this.data._opt_key=="Note") {
+              newData['is_column'] = "column";
+              newData['opt'] = this.data._opt_key;
+          }
           newResult.push(newData);
         });
         let _inx = _navData.findIndex(x => x.key == this.data._opt_key);

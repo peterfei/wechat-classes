@@ -1,0 +1,16 @@
+<wxs src="../../../utils/filter.wxs" module="filters"/>
+<view class="note-item">
+    <view class="item-view">
+         <view class="note-item-subtitle">
+            {{item.username}}
+        </view>
+        <view class="item-created">
+            {{filters.formatDate(item.create_time+"000")}}
+        </view>
+
+     </view>
+     <view class="item-view item-playtime">
+        {{item.playtime}}
+     </view>
+
+</view>
