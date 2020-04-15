@@ -48,6 +48,7 @@ Component({
               icon: 'kecheng1',
             },
           });
+          break;
         case 'tasks':
           this.setData({
             icon: {
@@ -55,6 +56,15 @@ Component({
               icon: 'zuoye1',
             },
           });
+          break;
+        case 'articles':
+          this.setData({
+            icon: {
+              color: 'rgb(255,69,126)',
+              icon: 'chengji',
+            },
+          });
+          break;
         default:
       }
     },
