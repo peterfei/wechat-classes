@@ -112,6 +112,8 @@ Page({
           if (this.data._opt_key=="Comment"||this.data._opt_key=="Note") {
               newData['is_column'] = "column";
               newData['opt'] = this.data._opt_key;
+          }else{
+              newData['icon'] = "bofang"
           }
           newResult.push(newData);
         });
