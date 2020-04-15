@@ -1,6 +1,7 @@
 {
   "component": true,
   "usingComponents": {
-    "sub-icons":"./sub-icons/sub-icons"
+    "sub-icons": "./sub-icons/sub-icons",
+    "item": "./item/item"
   }
 }

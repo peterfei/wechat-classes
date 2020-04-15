@@ -63,19 +63,5 @@
 </scroll-view>
 </block>
 <block wx:else>
-    <view class="header">
-        <view class="header-img">
-          <image class="header-img-s" mode="scaleToFill" src="{{baseImageUrl+itemObj.avatar}}"></image>
-        </view>
-        <view class="header-text">
-            <view class="text-title">{{itemObj.name}}</view>
-          <view class="text-subtitle">
-              <view class="subtitle-text">{{itemObj.info}}</view>
-              <view class="subtitle-other">ID:{{itemObj.id}}</view>
-          </view>
-          <view class="text-subtitle">
-              <view class="subtitle-text">{{itemObj.college_name}}</view>
-          </view>
-        </view>
-    </view>
+    <item itemObj="{{itemObj}}"/>
 </block>
