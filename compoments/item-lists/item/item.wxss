@@ -102,12 +102,3 @@
   display: flex;
   justify-content: center;
 }
-.content-footer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 1px;
-  font-size: 18px;
-  color: #9e9e9e;
-  background-color: #fff;
-}

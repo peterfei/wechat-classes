@@ -5,7 +5,11 @@
             <view class="item-icon" slot="item-icon" wx:if="{{showDefaultSubIcon}}">
 				<sub-icons iconType="{{item.class_type}}" />
             </view>
+
         </item>
+        <view class="content-footer" wx:if="{{loaded}}"  >
+                已到达底部
+        </view>
     </scroll-view>
 </block>
 <block wx:else>
