@@ -30,6 +30,9 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    changeNav(event) {
+        console.log("========>"+event);
+    },
     switchNav(event) {
       var cur = event.currentTarget.dataset.current;
       let navItem = event.currentTarget.dataset.itemkey;
@@ -102,6 +105,7 @@ Component({
       console.log('loadMoreData in ');
       this.triggerEvent('loadMoreDataBy', {}, {});
     },
+
   },
 
   lifetimes: {

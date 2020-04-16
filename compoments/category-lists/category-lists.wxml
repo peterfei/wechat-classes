@@ -1,5 +1,5 @@
 <view class="category">
-    <view class="cate-item" wx:for="{{categoryItemLists}}">
+    <view class="cate-item" wx:for="{{categoryItemLists}}" bindtap="onShowList" data-item="{{item}}">
         <view class="item-border" style="background-image: linear-gradient(to right, white, 5%, {{item.color}});">
             <!--<image style="" mode="scaleToFill" src="{{item.src}}"></image>-->
             <iconfont icon="{{item.icon}}" extClass="iconfont" ></iconfont>

@@ -1,1 +1,3 @@
-/* pages/show-articles/show-articles.wxss */
+.page {
+  margin: 10px;
+}

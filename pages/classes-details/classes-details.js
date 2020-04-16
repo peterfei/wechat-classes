@@ -149,30 +149,35 @@ Page({
         icon: 'kecheng1',
         title: '课程',
         count: 85,
+        type: 'video',
       },
       {
         color: 'rgb(51,223,138)',
         icon: 'zuoye1',
         title: '作业',
         count: 24,
+        type: 'surveys',
       },
       {
         color: 'rgb(255,109,77)',
         icon: 'zuoye1',
         title: '测验',
         count: 75,
+        type: 'task',
       },
       {
         color: 'rgb(255,69,126	)',
         icon: 'chengji',
         title: '资料',
         count: 75,
+        type: 'articles',
       },
       {
         color: 'rgb(255,162,111)',
         icon: 'chengyuan2',
         title: '成员',
         count: 108,
+        type: 'member',
       },
     ],
     itemDiscuss: {
@@ -286,6 +291,13 @@ Page({
         });
       }
     }
+  },
+  showList(e) {
+    logMethodAsync('点击得到的列表类型', e);
+    let _type = e.detail.item.type;
+    wx.navigateTo({
+        url: '../show-lists/show-lists'
+    })
   },
   onReady: function() {
     this.computeScrollViewHeight();

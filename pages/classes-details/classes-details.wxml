@@ -4,7 +4,7 @@
         <item-lists itemObj="{{item}}" />
      </view>
     <view class="category-lists">
-      <category-lists categoryItemLists="{{categoryItemLists}}" />
+      <category-lists categoryItemLists="{{categoryItemLists}}" bind:onShowList="showList" />
     </view>
     <view class="box" style='height: {{scrollHeight + "px"}}'>
       <item-lists
