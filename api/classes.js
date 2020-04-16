@@ -144,5 +144,53 @@ class classes {
       .postRequest(this._baseUrl + 'Video/comment?token=' + token, obj, header)
       .then(res => res.data);
   }
+
+  /**
+   * @fn showVideoLists video列表
+   * @param [] token
+   * @param [] obj
+   * @param [] header
+   */
+  showVideoLists(token, obj, header) {
+    return this._request
+      .postRequest(
+        this._baseUrl + 'ClassesVideo/lists?token=' + token,
+        obj,
+        header,
+      )
+      .then(res => res.data);
+  }
+
+  /**
+   * @fn showTaskLists 作业列表
+   * @param [] token
+   * @param [] obj
+   * @param [] header
+   */
+  showTaskLists(token, obj, header) {
+    return this._request
+      .postRequest(
+        this._baseUrl + 'ClassesTask/listsV2?token=' + token,
+        obj,
+        header,
+      )
+      .then(res => res.data);
+  }
+
+  /**
+   * @fn showSurveyLists survey 测验列表
+   * @param [] token
+   * @param [] obj
+   * @param [] header
+   */
+  showSurveyLists(token, obj, header) {
+    return this._request
+      .postRequest(
+        this._baseUrl + 'ClassesSurvey/listsV2?token=' + token,
+        obj,
+        header,
+      )
+      .then(res => res.data);
+  }
 }
 export default classes;

@@ -156,21 +156,21 @@ Page({
         icon: 'zuoye1',
         title: '作业',
         count: 24,
-        type: 'surveys',
+        type: 'task',
       },
       {
         color: 'rgb(255,109,77)',
         icon: 'zuoye1',
         title: '测验',
         count: 75,
-        type: 'task',
+        type: 'survey',
       },
       {
         color: 'rgb(255,69,126	)',
         icon: 'chengji',
         title: '资料',
         count: 75,
-        type: 'articles',
+        type: 'article',
       },
       {
         color: 'rgb(255,162,111)',
@@ -296,8 +296,8 @@ Page({
     logMethodAsync('点击得到的列表类型', e);
     let _type = e.detail.item.type;
     wx.navigateTo({
-        url: '../show-lists/show-lists'
-    })
+      url: '../show-lists/show-lists?type=' + _type + '&id=' + this.data.id,
+    });
   },
   onReady: function() {
     this.computeScrollViewHeight();

@@ -1,2 +1,5 @@
-<!--pages/show-lists/show-lists.wxml-->
-<text>pages/show-lists/show-lists.wxml</text>
+<view class="container">
+    <view class="lists" style='height:calc(100vh - 5px);'>
+        <item-lists itemResult = "{{result_data}}"  bind:loadMoreData="loadMoreData" loaded="{{loaded}}"/>
+     </view>
+</view>
