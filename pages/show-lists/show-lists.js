@@ -24,6 +24,39 @@ Page({
       type: type,
     });
     this.loadData();
+
+    this.setNavigationName(type);
+  },
+
+  setNavigationName: function(type) {
+    switch (type) {
+      case 'video':
+        wx.setNavigationBarTitle({
+          title: '视频列表',
+        });
+        break;
+      case 'survey':
+        wx.setNavigationBarTitle({
+          title: '测验列表',
+        });
+        break;
+      case 'user':
+        wx.setNavigationBarTitle({
+          title: '成员列表',
+        });
+        break;
+      case 'article':
+        wx.setNavigationBarTitle({
+          title: '资料列表',
+        });
+        break;
+      case 'task':
+        wx.setNavigationBarTitle({
+          title: '作业列表',
+        });
+        break;
+      default:
+    }
   },
 
   /**
@@ -54,6 +87,7 @@ Page({
           result.result_data.forEach((_data, _index) => {
             let newData = _data;
             newData['type'] = this.data.type; //组装新属性
+            newData['class_type'] = `${this.data.type}s`;
             newResult.push(newData);
           });
           this.setData({

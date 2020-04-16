@@ -1,5 +1,7 @@
 {
   "usingComponents": {
     "item-lists": "../../compoments/item-lists/item-lists"
-  }
+  },
+
+  "navigationBarTitleText": "加载中..."
 }
