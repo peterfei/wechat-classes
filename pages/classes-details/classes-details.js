@@ -330,26 +330,11 @@ Page({
             itemResult: data.result_data,
           });
         } else {
-          let newCategoryItem = [];
-          _that.data.categoryItemLists.forEach((item, index) => {
-            let newItem = item;
-            switch (item.type) {
-              case 'video':
-                newItem['count'] = data.result_data.video_num;
-                break;
-              case 'article':
-                newItem['count'] = data.result_data.article_num;
-                break;
-              case 'survey':
-                newItem['count'] = data.result_data.survey_num;
-                break;
-              case 'task':
-                newItem['count'] = data.result_data.task_num;
-                break;
-              default:
-            }
-            newCategoryItem.push(newItem);
-          });
+            const newCategoryItem = _that.data.categoryItemLists.map((item,index)=>{
+                item['count'] = data.result_data[`${item.type}_num`]
+                return item
+            })
+            logMethodAsync("newCategoryItem",newCategoryItem)
           _that.setData({
             item: data.result_data,
             categoryItemLists: newCategoryItem,
