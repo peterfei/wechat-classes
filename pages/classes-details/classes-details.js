@@ -177,7 +177,7 @@ Page({
         icon: 'chengyuan2',
         title: '成员',
         count: 108,
-        type: 'member',
+        type: 'user',
       },
     ],
     itemDiscuss: {

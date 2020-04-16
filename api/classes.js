@@ -192,5 +192,37 @@ class classes {
       )
       .then(res => res.data);
   }
+
+  /**
+   * @fn showArticleLists 资料列表
+   * @param [] token
+   * @param [] obj
+   * @param [] header
+   */
+  showArticleLists(token, obj, header) {
+    return this._request
+      .postRequest(
+        this._baseUrl + 'ClassesArticle/lists?token=' + token,
+        obj,
+        header,
+      )
+      .then(res => res.data);
+  }
+
+  /**
+   * @fn showUserLists 用户列表
+   * @param [] token
+   * @param [] obj
+   * @param [] header
+   */
+  showUserLists(token, obj, header) {
+    return this._request
+      .postRequest(
+        this._baseUrl + 'ClassesUser/lists?token=' + token,
+        obj,
+        header,
+      )
+      .then(res => res.data);
+  }
 }
 export default classes;
