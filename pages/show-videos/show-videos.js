@@ -15,11 +15,11 @@ Page({
     tabsHeight: 0,
     loaded: false,
     navData: [
-      {text: '章节', key: 'Video', children: []},
+      {text: '章节', key: 'VideoRelevant', children: []},
       {text: '笔记', key: 'Note', children: []},
       {text: '评价', key: 'Comment', children: []},
     ],
-    _opt_key: 'Video',
+    _opt_key: 'VideoRelevant',
     result_data: [],
   },
 
@@ -86,7 +86,7 @@ Page({
       page: this.data.currentPage,
       page_size: 20,
     };
-    if (this.data._opt_key == 'Video') {
+    if (this.data._opt_key == 'VideoRelevant') {
       _pass_data['classes_id'] = this.data.classes_id;
     }
     /**
