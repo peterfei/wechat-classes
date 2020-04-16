@@ -46,23 +46,40 @@ Page({
     let result = await app.initClassPromise[
       `show${capitalize(this.data.type, true)}Lists`
     ](token, _data, contentType);
-    let newResult = result.result_data;
+    let newResult = [];
     if (result.result_data != 20001) {
       try {
         if (result.result_data.length > 0) {
           logMethodAsync('当前列表数据', result);
+          result.result_data.forEach((_data, _index) => {
+            let newData = _data;
+            newData['type'] = this.data.type; //组装新属性
+            newResult.push(newData);
+          });
           this.setData({
             result_data: [...this.data.result_data, ...newResult],
           });
         }
       } catch (e) {
-          this.setData({
-              loaded:true
-          })
+        this.setData({
+          loaded: true,
+        });
       }
     }
   },
-
+  async changeItem(e) {
+    /**
+     * 动态跳转页面
+     *
+     */
+    /*'../show-videos/show-videos?id=' +
+        this.data.id +
+        '&video_id=' +
+        e.detail.item.id,*/
+    wx.navigateTo({
+      url: `../show-${e.detail.item.type}s/show-${e.detail.item.type}s?id=${this.data.id}&${e.detail.item.type}_id=${e.detail.id}`,
+    });
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
