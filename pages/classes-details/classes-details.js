@@ -148,35 +148,35 @@ Page({
         color: 'rgb(1, 185, 248)',
         icon: 'kecheng1',
         title: '课程',
-        count: 85,
+        count: 0,
         type: 'video',
       },
       {
         color: 'rgb(51,223,138)',
         icon: 'zuoye1',
         title: '作业',
-        count: 24,
+        count: 0,
         type: 'task',
       },
       {
         color: 'rgb(255,109,77)',
         icon: 'zuoye1',
         title: '测验',
-        count: 75,
+        count: 0,
         type: 'survey',
       },
       {
         color: 'rgb(255,69,126	)',
         icon: 'chengji',
         title: '资料',
-        count: 75,
+        count: 0,
         type: 'article',
       },
       {
         color: 'rgb(255,162,111)',
         icon: 'chengyuan2',
         title: '成员',
-        count: 108,
+        count: 0,
         type: 'user',
       },
     ],
@@ -330,8 +330,29 @@ Page({
             itemResult: data.result_data,
           });
         } else {
+          let newCategoryItem = [];
+          _that.data.categoryItemLists.forEach((item, index) => {
+            let newItem = item;
+            switch (item.type) {
+              case 'video':
+                newItem['count'] = data.result_data.video_num;
+                break;
+              case 'article':
+                newItem['count'] = data.result_data.article_num;
+                break;
+              case 'survey':
+                newItem['count'] = data.result_data.survey_num;
+                break;
+              case 'task':
+                newItem['count'] = data.result_data.task_num;
+                break;
+              default:
+            }
+            newCategoryItem.push(newItem);
+          });
           _that.setData({
             item: data.result_data,
+            categoryItemLists: newCategoryItem,
           });
         }
       },
