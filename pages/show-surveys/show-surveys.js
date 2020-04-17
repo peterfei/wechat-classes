@@ -22,21 +22,21 @@ Page({
     this.currentView = this.currentView !== 0 ? this.currentView - 1 : 0;
     this.setData({
       toView: `s_${this.currentView}`,
+      currentPage: this.currentView,
     });
   },
   next(e) {
     const maxPage = this.data.surveyResults.length - 1;
     this.currentView =
       this.currentView !== maxPage ? this.currentView + 1 : maxPage;
-    logMethodAsync('current view', this.currentView);
     this.setData({
       toView: `s_${this.currentView}`,
+      currentPage: this.currentView,
     });
   },
   touchEnd(e) {
     const moveX = e.changedTouches[0].pageX - this.startPageX;
     const maxPage = this.data.surveyResults.length - 1;
-    logMethodAsync('moveX is ', moveX);
     if (Math.abs(moveX) >= 20) {
       if (moveX > 0) {
         this.currentView = this.currentView !== 0 ? this.currentView - 1 : 0;
@@ -45,9 +45,9 @@ Page({
           this.currentView !== maxPage ? this.currentView + 1 : maxPage;
       }
     }
-    logMethodAsync('currentView is ', this.currentView);
     this.setData({
       toView: `s_${this.currentView}`,
+      currentPage: this.currentView,
     });
   },
 
@@ -56,11 +56,13 @@ Page({
    */
   onLoad: async function(options) {
     let {survey_id, id} = options;
+
     let systemInfo = await wx.getSystemInfo();
     this.setData({
       survey_id: survey_id,
       classes_id: id,
       windowWidth: systemInfo.windowWidth,
+      currentPage: this.currentView,
     });
     this.loadData();
   },
@@ -79,6 +81,7 @@ Page({
     logMethodAsync('当前获取到的列表', result);
     this.setData({
       surveyResults: result.result_data.question,
+      totalPage: result.result_data.question.length - 1,
     });
   },
 
