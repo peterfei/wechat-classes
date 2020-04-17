@@ -42,9 +42,9 @@ const renameKeys = (obj, newKeys) => {
   return Object.assign({}, ...mapped);
 };
 
-const logMethodAsync = (groupLabel, method) => {
+const logMethodAsync = (groupLabel, method,color="blue") => {
   setTimeout(function() {
-    console.group('%c%s', 'color:blue',groupLabel);
+      console.group('%c%s', `color:${color}`,groupLabel);
     console.log(method)
     console.groupEnd();
   }, 0);
