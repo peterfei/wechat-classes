@@ -3,7 +3,10 @@
       <scroll-view class="scroll-x" scroll-x="true"  scroll-into-view="{{toView}}" bindtouchstart="touchStart" bindtouchend="touchEnd">
           <view class=" page-body page-questions" wx:for="{{surveyResults}}" id="s_{{index}}" >
             <view class="question">{{item.name}}</view>
-            <view class="answer" wx:for="{item.answer}" ></view>
+            <view class="answer" wx:for="{{item.answer}}" wx:for-item="ans">
+                {{ans.info}}
+
+            </view>
       </view>
     </scroll-view>
     <view class="page-footer">
