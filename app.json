@@ -1,11 +1,11 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/show-surveys/show-surveys",
     "pages/show-videos/show-videos",
     "pages/classes-details/classes-details",
     "pages/logs/logs",
     "pages/show-articles/show-articles",
-    "pages/show-surveys/show-surveys",
     "pages/show-tasks/show-tasks",
     "pages/show-lists/show-lists"
   ],

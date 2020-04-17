@@ -1,2 +1,18 @@
-<!--pages/show-surveys/show-surveys.wxml-->
-<text>pages/show-surveys/show-surveys.wxml</text>
+<view class="container">
+  <view class="page">
+      <scroll-view class="scroll-x" scroll-x="true"  scroll-into-view="{{toView}}" bindtouchstart="touchStart" bindtouchend="touchEnd">
+          <view class=" page-body page-questions" wx:for="{{surveyResults}}" id="s_{{index}}" >
+            <view class="question">{{item.name}}</view>
+            <view class="answer" wx:for="{item.answer}" ></view>
+      </view>
+    </scroll-view>
+    <view class="page-footer">
+      <button type="default" size="mini" plain="true" bindtap="prev">
+        上一题
+      </button>
+      <button type="default" size="mini" plain="true" bindtap="next">
+        下一题
+      </button>
+    </view>
+  </view>
+</view>

@@ -1,1 +1,38 @@
 /* pages/show-surveys/show-surveys.wxss */
+.container {
+  background-color: deepskyblue;
+}
+
+/*底部footer*/
+.page-footer {
+  height: 60px;
+  background-color: deepskyblue;
+  display: flex;
+  align-items: center;
+}
+.page-footer button[type='default'] {
+  color: white !important;
+  border-radius: 20px;
+}
+.page-footer button[type='default'][plain] {
+  border: 1px solid white;
+}
+.page-footer button[size='mini'] {
+  padding: 0 1.5em;
+}
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+}
+.page-body {
+  height: calc(100vh - 60px);
+  background-color: lightgray;
+}
+.scroll-x {
+  white-space: nowrap;
+}
+.page-questions {
+  display: inline-block;
+  width:100vw;
+}

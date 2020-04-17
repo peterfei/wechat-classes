@@ -224,5 +224,21 @@ class classes {
       )
       .then(res => res.data);
   }
+
+  /**
+   * @fn userSurvey 用户测验接口
+   * @param [] token
+   * @param [] obj
+   * @param [] header
+   */
+  userSurvey(token, obj, header) {
+    return this._request
+      .postRequest(
+        this._baseUrl + 'UserSurvey/detail?token=' + token,
+        obj,
+        header,
+      )
+      .then(res => res.data);
+  }
 }
 export default classes;
