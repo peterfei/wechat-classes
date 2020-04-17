@@ -1,30 +1,46 @@
-## 1.0.0 (2020-04-14)
+## 1.0.0 (2020-04-17)
+
+* [Refactor]重构,categoryItem count 重新赋值 ([53319d3](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/53319d3))
+* [Refactor]重构,logMethodAsync ([ee3c64f](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/ee3c64f))
+* [Refactor]重构,对之前赋值的switch case... 进行优化,改为动态获取 ([7b250dd](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/7b250dd))
 
 
 
-
-## <small>0.0.3 (2020-04-14)</small>
+## <small>0.0.3 (2020-04-16)</small>
 
 * [Doc]加入一些注释解释 ([a8a8024](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/a8a8024))
 * [Doc]对console注释优化,采用console group进行分组 ([b6e09bf](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/b6e09bf))
 * [Doc]对console注释优化,采用console group进行分组 ([294cdc8](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/294cdc8))
+* [Doc]更新Changelog v0.0.3 ([5b7361d](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/5b7361d))
+* [Feature]完善用户列表和资料列表 ([467eb61](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/467eb61))
+* [Feature]完成列表动态化,实现上拉加载更多 ([3e2ed93](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/3e2ed93))
 * [Feature]完成点击列表后视频切换 ([7718f7c](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/7718f7c))
+* [Feature]对列表操作,动态跳转页面 ([ada7989](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/ada7989))
 * [Feature]开发tabs下数据的组装和分组及处理 ([acaaf46](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/acaaf46))
 * [Feature]引入lodash ([766ae99](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/766ae99))
+* [Feature]新建show list 页面 ([8702866](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/8702866))
 * [Feature]视频列表:完成上拉加载功能 ([8e402fc](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/8e402fc))
+* [Fixed]修复,修改对video relevant 列表的键名 ([b41fcd8](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/b41fcd8))
+* [Fixed]修复,对switch case 下遗失break进行修复 ([98b1038](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/98b1038))
 * [Fixed]对切换视频时加入条件判断 ([4398d59](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/4398d59))
 * [Refactor]修改键名 ([9abb33b](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/9abb33b))
 * [Refactor]对列表item-lists加入slot ([2e5c964](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/2e5c964))
 * [Refactor]提取renameKeys和arraySort为util公用方法 ([7dd48d3](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/7dd48d3))
 * [Refactor]重构,//使用拦截器Proxy对属性title进行处理,Proxy具体使用见:(Link)[https://es6.ruanyifeng.com/#docs/proxy] ([6bb1cff](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/6bb1cff))
+* [Refactor]重构,为video列表加上icon ([9659478](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/9659478))
 * [Refactor]重构,使用代理机制对Request请求做日志统一处理. ([a073cfd](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/a073cfd))
+* [Refactor]重构,修改item组件样式 ([10f708e](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/10f708e))
 * [Refactor]重构,利用代理Proxy实现多动态函数定义 ([951d1ca](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/951d1ca))
 * [Refactor]重构,加载所有样式及提醒的重写 ([b0acc73](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/b0acc73))
 * [Refactor]重构,对console group 日志进行重构 ([d9a2091](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/d9a2091))
 * [Refactor]重构,对下栏视频tabs数据的动态获取,使代码更加clean ([f15ed5f](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/f15ed5f))
+* [Refactor]重构,对列表加入icon图标 ([98bd38f](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/98bd38f))
+* [Refactor]重构,抽取公共lists item 做为组件 ([da11e35](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/da11e35))
+* [Refactor]重构,根据类型分拆不同的item子项 ([03b624a](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/03b624a))
 * [Refactor]重构,获取options结构优化 ([abc68b8](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/abc68b8))
 * [Refactor]重构,针对lists 暂无数据的情况 ([34f8463](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/34f8463))
 * [Refactor]重构视频列表对下栏tabs内容展示,想法是切换时动态获取 ([e9a6b84](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/e9a6b84))
+* [Style]重构item组件后的样式 ([7783629](https://code.aliyun.com/peterfei/ibodao-classes-wechat/commits/7783629))
 
 
 
