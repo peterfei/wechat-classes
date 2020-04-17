@@ -4,7 +4,9 @@
           <view class=" page-body page-questions" wx:for="{{surveyResults}}" id="s_{{index}}" >
             <view class="question">{{item.name}}</view>
             <view class="answer" wx:for="{{item.answer}}" wx:for-item="ans">
-                {{ans.info}}
+                <text>
+                    {{ans.info}}
+                </text>
 
             </view>
       </view>
