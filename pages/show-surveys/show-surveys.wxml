@@ -1,6 +1,6 @@
 <view class="container">
   <view class="page">
-      <scroll-view class="scroll-x" scroll-x  scroll-into-view="{{toView}}" bindtouchstart="touchStart" bindtouchend="touchEnd" scroll-with-animation>
+      <scroll-view class="scroll-x" scroll-x  scroll-into-view="{{toView}}" bindtouchstart="touchStart" bindtouchend="touchEnd" scroll-with-animation id="{{index}}" data-item="{{item}}">
           <view class=" page-body page-questions" wx:for="{{surveyResults}}" id="s_{{index}}" >
             <view class="card">
                 <view class="question">{{index+1}}.{{item.name}}</view>

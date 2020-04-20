@@ -26,6 +26,7 @@ Page({
     });
   },
   next(e) {
+    logMethodAsync('next事件:', e);
     const maxPage = this.data.surveyResults.length - 1;
     this.currentView =
       this.currentView !== maxPage ? this.currentView + 1 : maxPage;
@@ -35,6 +36,7 @@ Page({
     });
   },
   touchEnd(e) {
+    logMethodAsync('touchEnd事件:', e);
     const moveX = e.changedTouches[0].pageX - this.startPageX;
     const maxPage = this.data.surveyResults.length - 1;
     if (Math.abs(moveX) >= 20) {
@@ -65,6 +67,10 @@ Page({
       currentPage: this.currentView,
     });
     this.loadData();
+    /**
+     * TODO 切换至下一题时,更改title 标题
+     *
+     */
   },
 
   loadData: async function() {

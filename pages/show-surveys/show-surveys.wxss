@@ -5,8 +5,9 @@
 
 /*底部footer*/
 .page-footer {
-  height: 60px;
-  background-color: deepskyblue;
+  flex-shrink: 0;
+  /*height: 60px;*/
+  background-color: olivedrab;
   display: flex;
   align-items: center;
 }
@@ -26,17 +27,18 @@
   /*height: 200px;*/
 }
 .page-body {
-  height: calc(100vh - 60px);
+  /*height: calc(100vh - 60px);*/
   /*background-color: lightgray;*/
 }
 .scroll-x {
   white-space: nowrap;
-  height: calc(100vh - 60px);
+  /*height: calc(100vh - 60px);*/
 }
 .page-questions {
   display: inline-block;
   width: 100vw;
   color: white;
+  height:calc(100vh - 35px);
 }
 .question {
   white-space: normal;
