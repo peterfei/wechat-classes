@@ -57,3 +57,6 @@
   flex-direction: column;
   margin: 5vh 10vw;
 }
+.answer-text{
+    padding: 10px;
+}

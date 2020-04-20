@@ -13,6 +13,7 @@ Page({
     surveyResults: [],
     navScrollLeft: 0,
     toView: `s_${DEFAULT_PAGE}`,
+    selected_answer: [],
   },
 
   touchStart(e) {
@@ -89,6 +90,51 @@ Page({
       surveyResults: result.result_data.question,
       totalPage: result.result_data.question.length - 1,
     });
+  },
+
+  /**
+   * @fn function 点击答题选项
+   * @param [] e
+   * @return
+   */
+  onAnswerChoose: function(e) {
+    logMethodAsync('点击答题选项', this.data.selected_answer);
+    let {info, itemid} = e.currentTarget.dataset;
+    let id = e.currentTarget.id;
+    let ids = [];
+    let newResult = [],
+      obj = {};
+    obj['answes_id'] = id;
+    obj['question_id'] = itemid;
+    //在push 之前检查是否已有键值,如有，则更新
+    if (this.data.selected_answer.length > 0) {
+      newResult = this.data.selected_answer.filter((obj, index) => {
+        return obj['question_id'] != itemid; //有相同的键
+      });
+    }
+    ids.push(obj);
+    logMethodAsync('newResult is', newResult);
+
+    /**
+     * 选题后的答案列表
+     *
+     */
+    this.setData({
+      selected_answer: newResult.concat(ids),
+    });
+    let _this = this;
+    this.data.surveyResults.forEach(item => {
+      return item.answer.forEach(ans => {
+        let x = _this.data.selected_answer.findIndex(_item => {
+          return _item.answes_id == ans.id;
+        });
+        ans['selected'] = x >= 0 ? true : false;
+        return ans;
+      });
+    });
+
+    logMethodAsync('更改后的对象', this.data.surveyResults);
+    this.setData({surveyResults: this.data.surveyResults});
   },
 
   /**

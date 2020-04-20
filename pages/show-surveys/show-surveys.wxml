@@ -4,25 +4,24 @@
           <view class=" page-body page-questions" wx:for="{{surveyResults}}" id="s_{{index}}" >
             <view class="card">
                 <view class="question">{{index+1}}.{{item.name}}</view>
-                    <view class="answer" wx:for="{{item.answer}}" wx:for-item="ans">
-                        <text>
+                    <view class="answer" wx:for="{{item.answer}}" wx:for-item="ans" bindtap="onAnswerChoose" data-info="{{ans.info}}" id="{{ans.id}}" data-itemid="{{item.id}}"  style="{{ans.selected?'background-color:orange':''}}"  >
+                        <view class="answer-text">
                             {{ans.info}}
-                        </text>
-
+                        </view>
                     </view>
                 </view>
             </view>
         </scroll-view>
         <view class="page-footer">
             <button type="default" size="mini" plain="true" bindtap="prev" wx:if="{{currentPage!=0}}">
-        上一题
-      </button>
-      <button type="default" size="mini" plain="true" bindtap="next" wx:if="{{totalPage!=currentPage}}">
-        下一题
-    </button>
-      <button type="default" size="mini" plain="true" bindtap="submitAnswer" wx:if="{{totalPage==currentPage}}">
-        交卷
-      </button>
-    </view>
+                上一题
+            </button>
+            <button type="default" size="mini" plain="true" bindtap="next" wx:if="{{totalPage!=currentPage}}">
+                下一题
+            </button>
+            <button type="default" size="mini" plain="true" bindtap="submitAnswer" wx:if="{{totalPage==currentPage}}">
+                交卷
+            </button>
+        </view>
   </view>
 </view>
