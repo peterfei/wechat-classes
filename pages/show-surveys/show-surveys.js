@@ -22,7 +22,7 @@ Page({
     this.startPageX = e.changedTouches[0].pageX;
   },
   prev(e) {
-    this.currentView = this.currentView !== 0 ? this.currentView - 1 : 0;
+    this.currentView = this.currentView !== 0 ? +this.currentView - 1 : 0;
     this.setData({
       toView: `s_${this.currentView}`,
       currentPage: this.currentView,
@@ -31,8 +31,10 @@ Page({
   next(e) {
     logMethodAsync('next事件:', e);
     const maxPage = this.data.surveyResults.length - 1;
+      logMethodAsync("currentView",this.currentView)
     this.currentView =
-      this.currentView !== maxPage ? this.currentView + 1 : maxPage;
+      this.currentView !== maxPage ? +this.currentView + 1 : maxPage;
+      logMethodAsync("currentView",this.currentView)
     this.setData({
       toView: `s_${this.currentView}`,
       currentPage: this.currentView,

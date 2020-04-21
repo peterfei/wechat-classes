@@ -97,16 +97,16 @@
 }
 .cover-btns {
   margin: 10px;
-  flex-shrink: 0;
 }
-.cover-btn{
-    width: 40px !important;
-    border-radius:20px;
+.cover-btn {
+  width: 40px !important;
+  border-radius: 20px;
 }
 .cover-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  overflow: scroll;
 }
 .mask {
   /*创建遮罩层*/
@@ -115,7 +115,7 @@
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.4);
   animation: ani-show-mask 200ms ease-out;
 }
 
