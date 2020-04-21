@@ -2,9 +2,12 @@
   <view class="page">
       <scroll-view class="scroll-x" scroll-x  scroll-into-view="{{toView}}" bindtouchstart="touchStart" bindtouchend="touchEnd" scroll-with-animation id="{{index}}" data-item="{{item}}">
           <view class=" page-body page-questions" wx:for="{{surveyResults}}" id="s_{{index}}" >
-            <view class="card">
+              <view class="card">
+                <view class="type-score">
+                    {{item.type==2?"多选题":"单选题"}}({{item.score}})
+                </view>
                 <view class="question">{{index+1}}.{{item.name}}</view>
-                    <view class="answer" wx:for="{{item.answer}}" wx:for-item="ans" bindtap="onAnswerChoose" data-info="{{ans.info}}" id="{{ans.id}}" data-itemid="{{item.id}}"  style="{{ans.selected?'background-color:orange':''}}"  >
+                <view class="answer" wx:for="{{item.answer}}" wx:for-item="ans" bindtap="onAnswerChoose" data-info="{{ans.info}}" id="{{ans.id}}" data-itemid="{{item.id}}" data-type="{{item.type}}"  style="{{ans.selected?'background-color:orange':''}}"  >
                         <view class="answer-text">
                             {{ans.info}}
                         </view>

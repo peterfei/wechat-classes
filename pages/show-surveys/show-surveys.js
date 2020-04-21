@@ -98,18 +98,35 @@ Page({
    * @return
    */
   onAnswerChoose: function(e) {
-    let {info, itemid} = e.currentTarget.dataset;
+    let {info, itemid, type} = e.currentTarget.dataset;
     let id = e.currentTarget.id;
     let ids = [];
     let newResult = [],
       obj = {};
     obj['answes_id'] = id;
     obj['question_id'] = itemid;
+    obj['type'] = type;
+    logMethodAsync('题型类型', type);
     //在push 之前检查是否已有键值,如有，则更新
     if (this.data.selected_answer.length > 0) {
-      newResult = this.data.selected_answer.filter((obj, index) => {
-        return obj['question_id'] != itemid; //有相同的键
-      });
+      if (type == 1 || type == 3) {
+        console.log('---------');
+        //单选
+        let _seled2 = this.data.selected_answer.filter(
+          item => item.type == '2',
+        );
+        logMethodAsync('select2', _seled2);
+        let _seled1 = this.data.selected_answer
+          .filter((obj, index) => {
+              return (obj.type=="1"||obj.type=="3")?obj['question_id'] != itemid:null; //有相同的键
+          });
+        logMethodAsync('select1', _seled1);
+        newResult = [..._seled1, ..._seled2];
+      } else if (type == 2) {
+        logMethodAsync('题型类型', type);
+        logMethodAsync('newResult is', newResult);
+        newResult = this.data.selected_answer;
+      }
     }
     ids.push(obj);
     logMethodAsync('newResult is', newResult);

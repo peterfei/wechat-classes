@@ -63,3 +63,7 @@
 .answer-text {
   padding: 10px;
 }
+.type-score{
+    margin:8px;
+    font-size:16px;
+}
