@@ -41,6 +41,7 @@
   width: 100vw;
   color: white;
   height: calc(100vh - 40px);
+  overflow: scroll;
 }
 .question {
   white-space: normal;
