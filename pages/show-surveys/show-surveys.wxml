@@ -30,22 +30,22 @@
                         交卷
                     </button>
             </view>
-            <view class="float-btn"> <!--浮动按钮 2020-04-21 11:29 @by peterfei-->
+            <view class="float-btn" style="{{showMask?'bottom:50%':'bottom:20%'}}"  > <!--浮动按钮 2020-04-21 11:29 @by peterfei-->
 
-                <iconfont icon="mulu" extClass="iconfont" size="20" bindtap="onFloatBtn" ></iconfont>
+                <iconfont icon="mulu" extClass="iconfont" size="20" bindtap="onFloatBtn"  ></iconfont>
             </view>
         </view>
         <block wx:if="{{showMask}}"> <!--浮动层 2020-04-21 15:05 by peterfei-->
                     <view class="mask" bindtap="touchmoveHandler">
                     </view>
                     <view class="cover">
-                        <view class="cover-container">
-                            <cover-view  class="cover-btns" wx:for="{{surveyResults}}">
+                        <scroll-view class="cover-container" enable-flex="true">
+                            <view  class="cover-btns" wx:for="{{surveyResults}}">
                                 <button type="default" class="cover-btn" bindtap="scrollToPage"  id="{{index}}"     style="{{item.selected?'background-color:orange':''}}">
                                         {{index+1}}
                                 </button>
-                            </cover-view>
-                        </view>
+                            </view>
+                        </scroll-view>
                     </view>
                 </block>
 

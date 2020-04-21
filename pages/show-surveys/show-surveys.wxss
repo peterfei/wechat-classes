@@ -101,6 +101,7 @@
 .cover-btn {
   width: 40px !important;
   border-radius: 20px;
+  padding: 8px;
 }
 .cover-container {
   display: flex;
