@@ -15,6 +15,7 @@ Page({
     toView: `s_${DEFAULT_PAGE}`,
     selected_answer: [],
     showMask: false,
+    questioned: [],
   },
 
   touchStart(e) {
@@ -121,6 +122,7 @@ Page({
     let ids = [];
     let newResult = [],
       obj = {};
+    let _question = [];
     obj['answes_id'] = id;
     obj['question_id'] = itemid;
     obj['type'] = type;
@@ -142,17 +144,23 @@ Page({
     }
     ids.push(obj);
     logMethodAsync('newResult is', newResult);
-
+    _question.push(itemid); //对答完题的主干进行记录
     /**
      * 选题后的答案列表
      *
      */
     this.setData({
       selected_answer: newResult.concat(ids),
+      questioned: Array.from(new Set([...this.data.questioned, ..._question])), //去重
     });
     logMethodAsync('点击答题选项', this.data.selected_answer);
+    logMethodAsync('答完的题干', this.data.questioned);
     let _this = this;
     this.data.surveyResults.forEach(item => {
+      let _q = _this.data.questioned.findIndex(_item => {
+        return _item == item.id;
+      });
+      item['selected'] = _q >= 0 ? true : false;
       return item.answer.forEach(ans => {
         let x = _this.data.selected_answer.findIndex(_item => {
           return _item.answes_id == ans.id;

@@ -41,7 +41,9 @@
                     <view class="cover">
                         <view class="cover-container">
                             <cover-view  class="cover-btns" wx:for="{{surveyResults}}">
-                                <button type="default" class="cover-btn" bindtap="scrollToPage" id="{{index}}" >{{index+1}}</button>
+                                <button type="default" class="cover-btn" bindtap="scrollToPage"  id="{{index}}"     style="{{item.selected?'background-color:orange':''}}">
+                                        {{index+1}}
+                                </button>
                             </cover-view>
                         </view>
                     </view>
