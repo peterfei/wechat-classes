@@ -110,18 +110,12 @@ Page({
     //在push 之前检查是否已有键值,如有，则更新
     if (this.data.selected_answer.length > 0) {
       if (type == 1 || type == 3) {
-        console.log('---------');
         //单选
-        let _seled2 = this.data.selected_answer.filter(
-          item => item.type == '2',
-        );
-        logMethodAsync('select2', _seled2);
-        let _seled1 = this.data.selected_answer
-          .filter((obj, index) => {
-              return (obj.type=="1"||obj.type=="3")?obj['question_id'] != itemid:null; //有相同的键
-          });
-        logMethodAsync('select1', _seled1);
-        newResult = [..._seled1, ..._seled2];
+        newResult = this.data.selected_answer.filter((obj, index) => {
+          return obj.type == '1' || obj.type == '3'
+            ? obj['question_id'] != itemid
+            : obj; //有相同的键
+        });
       } else if (type == 2) {
         logMethodAsync('题型类型', type);
         logMethodAsync('newResult is', newResult);
