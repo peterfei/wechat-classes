@@ -58,6 +58,7 @@ Page({
 
   scrollToPage: function(e) {
     logMethodAsync('scrollToPage', e);
+    this.currentView = e.currentTarget.id;
     this.setData({
       toView: `s_${e.currentTarget.id}`,
       showMask: false,
