@@ -79,9 +79,51 @@
   position: fixed;
   right: 5%;
   bottom: 20%;
+  z-index: 999;
 }
 
 .float-btn iconfont {
-  font-size: 60px;
+  font-size: 40px;
   color: white;
+}
+.cover {
+  position: absolute;
+  background-color: #e9e9e9;
+  height: calc(100vh - 60%);
+  width: 100vw;
+  padding: 10px;
+  bottom: 0px;
+  overflow: scroll;
+}
+.cover-btns {
+  margin: 10px;
+  flex-shrink: 0;
+}
+.cover-btn{
+    width: 40px !important;
+    border-radius:20px;
+}
+.cover-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.mask {
+  /*创建遮罩层*/
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  animation: ani-show-mask 200ms ease-out;
+}
+
+@keyframes ani-show-mask {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

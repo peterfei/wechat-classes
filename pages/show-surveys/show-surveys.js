@@ -14,6 +14,7 @@ Page({
     navScrollLeft: 0,
     toView: `s_${DEFAULT_PAGE}`,
     selected_answer: [],
+    showMask: false,
   },
 
   touchStart(e) {
@@ -54,6 +55,14 @@ Page({
     });
   },
 
+  scrollToPage: function(e) {
+    logMethodAsync('scrollToPage', e);
+    this.setData({
+      toView: `s_${e.currentTarget.id}`,
+      showMask: false,
+      currentPage: e.currentTarget.id,
+    });
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -73,7 +82,16 @@ Page({
      *
      */
   },
-
+  onFloatBtn: function(e) {
+    console.log('onFloatBtn click');
+    this.setData({showMask: !this.data.showMask});
+  },
+  touchmoveHandler: function(e) {
+    this.setData({
+      //点击空白时触发
+      showMask: false,
+    });
+  },
   loadData: async function() {
     let _data = {
       survey_id: this.data.survey_id,

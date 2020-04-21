@@ -1,7 +1,9 @@
 {
     "usingComponents": {
-      "iconfont": "minapp-iconfont"
+      "iconfont": "minapp-iconfont",
+      "navigationBar": "../../miniprogram/navigation-bar/navigation-bar"
     },
 
-  "navigationBarTitleText": "测验"
+  "navigationBarTitleText": "测验",
+  "navigationStyle":"custom"
 }

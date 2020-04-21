@@ -1,6 +1,7 @@
 <view class="container">
   <view class="page">
-      <scroll-view class="scroll-x" scroll-x  scroll-into-view="{{toView}}" bindtouchstart="touchStart" bindtouchend="touchEnd" scroll-with-animation id="{{index}}" data-item="{{item}}">
+      <scroll-view class="scroll-x" scroll-x  scroll-into-view="{{toView}}" bindtouchstart="touchStart" bindtouchend="touchEnd" scroll-with-animation >
+          <navigationBar title="{{title}}" loading="{{true}}" home="{{false}}" back="{{true}}"></navigationBar>
           <view class=" page-body page-questions" wx:for="{{surveyResults}}" id="s_{{index}}" >
               <view class="card">
                 <view class="type-score">
@@ -13,15 +14,17 @@
                         </view>
                     </view>
                 </view>
+
+
             </view>
         </scroll-view>
-        <view class="page-footer">
-            <view class="footer-btns">
-                    <button type="default" size="mini" plain="true" bindtap="prev"  disabled="{{currentPage==0?true:false}}" style="{{currentPage==0?'background-color:grey':''}}">
-                        上一题
-                    </button>
-                    <button type="default" size="mini" plain="true" bindtap="next"  disabled="{{totalPage==currentPage?true:false}}" style="{{totalPage==currentPage?'background-color:grey':''}}">
-                        下一题
+            <view class="page-footer">
+                <view class="footer-btns">
+                        <button type="default" size="mini" plain="true" bindtap="prev"  disabled="{{currentPage==0?true:false}}" style="{{currentPage==0?'background-color:grey':''}}">
+                            上一题
+                        </button>
+                        <button type="default" size="mini" plain="true" bindtap="next"  disabled="{{totalPage==currentPage?true:false}}" style="{{totalPage==currentPage?'background-color:grey':''}}">
+                            下一题
                     </button>
                     <button type="default" size="mini" plain="true" bindtap="submitAnswer" >
                         交卷
@@ -29,9 +32,20 @@
             </view>
             <view class="float-btn"> <!--浮动按钮 2020-04-21 11:29 @by peterfei-->
 
-                <iconfont icon="mulu" extClass="iconfont" size="20" ></iconfont>
+                <iconfont icon="mulu" extClass="iconfont" size="20" bindtap="onFloatBtn" ></iconfont>
             </view>
         </view>
+        <block wx:if="{{showMask}}"> <!--浮动层 2020-04-21 15:05 by peterfei-->
+                    <view class="mask" bindtap="touchmoveHandler">
+                    </view>
+                    <view class="cover">
+                        <view class="cover-container">
+                            <cover-view  class="cover-btns" wx:for="{{surveyResults}}">
+                                <button type="default" class="cover-btn" bindtap="scrollToPage" id="{{index}}" >{{index+1}}</button>
+                            </cover-view>
+                        </view>
+                    </view>
+                </block>
 
   </view>
 </view>
