@@ -98,7 +98,6 @@ Page({
    * @return
    */
   onAnswerChoose: function(e) {
-    logMethodAsync('点击答题选项', this.data.selected_answer);
     let {info, itemid} = e.currentTarget.dataset;
     let id = e.currentTarget.id;
     let ids = [];
@@ -122,6 +121,7 @@ Page({
     this.setData({
       selected_answer: newResult.concat(ids),
     });
+    logMethodAsync('点击答题选项', this.data.selected_answer);
     let _this = this;
     this.data.surveyResults.forEach(item => {
       return item.answer.forEach(ans => {

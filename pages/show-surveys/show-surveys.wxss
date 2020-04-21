@@ -17,6 +17,8 @@
 }
 .page-footer button[type='default'][plain] {
   border: 1px solid white;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 .page-footer button[size='mini'] {
   padding: 0 1.5em;
@@ -32,13 +34,13 @@
 }
 .scroll-x {
   white-space: nowrap;
-  /*height: calc(100vh - 60px);*/
+  height: calc(100vh - 40px);
 }
 .page-questions {
   display: inline-block;
   width: 100vw;
   color: white;
-  height:calc(100vh - 35px);
+  height: calc(100vh - 40px);
 }
 .question {
   white-space: normal;
@@ -57,6 +59,6 @@
   flex-direction: column;
   margin: 5vh 10vw;
 }
-.answer-text{
-    padding: 10px;
+.answer-text {
+  padding: 10px;
 }
