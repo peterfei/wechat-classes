@@ -6,7 +6,7 @@
                 <view class="type-score">
                     {{item.type==2?"多选题":"单选题"}}({{item.score}})
                 </view>
-                <view class="question">{{index+1}}.{{item.name}}</view>
+                <view class="question">[{{item.number}}] {{item.name}}</view>
                 <view class="answer" wx:for="{{item.answer}}" wx:for-item="ans" bindtap="onAnswerChoose" data-info="{{ans.info}}" id="{{ans.id}}" data-itemid="{{item.id}}" data-type="{{item.type}}"  style="{{ans.selected?'background-color:orange':''}}"  >
                         <view class="answer-text">
                             {{ans.info}}
@@ -16,15 +16,22 @@
             </view>
         </scroll-view>
         <view class="page-footer">
-            <button type="default" size="mini" plain="true" bindtap="prev"  disabled="{{currentPage==0?true:false}}" style="{{currentPage==0?'background-color:grey':''}}">
-                上一题
-            </button>
-            <button type="default" size="mini" plain="true" bindtap="next"  disabled="{{totalPage==currentPage?true:false}}" style="{{totalPage==currentPage?'background-color:grey':''}}">
-                下一题
-            </button>
-            <button type="default" size="mini" plain="true" bindtap="submitAnswer" >
-                交卷
-            </button>
+            <view class="footer-btns">
+                    <button type="default" size="mini" plain="true" bindtap="prev"  disabled="{{currentPage==0?true:false}}" style="{{currentPage==0?'background-color:grey':''}}">
+                        上一题
+                    </button>
+                    <button type="default" size="mini" plain="true" bindtap="next"  disabled="{{totalPage==currentPage?true:false}}" style="{{totalPage==currentPage?'background-color:grey':''}}">
+                        下一题
+                    </button>
+                    <button type="default" size="mini" plain="true" bindtap="submitAnswer" >
+                        交卷
+                    </button>
+            </view>
+            <view class="float-btn"> <!--浮动按钮 2020-04-21 11:29 @by peterfei-->
+
+                <iconfont icon="mulu" extClass="iconfont" size="20" ></iconfont>
+            </view>
         </view>
+
   </view>
 </view>

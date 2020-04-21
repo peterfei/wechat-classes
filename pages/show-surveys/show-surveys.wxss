@@ -9,8 +9,14 @@
   /*height: 60px;*/
   background-color: deepskyblue;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  /*align-items: center;*/
 }
+.footer-btns {
+  display: flex;
+  justify-content: space-around;
+}
+
 .page-footer button[type='default'] {
   color: white !important;
   border-radius: 20px;
@@ -63,7 +69,19 @@
 .answer-text {
   padding: 10px;
 }
-.type-score{
-    margin:8px;
-    font-size:16px;
+.type-score {
+  margin: 8px;
+  font-size: 16px;
+}
+.float-btn {
+  /*background-color: white;*/
+  height: 30px;
+  position: fixed;
+  right: 5%;
+  bottom: 20%;
+}
+
+.float-btn iconfont {
+  font-size: 60px;
+  color: white;
 }

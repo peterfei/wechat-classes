@@ -1,5 +1,7 @@
 {
-  "usingComponents": {},
+    "usingComponents": {
+      "iconfont": "minapp-iconfont"
+    },
 
   "navigationBarTitleText": "测验"
 }
