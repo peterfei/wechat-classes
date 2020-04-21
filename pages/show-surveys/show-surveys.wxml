@@ -13,13 +13,13 @@
             </view>
         </scroll-view>
         <view class="page-footer">
-            <button type="default" size="mini" plain="true" bindtap="prev" wx:if="{{currentPage!=0}}">
+            <button type="default" size="mini" plain="true" bindtap="prev"  disabled="{{currentPage==0?true:false}}" style="{{currentPage==0?'background-color:grey':''}}">
                 上一题
             </button>
-            <button type="default" size="mini" plain="true" bindtap="next" wx:if="{{totalPage!=currentPage}}">
+            <button type="default" size="mini" plain="true" bindtap="next"  disabled="{{totalPage==currentPage?true:false}}" style="{{totalPage==currentPage?'background-color:grey':''}}">
                 下一题
             </button>
-            <button type="default" size="mini" plain="true" bindtap="submitAnswer" wx:if="{{totalPage==currentPage}}">
+            <button type="default" size="mini" plain="true" bindtap="submitAnswer" >
                 交卷
             </button>
         </view>
