@@ -5,7 +5,19 @@
           <view class=" page-body page-questions" wx:for="{{surveyResults}}" id="s_{{index}}" >
               <view class="card">
                 <view class="type-score">
-                    {{item.type==2?"多选题":"单选题"}}({{item.score}})
+                    <block wx:if="{{item.type==1}}">
+                        单选题
+                    </block>
+                    <block wx:elif="{{item.type==2}}">
+                        多选题
+                    </block>
+                    <block wx:elif="{{item.type==3}}">
+                        判断题
+                    </block>
+                    <block wx:else>
+                        填空题
+                    </block>
+                    ({{item.score}})
                 </view>
                 <view class="question">[{{item.number}}] {{item.name}}</view>
                 <view class="answer" wx:for="{{item.answer}}" wx:for-item="ans" bindtap="onAnswerChoose" data-info="{{ans.info}}" id="{{ans.id}}" data-itemid="{{item.id}}" data-type="{{item.type}}"  style="{{ans.selected?'background-color:orange':''}}"  >
