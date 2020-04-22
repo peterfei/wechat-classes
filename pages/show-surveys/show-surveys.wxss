@@ -41,6 +41,7 @@
 .scroll-x {
   white-space: nowrap;
   height: calc(100vh - 60px);
+  overflow: hidden;
 }
 .page-questions {
   display: inline-block;

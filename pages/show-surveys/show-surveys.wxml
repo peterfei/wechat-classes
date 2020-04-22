@@ -15,12 +15,12 @@
                         判断题
                     </block>
                     <block wx:else>
-                        填空题
+                        简答题
                     </block>
                     ({{item.score}})
                 </view>
-                <view class="question">[{{item.number}}] {{item.name}}</view>
-                <view class="answer" wx:for="{{item.answer}}" wx:for-item="ans" bindtap="onAnswerChoose" data-info="{{ans.info}}" id="{{ans.id}}" data-itemid="{{item.id}}" data-type="{{item.type}}"  style="{{ans.selected?'background-color:orange':''}}"  >
+                <view class="question"> {{index+1}}. {{item.name}}</view>
+                <view class="answer" wx:for="{{item.answer}}" wx:for-item="ans" bindtap="onAnswerChoose" data-info="{{ans.info}}" id="{{ans.id}}" data-itemid="{{item.id}}" data-type="{{item.type}}"  style="{{ans.selected?'background-color:orange':''}}" wx:if="{{item.type!=4}}"  >
                         <view class="answer-text">
                             {{ans.info}}
                         </view>

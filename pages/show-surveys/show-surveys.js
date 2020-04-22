@@ -1,5 +1,5 @@
-import {capitalize, logMethodAsync} from '../../utils/util';
-import regeneratorRuntime from '../../regenerator-runtime/runtime.js';
+import {capitalize, logMethodAsync, renameKeys} from '../../utils/util';
+import regeneratorRuntime, {async} from '../../regenerator-runtime/runtime.js';
 import {token, contentType} from '../../global';
 const app = getApp();
 const DEFAULT_PAGE = 0;
@@ -13,9 +13,10 @@ Page({
     surveyResults: [],
     navScrollLeft: 0,
     toView: `s_${DEFAULT_PAGE}`,
-    selected_answer: [],
+    selected_answer: [], //这里的数据结构如下:[{answes_id,question_id,type}]
     showMask: false,
     questioned: [],
+    surveyToken: '',
   },
 
   touchStart(e) {
@@ -31,10 +32,10 @@ Page({
   next(e) {
     logMethodAsync('next事件:', e);
     const maxPage = this.data.surveyResults.length - 1;
-      logMethodAsync("currentView",this.currentView)
+    logMethodAsync('currentView', this.currentView);
     this.currentView =
       this.currentView !== maxPage ? +this.currentView + 1 : maxPage;
-      logMethodAsync("currentView",this.currentView)
+    logMethodAsync('currentView', this.currentView);
     this.setData({
       toView: `s_${this.currentView}`,
       currentPage: this.currentView,
@@ -81,10 +82,70 @@ Page({
       currentPage: this.currentView,
     });
     this.loadData();
+    this.getSurveyToken();
     /**
      * TODO 切换至下一题时,更改title 标题
      *
      */
+  },
+
+  /**
+   * @fn function 获取提交答案时的Token
+   * @return
+   */
+  getSurveyToken: async function() {
+    let _data = {survey_id: this.data.survey_id};
+    const result = await app.initClassPromise.getSurveyToken(
+      token,
+      _data,
+      contentType,
+    );
+    logMethodAsync('获取到的surveyToken', result);
+    this.setData({
+      surveyToken: result.result_data.start_token,
+    });
+  },
+
+  /**
+   * @fn submitAnswer:function 提交答案
+   * @param [] e
+   */
+  submitAnswer: function(e) {
+    /*wx.showModal({
+      title: '',
+      content: '确定要提交答案吗?',
+      success(res) {
+        if (res.confirm) {
+          console.log('用户点击确定');
+        } else if (res.cancel) {
+          console.log('用户点击取消');
+        }
+      },
+    });*/
+    let results = this.data.selected_answer.reduce((groups, item) => {
+      let groupFound = groups.find(
+        arrItem => item.question_id === arrItem.questions_ids,
+      );
+      if (groupFound) {
+        if (groupFound.answer_ids.indexOf(item.answes_id) == -1) {
+          groupFound.answer_ids.push(item.answes_id);
+        }
+      } else {
+        let newGroup = {
+          answer_ids: [item.answes_id],
+          questions_ids: item.question_id,
+        };
+        groups.push(newGroup);
+      }
+      return groups;
+    }, []);
+    results = results.map(m => {
+      m.answer_ids = m.answer_ids.join(',');
+      return m;
+    });
+    logMethodAsync('results ', results);
+
+    logMethodAsync('所选的答案列表', results);
   },
   onFloatBtn: function(e) {
     console.log('onFloatBtn click');

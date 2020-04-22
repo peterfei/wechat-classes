@@ -240,5 +240,22 @@ class classes {
       )
       .then(res => res.data);
   }
+
+  /**
+   * 2020-04-22 14:06
+   * @fn getSurveyToken 获取测验Token
+   * @param [] token
+   * @param [] obj
+   * @param [] header
+   */
+  getSurveyToken(token, obj, header) {
+    return this._request
+      .postRequest(
+        this._baseUrl + 'UserSurvey/setStartTime?token=' + token,
+        obj,
+        header,
+      )
+      .then(res => res.data);
+  }
 }
 export default classes;
