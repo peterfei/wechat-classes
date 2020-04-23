@@ -110,7 +110,7 @@ Page({
    * @fn submitAnswer:function 提交答案
    * @param [] e
    */
-  submitAnswer: function(e) {
+  submitAnswer: async function(e) {
     /*wx.showModal({
       title: '',
       content: '确定要提交答案吗?',
@@ -146,6 +146,29 @@ Page({
     logMethodAsync('results ', results);
 
     logMethodAsync('所选的答案列表', results);
+    let _data = {
+      survey_id: +this.data.survey_id,
+      classes_id: +this.data.classes_id,
+      encrypt_data: this.data.surveyToken,
+      answer_data: JSON.stringify(results),
+    };
+
+    logMethodAsync('将要提交的答案数据', _data);
+
+    const post_result = await app.initClassPromise.submitAnswer(
+      token,
+      _data,
+      contentType,
+    );
+    logMethodAsync('返回提交结果', post_result);
+    if (post_result.error_code == 50000) {
+      wx.showToast({
+        title: post_result.error_msg,
+        icon: 'none',
+        duration: 2000,
+      });
+      return false;
+    }
   },
   onFloatBtn: function(e) {
     console.log('onFloatBtn click');

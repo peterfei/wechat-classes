@@ -257,5 +257,17 @@ class classes {
       )
       .then(res => res.data);
   }
+
+  /**
+   * @fn submitAnswer 提交测验答案
+   * @param [] token
+   * @param [] obj
+   * @param [] header
+   */
+  submitAnswer(token, obj, header) {
+    return this._request
+      .postRequest(this._baseUrl + 'UserSurvey/submit?token=' + token, obj, header)
+      .then(res => res.data);
+  }
 }
 export default classes;
