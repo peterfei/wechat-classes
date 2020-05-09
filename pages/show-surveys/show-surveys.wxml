@@ -20,13 +20,14 @@
                     ({{item.score}})
                 </view>
                 <view class="question"> {{index+1}}. {{item.name}}</view>
-                <view class="answer" wx:for="{{item.answer}}" wx:for-item="ans" bindtap="onAnswerChoose" data-info="{{ans.info}}" id="{{ans.id}}" data-itemid="{{item.id}}" data-type="{{item.type}}"  style="{{ans.selected?'background-color:orange':''}}" wx:if="{{item.type!=4}}"  >
-                        <view class="answer-text">
-                            {{ans.info}}
+                <view class="answers">
+                        <view class="answer" wx:for="{{item.answer}}" wx:for-item="ans" bindtap="onAnswerChoose" data-info="{{ans.info}}" id="{{ans.id}}" data-itemid="{{item.id}}" data-type="{{item.type}}"  style="{{ans.selected?'background-color:orange':''}}" wx:if="{{item.type!=4}}"  >
+                            <view class="answer-text">
+                                {{ans.info}}
+                            </view>
                         </view>
-                    </view>
                 </view>
-
+                </view>
 
             </view>
         </scroll-view>
