@@ -9,7 +9,7 @@
   "author": "com.ibodao.peterfei",
   "license": "ISC",
   "dependencies": {
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "minapp-iconfont": "0.0.3",
     "regenerator-runtime": "^0.13.5"
   }
